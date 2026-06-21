@@ -1,0 +1,409 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import '../styles/landing.css';
+import heroPhone from '../assets/images/landing/hero-phone.png';
+import logoNameOnly from '../assets/images/FinalLogoNameOnly.png';
+import exerciseBg from '../assets/images/landing/exercise-bg.png';
+import happinessCompounds from '../assets/images/landing/happiness compounds.png';
+---
+
+<Layout title="Fullfill – Your Personal Trainer for a Happier Mind">
+
+  <!-- ═══════════════════════════════════════════
+       1. HERO SECTION
+       ═══════════════════════════════════════════ -->
+ <section class="hero" id="hero">
+  <div class="landing-container hero__inner">
+    <div class="hero__phone">
+      <video src="/images/tinywow_final_90411904.mp4" autoplay loop muted playsinline class="hero__phone-video"></video>
+    </div>
+    <div class="hero__content"> 
+      <Image src={logoNameOnly} alt="Fullfill Logo" class="hero__logo" width={130} height={48} />
+      <h1 class="hero__headline">your personal trainer for<br />a happier mind</h1>
+      <h5 class="hero__subtext">stop scrolling, start growing.</h5>
+      <a href="#" class="btn-primary">download the app</a>
+    </div>
+  </div>
+</section>
+
+  <!-- ═══════════════════════════════════════════
+       2. EXERCISE BANNER
+       ═══════════════════════════════════════════ -->
+  <section class="exercise-banner" id="exercise-banner">
+    <Image src={exerciseBg} alt="People exercising in a fitness class" class="exercise-banner__bg" width={1400} height={500} />
+    <div class="exercise-banner__overlay"></div>
+    <div class="exercise-banner__content">
+      <p class="exercise-banner__label">holistic self-care</p>
+      <h2 class="exercise-banner__title">exercise</h2>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       3. BRAIN CORTEX – 4 areas of training
+       ═══════════════════════════════════════════ -->
+  <section class="brain-cortex" id="brain-cortex">
+    <div class="landing-container">
+      <h2 class="brain-cortex__title">the only app that trains all 4 cortex of the brain</h2>
+      <div class="brain-cortex__grid">
+        <!-- Calmness -->
+        <div class="cortex-card">
+          <div class="cortex-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/></svg>
+          </div>
+          <div class="cortex-card__body">
+            <p class="cortex-card__label">calmness</p>
+            <p class="cortex-card__desc">shift your mind from stress to serenity</p>
+          </div>
+        </div>
+        <!-- Clarity -->
+        <div class="cortex-card">
+          <div class="cortex-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 5v-.5M12 19.5V19M5 12h-.5M19.5 12H19M7.05 7.05l-.35-.35M17.3 17.3l-.35-.35M7.05 16.95l-.35.35M17.3 6.7l-.35.35"/></svg>
+          </div>
+          <div class="cortex-card__body">
+            <p class="cortex-card__label">clarity</p>
+            <p class="cortex-card__desc">uncover meaning and purpose in your life</p>
+          </div>
+        </div>
+        <!-- Control -->
+        <div class="cortex-card">
+          <div class="cortex-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="cortex-card__body">
+            <p class="cortex-card__label">control</p>
+            <p class="cortex-card__desc">build sticky habits for a better daily</p>
+          </div>
+        </div>
+        <!-- Connect -->
+        <div class="cortex-card">
+          <div class="cortex-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="cortex-card__body">
+            <p class="cortex-card__label">connect</p>
+            <p class="cortex-card__desc">build meaningful relationships</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       4. HAVE EVERYTHING CTA
+       ═══════════════════════════════════════════ -->
+  <section class="have-everything" id="have-everything">
+    <div class="have-everything__bg"></div>
+    <div class="landing-container have-everything__content">
+      <h2 class="have-everything__title">have everything,<br />yet feel nothing?</h2>
+      <h5 class="have-everything__desc">conquer emptiness and build a mind that feels happiness again</h5>
+      <a href="#" class="btn-outline-white">build my bulletproof mind</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5. HAPPINESS COMPOUNDS
+       ═══════════════════════════════════════════ -->
+  <section class="happiness" id="happiness">
+    <div class="landing-container happiness__inner">
+      <div class="happiness__content">
+        <h2 class="happiness__title">happiness compounds.<br />start today.</h2>
+        <ul class="happiness__timeline">
+          <li><strong>day 1:</strong> immediate serenity</li>
+          <li><strong>day 7:</strong> sharpen focus and calm</li>
+          <li><strong>day 30:</strong> build new habits, routines</li>
+          <li><strong>day 90:</strong> feel consistent happiness</li>
+        </ul>
+        <a href="" class="btn-primary">start today</a>
+      </div>
+      <div class="happiness__phone">
+        <Image src={happinessCompounds} alt="Happiness Compounds" class="happiness__compounds-img"  quality={100} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       6. PREMIUM CONTENT STATS
+       ═══════════════════════════════════════════ -->
+  <section class="premium" id="premium-content">
+    <div class="landing-container">
+      <h2 class="premium__title">premium content at warehouse prices</h2>
+      <div class="premium__grid">
+        <!-- Meditation -->
+        <div class="stat-card">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <p class="stat-card__number">480+</p>
+          <p class="stat-card__label">minutes<br />of meditation</p>
+        </div>
+        <!-- Yoga -->
+        <div class="stat-card">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v6m-4 4h8M8 16l4-4 4 4M6 20h12"/></svg>
+          </div>
+          <p class="stat-card__number">50+</p>
+          <p class="stat-card__label">yoga sessions<br />&amp; exercises</p>
+        </div>
+        <!-- Podcasts -->
+        <div class="stat-card">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <p class="stat-card__number">12+</p>
+          <p class="stat-card__label">hours<br />of podcasts</p>
+        </div>
+        <!-- Books -->
+        <div class="stat-card">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <p class="stat-card__number">70+</p>
+          <p class="stat-card__label">book<br />summaries</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       7. FULLFILL IS FUN
+       ═══════════════════════════════════════════ -->
+  <section class="fun-section" id="fullfill-fun">
+    <div class="landing-container fun-section__inner">
+      <div class="fun-section__phone">
+        <div class="fun-section__phone-frame">
+          <div class="fun-section__phone-label">deep sleep yoga</div>
+        </div>
+      </div>
+      <div class="fun-section__content">
+        <h2 class="fun-section__title">fullfill is fun.</h2>
+        <p class="fun-section__desc">Engaging content brings you back, reinforcing positive habit-loops for lasting wellness.</p>
+        <a href="#" class="btn-primary btn-brand">start today</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       8. FULLFILL AI
+       ═══════════════════════════════════════════ -->
+  <section class="ai-section" id="fullfill-ai">
+    <div class="ai-section__inner">
+      <div class="landing-container ai-section__layout">
+        <div class="ai-section__content">
+          <h2 class="ai-section__title">fullfillAI:<br />a coach not a chatbot</h2>
+          <p class="ai-section__desc">trained on psychology and the journeys of top performers —<br />invaluable insights improve your life</p>
+          <a href="#" class="btn-primary btn-coral">download for free</a>
+        </div>
+        <div class="ai-section__image">
+          <div class="ai-section__books">
+            <div class="book-stack">
+              <img src="/images/bookscool-1.png" alt="Stack of books" class="book-stack__img" />
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       9. CURATED PODCASTS
+       ═══════════════════════════════════════════ -->
+  <section class="podcasts" id="curated-podcasts">
+    <div class="landing-container">
+      <h2 class="podcasts__title">curated podcasts <em>for you</em></h2>
+      <p class="podcasts__subtitle">hand-picked for the inner work that advances your personal growth</p>
+      <div class="podcasts__carousel">
+        
+        <div class="podcast-card card1">
+          <p class="podcast-card__desc">MINDSET</p>
+          <p class=" podcast-card__title">Rewire how <br/> you think</p>
+          <div class="ll-wv">
+              <div class="ll-b" style="height:14px;animation-delay:.1s"></div>
+              <div class="ll-b" style="height:22px;animation-delay:.25s"></div>
+              <div class="ll-b" style="height:28px;animation-delay:.4s"></div>
+              <div class="ll-b" style="height:18px;animation-delay:.55s"></div>
+              <div class="ll-b" style="height:24px;animation-delay:.7s"></div>
+              <div class="ll-b" style="height:12px;animation-delay:.85s"></div>
+              <div class="ll-b" style="height:20px;animation-delay:1s"></div>
+            </div>
+        </div>
+        <div class="podcast-card card2">
+          <p class="podcast-card__desc">MINDSET</p>
+          <p class=" podcast-card__title">Deep work, <br/> No noise,</p>
+          <div class="ll-wv">
+              <div class="ll-b" style="height:14px;animation-delay:.1s"></div>
+              <div class="ll-b" style="height:22px;animation-delay:.25s"></div>
+              <div class="ll-b" style="height:28px;animation-delay:.4s"></div>
+              <div class="ll-b" style="height:18px;animation-delay:.55s"></div>
+              <div class="ll-b" style="height:24px;animation-delay:.7s"></div>
+              <div class="ll-b" style="height:12px;animation-delay:.85s"></div>
+              <div class="ll-b" style="height:20px;animation-delay:1s"></div>
+            </div>
+        </div>
+        <div class="podcast-card card3">
+<p class="podcast-card__desc">MINDSET</p>
+          <p class=" podcast-card__title">Live with <br/> intention</p>
+          <div class="ll-wv">
+              <div class="ll-b" style="height:14px;animation-delay:.1s"></div>
+              <div class="ll-b" style="height:22px;animation-delay:.25s"></div>
+              <div class="ll-b" style="height:28px;animation-delay:.4s"></div>
+              <div class="ll-b" style="height:18px;animation-delay:.55s"></div>
+              <div class="ll-b" style="height:24px;animation-delay:.7s"></div>
+              <div class="ll-b" style="height:12px;animation-delay:.85s"></div>
+              <div class="ll-b" style="height:20px;animation-delay:1s"></div>
+            </div>
+        </div>
+      </div>
+      <div class="podcasts__tags">
+        <a href="#" class="podcasts__tag">Mindset</a>
+        <a href="#" class="podcasts__tag">Focus</a>
+        <a href="#" class="podcasts__tag">Health</a>
+        <a href="#" class="podcasts__tag">Purpose</a>
+        <a href="#" class="podcasts__tag">Sleep</a>
+        <a href="#" class="podcasts__tag">Relationships</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       10. GET HOOKED – App screen previews
+       ═══════════════════════════════════════════ -->
+  <section class="get-hooked" id="get-hooked">
+    <div class="landing-container">
+      <h2 class="get-hooked__title">get hooked to getting better</h2>
+      <p class="get-hooked__subtitle">sign up, customise and use it for free and start building positive, built-in ease</p>
+      <div class="get-hooked__phones">
+        <div class="mini-phone"><div class="mini-phone__screen">home</div></div>
+        <div class="mini-phone"><div class="mini-phone__screen">meditate</div></div>
+        <div class="mini-phone"><div class="mini-phone__screen">journal</div></div>
+        <div class="mini-phone"><div class="mini-phone__screen">habits</div></div>
+        <div class="mini-phone"><div class="mini-phone__screen">progress</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       11. YOU'RE NEVER ALONE
+       ═══════════════════════════════════════════ -->
+  <section class="never-alone" id="never-alone">
+    <div class="landing-container">
+      <h2 class="never-alone__title">you're never alone</h2>
+      <div class="never-alone__cards">
+        <div class="support-card">
+          <div class="support-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <p class="support-card__name">fullfillment friend</p>
+          <p class="support-card__desc">a personalised AI assistant curated to aid in your personal growth journey</p>
+        </div>
+        <div class="support-card">
+          <div class="support-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <p class="support-card__name">certified psychiatrist</p>
+          <p class="support-card__desc">book a session with a certified professional for a deep dive into your well-being</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       12. LAUNCH SPECIAL
+       ═══════════════════════════════════════════ -->
+  <section class="launch-special" id="launch-special">
+    <div class="landing-container">
+      <h2 class="launch-special__title">launch special – save 60%</h2>
+      <p class="launch-special__subtitle">limited spots available for founding members</p>
+      <a href="#" class="btn-primary btn-brand">claim my space</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       13. PEACE OF MIND IMAGE + TRACKED
+       ═══════════════════════════════════════════ -->
+  <section class="peace-of-mind" id="peace-of-mind">
+    <!-- Phone image centered with circle behind -->
+    <div class="peace-phones-wrap">
+      <div class="peace-phones-circle"></div>
+      <img src="/images/042sidebyside.png" alt="Peace of mind tracker" class="peace-phones-img" />
+    </div>
+
+    <!-- Text + card row -->
+    <div class="landing-container peace-of-mind__inner">
+      <div class="peace-of-mind__content">
+        <h2 class="peace-of-mind__title">peace of mind,<br /><span>tracked.</span></h2>
+        <p class="peace-of-mind__desc">never miss a pill. stay consistent with smart reminders.</p>
+        <div class="peace-progress">
+          <span class="peace-progress__label">DAILY ADHERENCE</span>
+          <div class="peace-progress__bar">
+            <div class="peace-progress__fill"></div>
+          </div>
+          <span class="peace-progress__value">92%</span>
+        </div>
+        <div class="peace-of-mind__tags">
+          <a href="#" class="peace-tag">smart reminders</a>
+          <a href="#" class="peace-tag">streak tracking</a>
+          <a href="#" class="peace-tag">⟳ wearables soon</a>
+        </div>
+      </div>
+      <div class="peace-of-mind__phone">
+        <div class="peace-card">
+          <p class="peace-card__week-label">THIS WEEK</p>
+          <div class="peace-card__days">
+            <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+          </div>
+          <div class="peace-card__dots-row">
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+          </div>
+          <div class="peace-card__dots-row">
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--filled"></div>
+            <div class="peace-dot peace-dot--empty"></div>
+          </div>
+          <div class="peace-card__reminder">
+            <div>
+              <p class="peace-card__reminder-label">NEXT REMINDER</p>
+              <p class="peace-card__reminder-time">8:00 pm</p>
+            </div>
+            <span class="peace-card__bell">🔔</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { 
+      threshold: 0,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    document.querySelectorAll(
+      '.cortex-card, .brain-cortex__title, .happiness__inner'
+    ).forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>

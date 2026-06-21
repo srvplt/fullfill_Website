@@ -1,0 +1,96 @@
+---
+import "../styles/header.css";
+import { Image } from "astro:assets";
+import logo from "../assets/images/FinalLogoNameOnly.png";
+
+const navLinks = [
+  { href: "/", label: "home" },
+  { href: "/contribute", label: "be a contributor" },
+  { href: "/corporate", label: "corporate memberships" },
+  { href: "/blog", label: "blog" },
+  { href: "/contact", label: "contact us" },
+];
+---
+
+<header class="site-header" id="header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__logo" title="Home">
+      <Image src={logo} alt="Fullfill" width={logo.width} height={logo.height} />
+    </a>
+
+    <nav class="site-header__nav" aria-label="Main navigation">
+      <button
+        type="button"
+        class="site-header__menu-toggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <rect y="1" width="16" height="2"></rect>
+          <rect y="7" width="16" height="2"></rect>
+          <rect y="13" width="16" height="2"></rect>
+        </svg>
+      </button>
+
+      <ul class="site-header__links" role="menubar">
+        {
+          navLinks.map((link) => (
+            <li role="none">
+              <a role="menuitem" href={link.href}>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="site-header__mobile-panel" id="mobile-menu" hidden>
+        <button
+          type="button"
+          class="site-header__menu-close"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+        <ul class="site-header__mobile-links" role="menubar">
+          {
+            navLinks.map((link) => (
+              <li role="none">
+                <a role="menuitem" href={link.href}>
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="site-header__overlay"></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector(".site-header__menu-toggle");
+  const panel = document.getElementById("mobile-menu");
+  const closeBtn = document.querySelector(".site-header__menu-close");
+  const overlay = document.querySelector(".site-header__overlay");
+  const mobileLinks = document.querySelectorAll(".site-header__mobile-links a");
+
+  function openMenu() {
+    panel?.removeAttribute("hidden");
+    toggle?.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    panel?.setAttribute("hidden", "");
+    toggle?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  toggle?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+  overlay?.addEventListener("click", closeMenu);
+  mobileLinks.forEach((link) => link.addEventListener("click", closeMenu));
+</script>

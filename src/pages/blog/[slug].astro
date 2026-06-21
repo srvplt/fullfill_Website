@@ -1,0 +1,73 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import defaultImage from '../../assets/images/blog1.jpg';
+
+import "../../styles/blog-slug.css";
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const coverImage = post.data.image || defaultImage;
+const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<Layout title={`${post.data.title} – Fullfill`} description={post.data.description}>
+  <article class="blog-post">
+    <div class="blog-post__hero site-container">
+      <div class="blog-post__image-container">
+        <Image
+          src={coverImage}
+          alt={post.data.title}
+          width={1200}
+          height={600}
+          loading="eager"
+          fetchpriority="high"
+          class="blog-post__image"
+        />
+      </div>
+    </div>
+
+    <div class="blog-post__container site-container">
+      <header class="blog-post__header">
+        <div class="blog-post__meta">
+          <time class="blog-post__date" datetime={post.data.pubDate.toISOString()}>
+            {formattedDate}
+          </time>
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="blog-post__tags">
+              {post.data.tags.map((tag) => (
+                <span class="blog-post__tag">#{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+        <h1 class="blog-post__title">{post.data.title.toLowerCase()}</h1>
+      </header>
+
+      <div class="blog-post__body">
+        <Content />
+      </div>
+
+      <div class="blog-post__footer">
+        <a href="/blog" class="blog-post__back-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          back to all blogs
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>
