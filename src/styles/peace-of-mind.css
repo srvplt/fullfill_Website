@@ -1,0 +1,264 @@
+.peace-of-mind {
+  background: #b8bff5;
+  padding-bottom: 70px;
+  padding-top: 220px;
+  overflow: visible;
+  position: relative;
+}
+
+.peace-phones-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: 0;
+  margin-bottom: 40px;
+  margin-top: -220px;
+  z-index: 2;
+}
+
+.peace-phones-circle {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: rgba(210, 215, 255, 0.7);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  z-index: 0;
+}
+
+.peace-phones-img {
+  position: relative;
+  z-index: 1;
+  width: 520px;
+  max-width: 90%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+.peace-of-mind__inner {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.peace-of-mind__content {
+  flex: 1;
+}
+
+.peace-of-mind__title {
+  font-family: var(--font-poppins);
+  font-size: 34px;
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+
+.peace-of-mind__title span {
+  color: #5e61d6;
+}
+
+.peace-of-mind__desc {
+  font-family: var(--font-open-sans);
+  font-size: 14px;
+  font-style: italic;
+  color: #333;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  max-width: 420px;
+}
+
+.peace-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.peace-progress__label {
+  font-family: var(--font-open-sans);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #555;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.peace-progress__bar {
+  flex: 1;
+  max-width: 180px;
+  height: 6px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.peace-progress__fill {
+  width: 92%;
+  height: 100%;
+  background: #5e61d6;
+  border-radius: 3px;
+}
+
+.peace-progress__value {
+  font-family: var(--font-open-sans);
+  font-size: 11px;
+  color: #333;
+}
+
+.peace-of-mind__tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.peace-tag {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.6);
+  color: #333;
+  font-family: var(--font-open-sans);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.8);
+  transition: background 0.2s;
+}
+
+.peace-tag:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+.peace-of-mind__phone {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.peace-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 28px;
+  width: 300px;
+  box-shadow: 0 8px 32px rgba(94, 97, 214, 0.15);
+}
+
+.peace-card__week-label {
+  font-family: var(--font-open-sans);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #999;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.peace-card__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.peace-card__days span {
+  font-family: var(--font-open-sans);
+  font-size: 11px;
+  color: #999;
+  text-align: center;
+}
+
+.peace-card__dots-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.peace-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e0e3ff;
+}
+
+.peace-dot--filled { background: #5e61d6; }
+.peace-dot--empty { background: #eee; }
+
+.peace-card__reminder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f5ff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 14px;
+}
+
+.peace-card__reminder-label {
+  font-family: var(--font-open-sans);
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  color: #999;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+
+.peace-card__reminder-time {
+  font-family: var(--font-poppins);
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.peace-card__bell {
+  font-size: 24px;
+}
+
+@media (max-width: 767px) {
+  .peace-of-mind {
+    padding: 50px 0;
+  }
+
+  .peace-phones-circle {
+    width: 300px;
+    height: 300px;
+  }
+
+  .peace-phones-img {
+    width: 90%;
+  }
+
+  .peace-of-mind__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .peace-of-mind__phone {
+    flex: none;
+    width: 100%;
+  }
+
+  .peace-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .peace-of-mind__title {
+    font-size: 26px;
+  }
+
+  .peace-of-mind__tags {
+    justify-content: center;
+  }
+
+  .peace-of-mind__desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

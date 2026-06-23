@@ -1,0 +1,20 @@
+.launch-special {
+  padding: 70px 0;
+  background: #fff;
+  text-align: center;
+}
+
+.launch-special__title {
+  font-family: var(--font-poppins);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0 0 10px;
+}
+
+.launch-special__subtitle {
+  font-family: var(--font-open-sans);
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin: 0 0 32px;
+}

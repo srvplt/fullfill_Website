@@ -1,0 +1,135 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #b8bff5;
+  padding-bottom: 30px;
+  margin-bottom: 0;
+  padding-top: 90px;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-height: 420px;
+}
+
+.hero__phone {
+  flex: 0 0 48%;
+  max-width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  position: relative;
+}
+
+.hero__phone video,
+.hero__phone-video {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: transparent;
+  border-radius: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__phone-img {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.hero__content {
+  flex: 1;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero__logo {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.hero__headline {
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.hero__subtext {
+  font-family: Urbanist !important;
+  font-size: 24px;
+  line-height: 25.8px;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: #ffffff;
+  margin-top: -1px;
+}
+
+@media (max-width: 991px) {
+  .hero {
+    padding: 40px 0 0;
+  }
+
+  .hero__phone img {
+    max-width: 300px;
+  }
+
+  .hero__brand {
+    font-size: 34px;
+  }
+
+  .hero__headline {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero__inner {
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .hero__phone {
+    flex: none;
+    max-width: 100%;
+    order: -1;
+    width: 100%;
+  }
+
+  .hero__phone img {
+    max-width: 260px;
+    transform: rotate(0deg);
+  }
+
+  .hero__content {
+    padding: 20px 0 40px;
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero__brand {
+    font-size: 30px;
+  }
+
+  .hero__headline {
+    font-size: 27.2px;
+  }
+}

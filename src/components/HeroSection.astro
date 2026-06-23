@@ -1,0 +1,20 @@
+---
+import '../styles/hero.css';
+import { Image } from 'astro:assets';
+import heroPhone from '../assets/images/landing/hero-phone.png';
+import logoNameOnly from '../assets/images/FinalLogoNameOnly.png';
+---
+
+<section class="hero" id="hero">
+  <div class="landing-container hero__inner">
+    <div class="hero__phone">
+      <video src="/images/tinywow_final_90411904.mp4" autoplay loop muted playsinline class="hero__phone-video"></video>
+    </div>
+    <div class="hero__content">
+      <Image src={logoNameOnly} alt="Fullfill Logo" class="hero__logo" width={130} height={48} />
+      <h1 class="hero__headline">your personal trainer for<br />a happier mind</h1>
+      <h5 class="hero__subtext">stop scrolling, start growing.</h5>
+      <a href="#" class="btn-primary">download the app</a>
+    </div>
+  </div>
+</section>

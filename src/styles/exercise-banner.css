@@ -1,0 +1,60 @@
+.exercise-banner {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.exercise-banner__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.exercise-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(148, 155, 255, 0.75) 0%, rgba(153, 115, 255, 0.7) 50%, rgba(180, 140, 255, 0.65) 100%);
+  z-index: 1;
+}
+
+.exercise-banner__content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 60px 20px;
+}
+
+.exercise-banner__label {
+  font-family: var(--font-open-sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  margin: 0 0 8px;
+  opacity: 0.85;
+}
+
+.exercise-banner__title {
+  font-family: var(--font-poppins);
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 767px) {
+  .exercise-banner {
+    min-height: 240px;
+  }
+
+  .exercise-banner__title {
+    font-size: 32px;
+  }
+}

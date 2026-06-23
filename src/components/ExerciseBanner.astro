@@ -1,0 +1,14 @@
+---
+import '../styles/exercise-banner.css';
+import { Image } from 'astro:assets';
+import exerciseBg from '../assets/images/landing/exercise-bg.png';
+---
+
+<section class="exercise-banner" id="exercise-banner">
+  <Image src={exerciseBg} alt="People exercising in a fitness class" class="exercise-banner__bg" width={1400} height={500} />
+  <div class="exercise-banner__overlay"></div>
+  <div class="exercise-banner__content">
+    <p class="exercise-banner__label">holistic self-care</p>
+    <h2 class="exercise-banner__title">exercise</h2>
+  </div>
+</section>

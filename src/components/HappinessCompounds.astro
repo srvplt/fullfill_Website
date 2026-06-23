@@ -1,0 +1,23 @@
+---
+import '../styles/happiness.css';
+import { Image } from 'astro:assets';
+import happinessCompounds from '../assets/images/landing/happiness compounds.png';
+---
+
+<section class="happiness" id="happiness">
+  <div class="landing-container happiness__inner">
+    <div class="happiness__content">
+      <h2 class="happiness__title">happiness compounds.<br />start today.</h2>
+      <ul class="happiness__timeline">
+        <li><strong>day 1:</strong> immediate serenity</li>
+        <li><strong>day 7:</strong> sharpen focus and calm</li>
+        <li><strong>day 30:</strong> build new habits, routines</li>
+        <li><strong>day 90:</strong> feel consistent happiness</li>
+      </ul>
+      <a href="" class="btn-primary">start today</a>
+    </div>
+    <div class="happiness__phone">
+      <Image src={happinessCompounds} alt="Happiness Compounds" class="happiness__compounds-img" quality={100} />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,137 @@
+.ai-section {
+  background: #fff;
+  overflow: visible;
+  padding: 0;
+}
+
+.ai-section__inner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-section__layout {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 60px;
+  position: relative;
+  overflow: visible;
+}
+
+.ai-section__content {
+  flex: 1;
+  padding-bottom: 60px;
+  padding-top: 20px;
+  z-index: 2;
+  text-align: left;
+}
+
+.ai-section__title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #5968c0;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+}
+
+.ai-section__desc {
+  font-size: 17.7778px;
+  font-family: var(--font-open-sans);
+  color: #5968c0;
+  line-height: 1.5;
+  margin: 0 0 80px 0;
+}
+
+.ai-section__navband {
+  width: 100%;
+  background: rgba(180, 185, 255, 0.55);
+  padding: 14px 0;
+  z-index: 3;
+  position: relative;
+}
+
+.ai-section__navband-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.ai-section__nav-logo {
+  font-family: var(--font-urbanist);
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  color: #27113d;
+}
+
+.ai-section__navband a {
+  font-family: var(--font-open-sans);
+  font-size: 14px;
+  color: #27113d;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ai-section__navband a:hover {
+  color: #5968c0;
+}
+
+.ai-section__image {
+  flex: 0 0 45%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  overflow: visible;
+}
+
+.ai-section__books {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: visible;
+}
+
+.book-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.book-stack__img {
+  width: 380px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-top: -30px;
+}
+
+@media (max-width: 767px) {
+  .ai-section__layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ai-section__content {
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  .ai-section__image {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ai-section__title {
+    font-size: 26px;
+  }
+
+  .ai-section__navband-inner {
+    justify-content: center;
+  }
+}

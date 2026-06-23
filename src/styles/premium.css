@@ -1,0 +1,124 @@
+.premium {
+  padding: 70px 0;
+  background-color: #a9c9ff;
+  text-align: center;
+}
+
+.premium__title {
+  font-family: var(--font-poppins);
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 50px;
+}
+
+.premium__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s;
+  height: 300px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card__icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.stat-card__icon svg {
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke: #5576e4;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stat-card__number {
+  font-family: var(--font-poppins);
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.stat-card__label {
+  font-family: var(--font-open-sans);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 767px) {
+  .premium {
+    padding: 50px 0;
+  }
+
+  .premium__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .stat-card {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    padding: 24px 12px;
+    height: auto;
+  }
+
+  .stat-card__icon {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 14px;
+  }
+
+  .premium__title {
+    font-size: 30px;
+    transform: translateX(30px);
+    opacity: 0;
+    transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+  }
+
+  .premium__title.is-visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .stat-card__number {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 400px) {
+  .premium__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
