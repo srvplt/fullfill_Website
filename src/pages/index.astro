@@ -400,25 +400,17 @@ import happinessCompounds from '../assets/images/landing/happiness compounds.png
       rootMargin: '0px 0px -100px 0px'
     });
 
-<<<<<<< HEAD
     const targetElements = document.querySelectorAll(
       '.cortex-card, .brain-cortex__title, .happiness__inner, .premium__title'
     );
     
     targetElements.forEach(el => {
       observer.observe(el);
-      // Check if element is already in viewport
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         el.classList.add('is-visible');
         observer.unobserve(el);
       }
-=======
-    document.querySelectorAll(
-      '.cortex-card, .brain-cortex__title, .happiness__inner'
-    ).forEach(el => {
-      observer.observe(el);
->>>>>>> 4e66595a359e9574959c728f136527fa21aac9a7
     });
   });
 </script>
