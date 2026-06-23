@@ -1,0 +1,48 @@
+---
+import "../styles/footer.css";
+import { Image } from "astro:assets";
+import logo from "../assets/images/FinalLogoNameOnly.png";
+import facebookIcon from "../assets/images/facebook-new.png";
+import instagramIcon from "../assets/images/instagram-new--v2.png";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer" id="footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+      <div class="site-footer__copyright">
+        <p>
+          © {currentYear} Fullfill |
+          <a href="https://fullfill.me/privacy">Privacy Policy</a> |
+          <a href="https://fullfill.me/terms">Terms</a>
+        </p>
+      </div>
+
+      <div class="site-footer__logo">
+        <a href="/">
+          <Image src={logo} alt="Fullfill" width={logo.width} height={logo.height} />
+        </a>
+      </div>
+
+      <div class="site-footer__social">
+        <a
+          href="https://www.facebook.com/share/1HCWzt8tce"
+          title="facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image src={facebookIcon} alt="Facebook" width={facebookIcon.width} height={facebookIcon.height} />
+        </a>
+        <a
+          href="https://www.instagram.com/fullfill.me"
+          title="instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image src={instagramIcon} alt="Instagram" width={instagramIcon.width} height={instagramIcon.height} />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
