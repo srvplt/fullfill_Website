@@ -468,7 +468,7 @@
 .have-everything__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(148, 155, 255, 0.85), rgba(140, 120, 220, 0.8));
+  background: url('/images/image.png') center/cover no-repeat;
 }
 
 .have-everything__content {

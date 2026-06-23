@@ -94,7 +94,11 @@ import happinessCompounds from '../assets/images/landing/happiness compounds.png
        4. HAVE EVERYTHING CTA
        ═══════════════════════════════════════════ -->
   <section class="have-everything" id="have-everything">
-    <div class="have-everything__bg"></div>
+
+
+    <div class="have-everything__bg">
+      
+    </div>
     <div class="landing-container have-everything__content">
       <h2 class="have-everything__title">have everything,<br />yet feel nothing?</h2>
       <h5 class="have-everything__desc">conquer emptiness and build a mind that feels happiness again</h5>
@@ -406,6 +410,7 @@ import happinessCompounds from '../assets/images/landing/happiness compounds.png
     
     targetElements.forEach(el => {
       observer.observe(el);
+      // Check if element is already in viewport
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         el.classList.add('is-visible');
