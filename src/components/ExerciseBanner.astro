@@ -1,14 +1,35 @@
+<!-- ExerciseBanner.astro -->
 ---
 import '../styles/exercise-banner.css';
-import { Image } from 'astro:assets';
-import exerciseBg from '../assets/images/landing/exercise-bg.png';
 ---
-
 <section class="exercise-banner" id="exercise-banner">
-  <Image src={exerciseBg} alt="People exercising in a fitness class" class="exercise-banner__bg" width={1400} height={500} />
+  <img id="banner-bg" src="/assets/images/landing/exercise-01.png" alt="Exercise banner image" class="exercise-banner__bg" width="1400" height="500" />
   <div class="exercise-banner__overlay"></div>
   <div class="exercise-banner__content">
-    <p class="exercise-banner__label">holistic self-care</p>
-    <h2 class="exercise-banner__title">exercise</h2>
+    <p class="exercise-banner__label" id="banner-label">holistic self-care</p>
+    <h2 class="exercise-banner__title" id="banner-title">move your body</h2>
   </div>
+  <script is:inline>
+    const slides = [
+      {image: '/assets/images/landing/exercise-01.png', label: 'holistic self-care', title: 'move your body'},
+      {image: '/assets/images/landing/exercise-02.png', label: 'mind‑body balance', title: 'stretch & breathe'},
+      {image: '/assets/images/landing/exercise-bg.png', label: 'daily vitality', title: 'stay active'}
+    ];
+    let current = 0;
+    const img = document.getElementById('banner-bg');
+    const label = document.getElementById('banner-label');
+    const title = document.getElementById('banner-title');
+    function showNext() {
+      current = (current + 1) % slides.length;
+      const slide = slides[current];
+      img.style.opacity = '0';
+      setTimeout(() => {
+        img.src = slide.image;
+        label.textContent = slide.label;
+        title.textContent = slide.title;
+        img.style.opacity = '1';
+      }, 800);
+    }
+    setInterval(showNext, 4000);
+  </script>
 </section>

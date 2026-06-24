@@ -1,20 +1,47 @@
 ---
 import '../styles/hero.css';
 import { Image } from 'astro:assets';
-import heroPhone from '../assets/images/landing/hero-phone.png';
 import logoNameOnly from '../assets/images/FinalLogoNameOnly.png';
 ---
 
 <section class="hero" id="hero">
   <div class="landing-container hero__inner">
     <div class="hero__phone">
-      <video src="/images/tinywow_final_90411904.mp4" autoplay loop muted playsinline class="hero__phone-video"></video>
+      <video id="hp-video-comp" autoplay loop muted playsinline class="hero__phone-video">
+        <source src="/images/final.mov" type='video/quicktime; codecs="ap4h"'>
+        <source src="/images/final.webm" type="video/webm">
+      </video>
+      <img id="fallback-img-comp" src="/images/final.png" alt="Fullfill App" class="hero__phone-video" style="display: none;" />
+      <script is:inline>
+        (function() {
+          const video = document.getElementById('hp-video-comp');
+          const img = document.getElementById('fallback-img-comp');
+          if (video && img) {
+            const userAgent = navigator.userAgent;
+            const isAppleMobile = /iPhone|iPad|iPod/i.test(userAgent);
+            let activeEl;
+            if (isAppleMobile) {
+              const iOSVersion = parseInt(userAgent.match(/iPhone OS (\d+)_/)?.[1] || 0);
+              activeEl = (iOSVersion >= 16) ? video : img;
+            } else {
+              activeEl = video;
+            }
+            activeEl.style.display = 'block';
+            if (activeEl === video) {
+              img.style.display = 'none';
+            } else {
+              video.style.display = 'none';
+              video.pause();
+            }
+          }
+        })();
+      </script>
     </div>
     <div class="hero__content">
       <Image src={logoNameOnly} alt="Fullfill Logo" class="hero__logo" width={130} height={48} />
-      <h1 class="hero__headline">your personal trainer for<br />a happier mind</h1>
-      <h5 class="hero__subtext">stop scrolling, start growing.</h5>
-      <a href="#" class="btn-primary">download the app</a>
+      <h1 class="hero__headline">your personal trainer for a happier mind</h1>
+      <h5 class="hero__subtext">stop scrolling. start growing.</h5>
+      <a href="https://www.fullfill.me/try" class="btn-primary">download the app</a>
     </div>
   </div>
 </section>

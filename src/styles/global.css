@@ -84,3 +84,78 @@ main {
     padding-right: var(--container-padding-mobile);
   }
 }
+
+/* ── Shared utilities ── */
+.landing-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding-desktop);
+  padding-right: var(--container-padding-desktop); 
+  align-items: center;
+} 
+ 
+@media (max-width: 1199px) {
+  .landing-container {
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (max-width: 767px) {
+  .landing-container {
+    padding-left: var(--container-padding-mobile);
+    padding-right: var(--container-padding-mobile);
+  }
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 16px 45px;
+  background: #5968c0;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--color-brand-hover);
+  transform: translateY(-2px);
+}
+
+.btn-brand {
+  background: var(--color-brand);
+}
+
+.btn-brand:hover {
+  background-color: black;
+}
+
+.btn-coral {
+  background: #5968c0;
+}
+
+.btn-coral:hover {
+  background: #000000;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-brand);
+  color: var(--color-brand);
+}
+
+.btn-outline:hover {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+ 

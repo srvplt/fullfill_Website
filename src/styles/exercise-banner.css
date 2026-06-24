@@ -1,6 +1,7 @@
 .exercise-banner {
   position: relative;
-  min-height: 340px;
+  min-height: 600px;
+  /* desktop height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +16,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  transition: opacity 0.8s ease;
 }
 
 .exercise-banner__overlay {
@@ -51,7 +53,8 @@
 
 @media (max-width: 767px) {
   .exercise-banner {
-    min-height: 240px;
+    min-height: 300px;
+    /* mobile height */
   }
 
   .exercise-banner__title {
