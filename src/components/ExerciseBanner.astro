@@ -1,6 +1,7 @@
 <!-- ExerciseBanner.astro -->
 ---
 import '../styles/exercise-banner.css';
+import { Image } from 'astro:assets';
 
 import img01 from '../assets/images/banner/cozy-sweaters-graphics.png';
 import img02 from '../assets/images/banner/nature-3046567_1280.jpg';
@@ -34,8 +35,8 @@ const slides = [
 ---
 
 <section class="exercise-banner" id="exercise-banner">
-  <img id="banner-bg-bottom" src={slides[0].image} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--bottom" width="1400" height="500" />
-  <img id="banner-bg-top"    src={slides[1].image} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--top"    width="1400" height="500" />
+  <Image id="banner-bg-bottom" src={img12} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--bottom" width={1400} height={500} loading="eager" />
+  <Image id="banner-bg-top"    src={img06} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--top"    width={1400} height={500} loading="eager" />
 
   <!-- White light flash overlay -->
   <div class="exercise-banner__flash" id="banner-flash"></div>
