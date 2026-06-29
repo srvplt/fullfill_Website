@@ -1,7 +1,7 @@
 <!-- ExerciseBanner.astro -->
 ---
 import '../styles/exercise-banner.css';
-import { Image } from 'astro:assets';
+import { getImage } from 'astro:assets';
 
 import img01 from '../assets/images/banner/cozy-sweaters-graphics.png';
 import img02 from '../assets/images/banner/nature-3046567_1280.jpg';
@@ -17,26 +17,42 @@ import img11 from '../assets/images/banner/unsplash-1544367567.jpg';
 import img12 from '../assets/images/banner/unsplash-1545389336.jpg';
 import img13 from '../assets/images/banner/unsplash-1590602847861.jpg';
 
+const opts = await Promise.all([
+  getImage({ src: img12, format: 'webp', width: 1400 }),
+  getImage({ src: img06, format: 'webp', width: 1400 }),
+  getImage({ src: img09, format: 'webp', width: 1400 }),
+  getImage({ src: img07, format: 'webp', width: 1400 }),
+  getImage({ src: img02, format: 'webp', width: 1400 }),
+  getImage({ src: img04, format: 'webp', width: 1400 }),
+  getImage({ src: img05, format: 'webp', width: 1400 }),
+  getImage({ src: img08, format: 'webp', width: 1400 }),
+  getImage({ src: img10, format: 'webp', width: 1400 }),
+  getImage({ src: img11, format: 'webp', width: 1400 }),
+  getImage({ src: img13, format: 'webp', width: 1400 }),
+  getImage({ src: img03, format: 'webp', width: 1400 }),
+  getImage({ src: img01, format: 'webp', width: 1400 }),
+]);
+
 const slides = [
-  { image: img12.src, label: 'healthy habits',       title: 'build your routine' },
-  { image: img06.src, label: 'holistic self-care',   title: 'move your body' },
-  { image: img09.src, label: 'mind‑body balance',    title: 'stretch & breathe' },
-  { image: img07.src, label: 'daily vitality',       title: 'stay active' },
-  { image: img02.src, label: 'connect with nature',  title: 'breathe the fresh air' },
-  { image: img04.src, label: 'inner balance',        title: 'find your calm' },
-  { image: img05.src, label: 'total wellness',       title: 'feel your best' },
-  { image: img08.src, label: 'mindful living',       title: 'live with intention' },
-  { image: img10.src, label: 'body & soul',          title: 'nourish yourself' },
-  { image: img11.src, label: 'active lifestyle',     title: 'keep moving' },
-  { image: img13.src, label: 'self-renewal',         title: 'refresh & restore' },
-  { image: img03.src, label: 'eat well',             title: 'fuel your body' },
-  { image: img01.src, label: 'seasonal wellness',    title: 'embrace the season' },
+  { image: opts[0].src,  label: 'healthy habits',      title: 'build your routine' },
+  { image: opts[1].src,  label: 'holistic self-care',  title: 'move your body' },
+  { image: opts[2].src,  label: 'mind‑body balance',   title: 'stretch & breathe' },
+  { image: opts[3].src,  label: 'daily vitality',      title: 'stay active' },
+  { image: opts[4].src,  label: 'connect with nature', title: 'breathe the fresh air' },
+  { image: opts[5].src,  label: 'inner balance',       title: 'find your calm' },
+  { image: opts[6].src,  label: 'total wellness',      title: 'feel your best' },
+  { image: opts[7].src,  label: 'mindful living',      title: 'live with intention' },
+  { image: opts[8].src,  label: 'body & soul',         title: 'nourish yourself' },
+  { image: opts[9].src,  label: 'active lifestyle',    title: 'keep moving' },
+  { image: opts[10].src, label: 'self-renewal',        title: 'refresh & restore' },
+  { image: opts[11].src, label: 'eat well',            title: 'fuel your body' },
+  { image: opts[12].src, label: 'seasonal wellness',   title: 'embrace the season' },
 ];
 ---
 
 <section class="exercise-banner" id="exercise-banner">
-  <Image id="banner-bg-bottom" src={img12} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--bottom" width={1400} height={500} loading="eager" />
-  <Image id="banner-bg-top"    src={img06} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--top"    width={1400} height={500} loading="eager" />
+  <img id="banner-bg-bottom" src={slides[0].image} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--bottom" width="1400" height="500" loading="eager" decoding="async" />
+  <img id="banner-bg-top"    src={slides[1].image} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--top"    width="1400" height="500" loading="eager" decoding="async" />
 
   <!-- White light flash overlay -->
   <div class="exercise-banner__flash" id="banner-flash"></div>

@@ -1,8 +1,23 @@
 ---
 import '../styles/fun-section.css';
+import { getImage } from 'astro:assets';
+
+import yogaBg        from '../assets/images/yoga-bg.webp';
+import cardBreathwork from '../assets/images/banner/unsplash-1545389336.jpg';
+import cardFocusFlow  from '../assets/images/banner/unsplash-focus-flow.jpg';
+import cardStretch    from '../assets/images/banner/unsplash-1544367567.jpg';
+import cardSleepYoga  from '../assets/images/banner/unsplash-1518611012118.jpg';
+import cardVinyasa    from '../assets/images/banner/unsplash-1455390582262.jpg';
+
+const bgOpt   = await getImage({ src: yogaBg,         format: 'webp', width: 1400 });
+const card1   = await getImage({ src: cardBreathwork, format: 'webp', width: 600 });
+const card2   = await getImage({ src: cardFocusFlow,  format: 'webp', width: 600 });
+const card3   = await getImage({ src: cardStretch,    format: 'webp', width: 600 });
+const card4   = await getImage({ src: cardSleepYoga,  format: 'webp', width: 600 });
+const card5   = await getImage({ src: cardVinyasa,    format: 'webp', width: 600 });
 ---
 
-<section class="fun-section" id="sec-habit-feed">
+<section class="fun-section" id="sec-habit-feed" style={`background-image: url('${bgOpt.src}')`}>
   <div class="hf-overlay"></div>
 
   <div class="hf-container landing-container">
@@ -11,23 +26,23 @@ import '../styles/fun-section.css';
     <div class="hf-phone-area">
       <div class="hf-phone-frame">
         <div class="hf-video-card active"
-          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1545389336-cf090694435e?w=600');">
+          style={`background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('${card1.src}')`}>
           <p>daily breathwork</p>
         </div>
         <div class="hf-video-card"
-          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600');">
+          style={`background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('${card2.src}')`}>
           <p>focus flow</p>
         </div>
         <div class="hf-video-card"
-          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600');">
+          style={`background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('${card3.src}')`}>
           <p>morning stretch</p>
         </div>
         <div class="hf-video-card"
-          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600');">
+          style={`background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('${card4.src}')`}>
           <p>deep sleep yoga</p>
         </div>
         <div class="hf-video-card"
-          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600');">
+          style={`background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('${card5.src}')`}>
           <p>mindful vinyasa</p>
         </div>
       </div>
