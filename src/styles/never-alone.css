@@ -1,87 +1,224 @@
-.never-alone {
-  padding: 70px 0;
-  background: #f9f9ff;
-  text-align: center;
+/* ── Wrapper ── */
+.na-sticky-wrapper {
+  position: relative;
 }
 
-.never-alone__title {
+/* ── Section ── */
+.na-section {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ── Background image: absolute by default (mobile-first, scrolls with page) ── */
+.na-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* ── Desktop only: switch to fixed + clip-path for parallax ── */
+@media (min-width: 768px) {
+  .na-sticky-wrapper {
+    clip-path: inset(0);
+  }
+
+  .na-bg {
+    position: fixed;
+    height: 100vh;
+  }
+
+  .na-section {
+    overflow: visible;
+  }
+}
+
+.na-bg-img {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* Purple tint overlay on bg — matches reference rgba(94,97,214,0.2) */
+.na-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(94, 97, 214, 0.2);
+  pointer-events: none;
+}
+
+/* ── Content container ── */
+.na-sheet {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Heading — matches reference inline style exactly ── */
+.na-heading {
   font-family: var(--font-urbanist);
   font-size: 40px;
-  font-weight: 600;
-  font-style: italic;
-  color: rgb(18, 2, 245);
-  width: 720px;
-  height: 44px;
-  margin: 0 auto;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  margin: 0 auto 60px;
 }
 
-.never-alone__cards {
+/* ── Glass cards ── */
+.na-cards {
   display: flex;
-  gap: 30px;
+  gap: 100px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 50px;
+  align-items: flex-start;
 }
 
-.support-card {
-  width: 310px;
-  height: 185px;
+.na-card {
+  flex: 1;
+  min-width: 260px;
+  max-width: 320px;
+  background: rgba(15, 20, 30, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
   padding: 35px 25px;
-  border-radius: 16px;
-  background: rgba(200, 205, 255, 0.25);
-  border: 1px solid rgba(94, 97, 214, 0.12);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.35s ease;
 }
 
-.support-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(94, 97, 214, 0.12);
+.na-card:hover {
+  transform: translateY(-8px);
 }
 
-.support-card__icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 16px;
+.na-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(255, 255, 255);
-  border-radius: 50%;
+  margin-bottom: 15px;
+  flex-shrink: 0;
 }
 
-.support-card__icon svg {
-  width: 36px;
-  height: 36px;
-  fill: none;
-  stroke: var(--color-brand);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.na-card-title {
+  font-family: var(--font-urbanist);
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px;
 }
 
-.support-card__name {
-  font-family: var(--font-poppins);
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--color-brand);
-  margin: 0 0 8px;
-}
-
-.support-card__desc {
-  font-family: var(--font-open-sans);
-  font-size: 12px;
-  color: var(--color-text-muted);
-  margin: 0;
+.na-card-body {
+  font-family: var(--font-urbanist);
+  font-size: 14px;
   line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  margin: 0;
+  max-width: 230px;
 }
 
-@media (max-width: 767px) {
-  .never-alone {
+/* ── Scroll animation ── */
+.na-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.na-section.na-in .na-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.na-section.na-in .na-heading.na-animate {
+  transition-delay: 0.05s;
+}
+
+.na-section.na-in .na-cards .na-card:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.na-section.na-in .na-cards .na-card:nth-child(2) {
+  transition-delay: 0.38s;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .na-cards {
+    gap: 40px;
+  }
+
+  .na-heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .na-section {
+    padding: 60px 0;
+    min-height: auto;
+  }
+
+  .na-heading {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .na-cards {
+    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .na-card {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .na-heading {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 575px) {
+  .na-section {
     padding: 50px 0;
   }
 
-  .never-alone__title {
-    font-size: 22px;
+  .na-heading {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .na-card {
+    padding: 28px 20px;
+  }
+
+  .na-card-title {
+    font-size: 16px;
   }
 }

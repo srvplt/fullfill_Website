@@ -2,60 +2,127 @@
 import '../styles/peace-of-mind.css';
 ---
 
-<section class="peace-of-mind" id="peace-of-mind">
-  <div class="peace-phones-wrap">
-    <div class="peace-phones-circle"></div>
-    <img src="/images/042sidebyside.png" alt="Peace of mind tracker" class="peace-phones-img" />
-  </div>
-  <div class="landing-container peace-of-mind__inner">
-    <div class="peace-of-mind__content">
-      <h2 class="peace-of-mind__title">peace of mind,<br /><span>tracked.</span></h2>
-      <p class="peace-of-mind__desc">never miss a pill. stay consistent with smart reminders.</p>
-      <div class="peace-progress">
-        <span class="peace-progress__label">DAILY ADHERENCE</span>
-        <div class="peace-progress__bar">
-          <div class="peace-progress__fill"></div>
+<section class="pom-section" id="peace-of-mind">
+  <div class="pom-grid" aria-hidden="true"></div>
+
+  <div class="pom-inner">
+
+    <!-- Left text -->
+    <div class="pom-content">
+      <h2 class="pom-heading">peace of mind,<br /><span>tracked.</span></h2>
+      <p class="pom-subtitle">never miss a pill. stay consistent with smart reminders.</p>
+
+      <!-- Progress section: label + % on top row, bar below -->
+      <div class="pom-adherence">
+        <div class="pom-adherence-header">
+          <span class="pom-pill-label">DAILY ADHERENCE</span>
+          <span class="pom-pill-pct">0%</span>
         </div>
-        <span class="peace-progress__value">92%</span>
+        <div class="pom-pill-bar"><div class="pom-pill-fill"></div></div>
       </div>
-      <div class="peace-of-mind__tags">
-        <a href="#" class="peace-tag">smart reminders</a>
-        <a href="#" class="peace-tag">streak tracking</a>
-        <a href="#" class="peace-tag">⟳ wearables soon</a>
+
+      <div class="pom-chips">
+        <span class="pom-chip">smart reminders</span>
+        <span class="pom-chip">streak tracking</span>
+        <span class="pom-chip">⌚ wearables soon</span>
       </div>
     </div>
-    <div class="peace-of-mind__phone">
-      <div class="peace-card">
-        <p class="peace-card__week-label">THIS WEEK</p>
-        <div class="peace-card__days">
+
+    <!-- Right glass card -->
+    <div class="pom-card">
+      <p class="pom-card-week">THIS WEEK</p>
+
+      <!-- Day header row -->
+      <div class="pom-day-labels">
+        <div class="pom-tod-space"></div>
+        <div class="pom-day-grid">
           <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
         </div>
-        <div class="peace-card__dots-row">
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-        </div>
-        <div class="peace-card__dots-row">
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--filled"></div>
-          <div class="peace-dot peace-dot--empty"></div>
-        </div>
-        <div class="peace-card__reminder">
-          <div>
-            <p class="peace-card__reminder-label">NEXT REMINDER</p>
-            <p class="peace-card__reminder-time">8:00 pm</p>
-          </div>
-          <span class="peace-card__bell">🔔</span>
+      </div>
+
+      <!-- AM pills — M T W T F S filled, Su empty -->
+      <div class="pom-slot-row">
+        <span class="pom-tod-lbl">am</span>
+        <div class="pom-slot-grid">
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot empty"></div>
         </div>
       </div>
+
+      <!-- PM pills — M T W T F filled, Sa Su empty -->
+      <div class="pom-slot-row pom-slot-row--gap">
+        <span class="pom-tod-lbl">pm</span>
+        <div class="pom-slot-grid">
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot taken"></div>
+          <div class="pom-slot empty"></div>
+          <div class="pom-slot empty"></div>
+        </div>
+      </div>
+
+      <!-- Next reminder -->
+      <div class="pom-reminder">
+        <div>
+          <p class="pom-reminder-label">NEXT REMINDER</p>
+          <p class="pom-reminder-time">8:00 pm</p>
+        </div>
+        <span class="pom-bell">🔔</span>
+      </div>
     </div>
+
   </div>
 </section>
+
+<script>
+  (function () {
+    var section = document.getElementById('peace-of-mind');
+    if (!section) return;
+
+    /* Animate a number from 1 to target over ~2s */
+    function countUp(el, target, duration) {
+      var startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var p = Math.min((ts - startTime) / duration, 1);
+        el.textContent = Math.floor(p * (target - 1) + 1) + '%';
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = target + '%';
+      }
+      requestAnimationFrame(step);
+    }
+
+    function reveal() {
+      /* Grow the bar width */
+      var fill = section.querySelector('.pom-pill-fill');
+      if (fill) fill.style.width = '92%';
+
+      /* Count percentage from 0% → 92% */
+      var pct = section.querySelector('.pom-pill-pct');
+      if (pct) countUp(pct, 92, 2000);
+
+      /* Fill each taken slot with blue, staggered 80ms apart */
+      var slots = section.querySelectorAll('.pom-slot.taken');
+      slots.forEach(function (slot, i) {
+        setTimeout(function () { slot.classList.add('animate'); }, 300 + i * 80);
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) { reveal(); return; }
+
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { reveal(); obs.disconnect(); }
+      });
+    }, { threshold: 0.3 });
+
+    obs.observe(section);
+  })();
+</script>

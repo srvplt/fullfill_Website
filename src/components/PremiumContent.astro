@@ -1,35 +1,40 @@
 ---
 import '../styles/premium.css';
+import { Image } from 'astro:assets';
+import icon1 from '../assets/images/384156-38d6efb7.png';
+import icon2 from '../assets/images/4646087-db5d359d.png';
+import icon3 from '../assets/images/6165252-9b7ce705.png';
+import icon4 from '../assets/images/2702134-693652d6.png';
 ---
 
 <section class="premium" id="premium-content">
-  <div class="landing-container">
-    <h2 class="premium__title">premium content at warehouse prices</h2>
-    <div class="premium__grid">
-      <div class="stat-card">
+  <div class="landing-container premium__inner">
+    <h2 class="premium__title pc-title-animate">premium content at warehouse prices</h2>
+    <div class="premium__grid" id="premium-grid">
+      <div class="stat-card pc-animate">
         <div class="stat-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <Image src={icon1} alt="meditation" width={64} height={64} />
         </div>
         <p class="stat-card__number">480+</p>
         <p class="stat-card__label">minutes<br />of meditation</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card pc-animate">
         <div class="stat-card__icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M12 6v6m-4 4h8M8 16l4-4 4 4M6 20h12"/></svg>
+          <Image src={icon2} alt="yoga" width={64} height={64} />
         </div>
         <p class="stat-card__number">50+</p>
         <p class="stat-card__label">yoga sessions<br />&amp; exercises</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card pc-animate">
         <div class="stat-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          <Image src={icon3} alt="podcasts" width={64} height={64} />
         </div>
         <p class="stat-card__number">12+</p>
         <p class="stat-card__label">hours<br />of podcasts</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card pc-animate">
         <div class="stat-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <Image src={icon4} alt="book summaries" width={64} height={64} />
         </div>
         <p class="stat-card__number">70+</p>
         <p class="stat-card__label">book<br />summaries</p>
@@ -37,3 +42,49 @@ import '../styles/premium.css';
     </div>
   </div>
 </section>
+
+<style>
+  .pc-animate {
+    opacity: 0;
+    transform: translateY(300px);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+  }
+  .pc-title-animate {
+    opacity: 0;
+    transform: translateX(300px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .pc-in .pc-animate,
+  .pc-in .pc-title-animate {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+</style>
+
+<script>
+  const section = document.querySelector('#premium-content');
+  const inner = document.querySelector('.premium__inner');
+
+  if (section && inner) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            inner.classList.add('pc-in');
+          } else {
+            const els = inner.querySelectorAll('.pc-animate, .pc-title-animate');
+            els.forEach(el => (el.style.transition = 'none'));
+            inner.classList.remove('pc-in');
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() =>
+                els.forEach(el => (el.style.transition = ''))
+              )
+            );
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(section);
+  }
+</script>

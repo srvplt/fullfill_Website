@@ -1,12 +1,12 @@
 ---
 import '../styles/happiness.css';
 import { Image } from 'astro:assets';
-import happinessCompounds from '../assets/images/landing/happiness compounds.png';
+import happinessCompounds from '../assets/images/happiness compounds.png';
 ---
 
 <section class="happiness" id="happiness">
   <div class="landing-container happiness__inner">
-    <div class="happiness__content">
+    <div class="happiness__content hc-animate">
       <h2 class="happiness__title">happiness compounds.<br />start today.</h2>
       <ul class="happiness__timeline">
         <li><strong>day 1:</strong> immediate serenity</li>
@@ -16,8 +16,48 @@ import happinessCompounds from '../assets/images/landing/happiness compounds.png
       </ul>
       <a href="" class="btn-primary">start today</a>
     </div>
-    <div class="happiness__phone">
+    <div class="happiness__phone hc-animate">
       <Image src={happinessCompounds} alt="Happiness Compounds" class="happiness__compounds-img" quality={100} />
     </div>
   </div>
 </section>
+
+<style>
+  .hc-animate {
+    opacity: 0;
+    transform: translateY(300px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+  }
+  .hc-in .hc-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const section = document.querySelector('#happiness');
+  const inner = document.querySelector('.happiness__inner');
+
+  if (section && inner) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            inner.classList.add('hc-in');
+          } else {
+            const els = inner.querySelectorAll('.hc-animate');
+            els.forEach(el => (el.style.transition = 'none'));
+            inner.classList.remove('hc-in');
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() =>
+                els.forEach(el => (el.style.transition = ''))
+              )
+            );
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(section);
+  }
+</script>

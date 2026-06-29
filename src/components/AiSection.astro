@@ -1,22 +1,52 @@
 ---
 import '../styles/ai-section.css';
+import { Image } from 'astro:assets';
+import bookImg from '../assets/images/bookscool-1.png';
 ---
 
 <section class="ai-section" id="fullfill-ai">
-  <div class="ai-section__inner">
-    <div class="landing-container ai-section__layout">
-      <div class="ai-section__content">
-        <h2 class="ai-section__title">fullfillAI:<br />a coach not a chatbot</h2>
-        <p class="ai-section__desc">trained on psychology and the journeys of top performers —<br />invaluable insights improve your life</p>
-        <a href="#" class="btn-primary btn-coral">download for free</a>
-      </div>
-      <div class="ai-section__image">
-        <div class="ai-section__books">
-          <div class="book-stack">
-            <img src="/images/bookscool-1.png" alt="Stack of books" class="book-stack__img" />
-          </div>
-        </div>
-      </div>
+  <div class="landing-container ai-section__layout">
+
+    <!-- Left: Text content -->
+    <div class="ai-section__content ai-animate-left">
+      <h2 class="ai-section__title">fullfillAI:&nbsp;<br />a coach not a chatbot</h2>
+      <p class="ai-section__desc">trained on psychology and the journeys of top performers — invaluable insights improve your life</p>
+      <a href="#" class="btn-primary">DOWNLOAD FOR FREE</a>
     </div>
+
+    <!-- Right: Book image -->
+    <div class="ai-section__image ai-animate-right">
+      <Image src={bookImg} alt="fullfill AI books" class="ai-section__book-img" width={446} height={543} />
+    </div>
+
   </div>
 </section>
+
+
+<script>
+  const section = document.querySelector('#fullfill-ai');
+  const layout = document.querySelector('.ai-section__layout');
+
+  if (section && layout) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            layout.classList.add('ai-in');
+          } else {
+            const els = layout.querySelectorAll('.ai-animate-left, .ai-animate-right');
+            els.forEach(el => (el.style.transition = 'none'));
+            layout.classList.remove('ai-in');
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() =>
+                els.forEach(el => (el.style.transition = ''))
+              )
+            );
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(section);
+  }
+</script>

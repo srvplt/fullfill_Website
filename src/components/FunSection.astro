@@ -2,17 +2,86 @@
 import '../styles/fun-section.css';
 ---
 
-<section class="fun-section" id="fullfill-fun">
-  <div class="landing-container fun-section__inner">
-    <div class="fun-section__phone">
-      <div class="fun-section__phone-frame">
-        <div class="fun-section__phone-label">deep sleep yoga</div>
+<section class="fun-section" id="sec-habit-feed">
+  <div class="hf-overlay"></div>
+
+  <div class="hf-container landing-container">
+
+    <!-- Left: Phone with cycling cards -->
+    <div class="hf-phone-area">
+      <div class="hf-phone-frame">
+        <div class="hf-video-card active"
+          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1545389336-cf090694435e?w=600');">
+          <p>daily breathwork</p>
+        </div>
+        <div class="hf-video-card"
+          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600');">
+          <p>focus flow</p>
+        </div>
+        <div class="hf-video-card"
+          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600');">
+          <p>morning stretch</p>
+        </div>
+        <div class="hf-video-card"
+          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600');">
+          <p>deep sleep yoga</p>
+        </div>
+        <div class="hf-video-card"
+          style="background-image: linear-gradient(transparent, rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600');">
+          <p>mindful vinyasa</p>
+        </div>
       </div>
     </div>
-    <div class="fun-section__content">
-      <h2 class="fun-section__title">fullfill is fun.</h2>
-      <p class="fun-section__desc">Engaging content brings you back, reinforcing positive habit-loops for lasting wellness.</p>
-      <a href="#" class="btn-primary btn-brand">start today</a>
+
+    <!-- Right: Text + CTA -->
+    <div class="hf-text-area">
+      <div class="hf-heading-group">
+        <h2 class="hf-heading"><span class="hf-grad">fullfill is fun.</span></h2>
+        <p class="hf-text">Engaging content brings you back, reinforcing positive habit-loops for lasting wellness.</p>
+      </div>
+      <!-- Desktop button (hidden on mobile) -->
+      <div class="hf-btn-wrap hf-btn-desktop">
+        <a href="#" class="btn-primary">START TODAY</a>
+      </div>
     </div>
+
+    <!-- Mobile-only button — direct child of hf-container, order:3 puts it below phone -->
+    <div class="hf-btn-mobile-wrap">
+      <a href="#" class="btn-primary">START TODAY</a>
+    </div>
+
   </div>
 </section>
+
+<script>
+  (function () {
+    const cards = document.querySelectorAll('.hf-video-card');
+    let idx = 0;
+
+    function cycle() {
+      cards[idx].classList.remove('active');
+      cards[idx].classList.add('prev');
+      idx = (idx + 1) % cards.length;
+      cards[idx].classList.remove('prev');
+      cards[idx].classList.add('active');
+    }
+
+    let timer;
+    const section = document.querySelector('#sec-habit-feed');
+
+    if ('IntersectionObserver' in window && section) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            timer = setInterval(cycle, 3000);
+          } else {
+            clearInterval(timer);
+          }
+        });
+      }, { threshold: 0.3 });
+      obs.observe(section);
+    } else {
+      timer = setInterval(cycle, 3000);
+    }
+  })();
+</script>

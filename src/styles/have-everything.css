@@ -1,76 +1,176 @@
+.he-sticky-wrapper {
+  position: relative;
+}
+
 .have-everything {
   position: relative;
-  min-height: 380px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 
+/* Base (mobile-first): absolute — image scrolls with section */
 .have-everything__bg {
   position: absolute;
-  inset: 0;
-  background: url('/images/image.png') center/cover no-repeat;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.have-everything__content {
-  position: relative;
-  z-index: 2;
-  text-align: right;
-  margin-left: auto;
+/* Desktop only: switch to fixed + clip-path for parallax effect */
+@media (min-width: 768px) {
+  .he-sticky-wrapper {
+    clip-path: inset(0);
+  }
+
+  .have-everything__bg {
+    position: fixed;
+    height: 100vh;
+  }
+
+  .have-everything {
+    overflow: visible;
+  }
 }
 
-.have-everything__title {
-  text-align: right;
-  font-family: 'Urbanist', sans-serif;
-  font-size: 33.6px;
-  font-weight: 700;
-  color: white;
-  line-height: 1.1;
+.have-everything__bg-image {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
-.have-everything__desc {
-  color: rgba(255, 255, 255, 0.85);
-  font-family: 'Urbanist', sans-serif;
-  font-size: 20px;
-  margin-top: 15px;
-  line-height: 1.3;
-  text-align: right;
-}
-
-.btn-outline-white {
-  display: inline-block;
-  padding: 14px 30px;
-  background: #5E61D6;
-  color: #ffffff;
-  /* font-family: 'Open Sans', sans-serif; */
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 24px;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.25s, transform 0.2s;
-}
-
-.btn-outline-white:hover {
-  background: #fff;
-  color: var(--color-brand);
+.he-img-mobile {
+  display: none;
 }
 
 @media (max-width: 767px) {
+  .he-img-desktop {
+    display: none;
+  }
+
+  .he-img-mobile {
+    display: block;
+    object-position: center top;
+  }
+}
+
+/* Gradient overlay */
+.have-everything__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(95, 66, 197, 0.4) 0%, rgba(110, 80, 210, 0.3) 100%);
+  pointer-events: none;
+}
+
+/* Content container — right-aligned flex column matching reference */
+.have-everything__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 20%;
+}
+
+.have-everything__title {
+  font-family: var(--font-urbanist);
+  font-size: 40px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  text-align: right;
+}
+
+.have-everything__desc {
+  font-family: var(--font-urbanist);
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-top: 20px;
+  max-width: 600px;
+  text-align: right;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Tablet ── */
+@media (max-width: 991px) {
   .have-everything__content {
-    text-align: center;
-    margin: 0 auto;
-    max-width: none;
+    margin-right: 10%;
+    padding: 0 20px;
+  }
+
+  .have-everything__title {
+    font-size: 34px;
+  }
+
+  .have-everything__desc {
+    font-size: 17px;
+  }
+}
+
+/* ── Mobile — stronger gradient, sticky-like layout ── */
+@media (max-width: 767px) {
+  .have-everything__bg::after {
+    background: linear-gradient(160deg, rgba(95, 66, 197, 0.5) 0%, rgba(110, 80, 210, 0.4) 100%);
+  }
+
+  .have-everything {
+    min-height: 100vh;
+    align-items: center;
+    padding: 80px 0;
+  }
+
+  .have-everything__content {
+    text-align: right;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-right: 20px;
+    padding: 0 16px;
+    max-width: 85%;
+  }
+
+  .have-everything__title {
+    font-size: 34px;
+    text-align: right;
+  }
+
+  .have-everything__desc {
+    font-size: 16px;
+    text-align: right;
+    margin-top: 15px;
+    max-width: 100%;
+  }
+}
+
+/* ── Small mobile ── */
+@media (max-width: 575px) {
+  .have-everything__content {
+    max-width: 90%;
+    margin-right: 12px;
+  }
+
+  .have-everything__title {
+    font-size: 28px;
+  }
+
+  .have-everything__desc {
+    font-size: 14px;
   }
 }
 
 @media (max-width: 375px) {
   .have-everything__title {
-    font-size: 33.6px;
-    text-align: right;
+    font-size: 24px;
   }
 }

@@ -1,11 +1,57 @@
 ---
+import { Image } from 'astro:assets';
 import '../styles/launch-special.css';
+import phonesImg from '../assets/images/042sidebyside.png';
 ---
 
-<section class="launch-special" id="launch-special">
-  <div class="landing-container">
-    <h2 class="launch-special__title">launch special – save 60%</h2>
-    <p class="launch-special__subtitle">limited spots available for founding members</p>
-    <a href="#" class="btn-primary btn-brand">claim my space</a>
+<section class="ls-section" id="sec-launch-special">
+  <div class="ls-container">
+
+    <h2 class="ls-heading ls-fade">launch special - save 60%</h2>
+    <p class="ls-sub ls-fade">limited spots available for founding members</p>
+
+    <div class="ls-btn-wrap ls-fade">
+      <a href="#" class="btn-primary">CLAIM MY OFFER</a>
+    </div>
+
+    <!-- Semi-circle shape -->
+    <div class="ls-shape ls-anim-shape">
+      <svg
+        viewBox="0 0 160 80"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path d="M80,0C35.8,0,0,35.8,0,80h160C160,35.8,124.2,0,80,0z" />
+      </svg>
+    </div>
+
+    <!-- Phone image: pulled up over the shape with negative margin -->
+    <Image
+      src={phonesImg}
+      alt="Fullfill app screens side by side"
+      class="ls-phones ls-anim-flip"
+      loading="lazy"
+    />
+
   </div>
 </section>
+
+<script>
+  (function () {
+    var section = document.getElementById('sec-launch-special');
+    if (!section) return;
+
+    function reveal() { section.classList.add('ls-in'); }
+
+    if (!('IntersectionObserver' in window)) { reveal(); return; }
+
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { reveal(); obs.disconnect(); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+    obs.observe(section);
+  })();
+</script>

@@ -1,20 +1,155 @@
-.launch-special {
-  padding: 70px 0;
+/* ── Section ── */
+.ls-section {
   background: #fff;
   text-align: center;
+  overflow: hidden;
 }
 
-.launch-special__title {
-  font-family: var(--font-poppins);
-  font-size: 28px;
+.ls-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Heading ── */
+.ls-heading {
+  font-family: var(--font-urbanist);
+  font-size: 40px;
   font-weight: 700;
-  color: var(--color-text-dark);
-  margin: 0 0 10px;
+  color: #657ff9;
+  margin: 50px auto 0;
+  line-height: 1.15;
 }
 
-.launch-special__subtitle {
-  font-family: var(--font-open-sans);
-  font-size: 15px;
-  color: var(--color-text-muted);
-  margin: 0 0 32px;
+/* ── Subtitle ── */
+.ls-sub {
+  font-family: var(--font-urbanist);
+  font-size: 16px;
+  color: #000000;
+  margin: 16px auto 0;
+  max-width: 480px;
+}
+
+/* ── Button ── */
+.ls-btn-wrap {
+  margin-top: 22px;
+}
+
+/* ── Semi-circle shape ── */
+.ls-shape {
+  display: block;
+  width: 839px;
+  height: 384px;
+  max-width: 100%;
+  margin: 88px auto 0;
+}
+
+.ls-shape svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: #a9c9ff;
+}
+
+/* ── Phone image: negative margin pulls it up over the shape ── */
+.ls-phones {
+  display: block;
+  width: 571px;
+  height: 465px;
+  max-width: 100%;
+  margin: -472px auto 0;
+  object-fit: contain;
+}
+
+/* ── Animations ── */
+.ls-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.ls-section.ls-in .ls-fade { opacity: 1; transform: translateY(0); }
+.ls-section.ls-in .ls-heading.ls-fade  { transition-delay: 0.05s; }
+.ls-section.ls-in .ls-sub.ls-fade      { transition-delay: 0.15s; }
+.ls-section.ls-in .ls-btn-wrap.ls-fade { transition-delay: 0.25s; }
+
+.ls-anim-shape {
+  opacity: 0;
+  transform: translateY(300px);
+  transition: opacity 0.9s ease 0.3s, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+
+.ls-section.ls-in .ls-anim-shape {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ls-anim-flip {
+  opacity: 0;
+  transform: perspective(800px) rotateX(-65deg);
+  transform-origin: center bottom;
+  transition: opacity 0.9s ease 0.5s, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
+}
+
+.ls-section.ls-in .ls-anim-flip {
+  opacity: 1;
+  transform: perspective(800px) rotateX(0deg);
+}
+
+/* ── Tablet ── */
+@media (max-width: 991px) {
+  .ls-shape {
+    width: 100%;
+    height: 320px;
+  }
+
+  .ls-phones {
+    width: 80%;
+    height: auto;
+    margin-top: -380px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .ls-heading {
+    font-size: 36px;
+    margin-top: 60px;
+  }
+
+  .ls-shape {
+    height: 260px;
+    margin-top: 184px;
+  }
+
+  /* Pull image up more so circle sits lower on the image */
+  .ls-phones {
+    width: 100%;
+    height: auto;
+    margin-top: -380px;
+  }
+}
+
+/* ── Small mobile ── */
+@media (max-width: 575px) {
+  .ls-heading {
+    font-size: 30px;
+    margin-top: 50px;
+  }
+
+  .ls-sub {
+    font-size: 16px;
+  }
+
+  .ls-shape {
+    height: 203px;
+    margin-top: 184px;
+  }
+
+  /* Pull image up more so circle sits lower on the image */
+  .ls-phones {
+    width: 100%;
+    height: auto;
+    margin-top: -320px;
+  }
 }

@@ -1,35 +1,101 @@
 <!-- ExerciseBanner.astro -->
 ---
 import '../styles/exercise-banner.css';
+
+import img01 from '../assets/images/banner/cozy-sweaters-graphics.png';
+import img02 from '../assets/images/banner/nature-3046567_1280.jpg';
+import img03 from '../assets/images/banner/spring-salad-recipes-1024x636.jpg';
+import img04 from '../assets/images/banner/unsplash-1419242902214.jpg';
+import img05 from '../assets/images/banner/unsplash-1455390582262.jpg';
+import img06 from '../assets/images/banner/unsplash-1471864190281.jpg';
+import img07 from '../assets/images/banner/unsplash-1481627834876.jpg';
+import img08 from '../assets/images/banner/unsplash-1484480974693.jpg';
+import img09 from '../assets/images/banner/unsplash-1506905925346.jpg';
+import img10 from '../assets/images/banner/unsplash-1518611012118.jpg';
+import img11 from '../assets/images/banner/unsplash-1544367567.jpg';
+import img12 from '../assets/images/banner/unsplash-1545389336.jpg';
+import img13 from '../assets/images/banner/unsplash-1590602847861.jpg';
+
+const slides = [
+  { image: img12.src, label: 'healthy habits',       title: 'build your routine' },
+  { image: img06.src, label: 'holistic self-care',   title: 'move your body' },
+  { image: img09.src, label: 'mind‑body balance',    title: 'stretch & breathe' },
+  { image: img07.src, label: 'daily vitality',       title: 'stay active' },
+  { image: img02.src, label: 'connect with nature',  title: 'breathe the fresh air' },
+  { image: img04.src, label: 'inner balance',        title: 'find your calm' },
+  { image: img05.src, label: 'total wellness',       title: 'feel your best' },
+  { image: img08.src, label: 'mindful living',       title: 'live with intention' },
+  { image: img10.src, label: 'body & soul',          title: 'nourish yourself' },
+  { image: img11.src, label: 'active lifestyle',     title: 'keep moving' },
+  { image: img13.src, label: 'self-renewal',         title: 'refresh & restore' },
+  { image: img03.src, label: 'eat well',             title: 'fuel your body' },
+  { image: img01.src, label: 'seasonal wellness',    title: 'embrace the season' },
+];
 ---
+
 <section class="exercise-banner" id="exercise-banner">
-  <img id="banner-bg" src="/assets/images/landing/exercise-01.png" alt="Exercise banner image" class="exercise-banner__bg" width="1400" height="500" />
+  <img id="banner-bg-bottom" src={slides[0].image} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--bottom" width="1400" height="500" />
+  <img id="banner-bg-top"    src={slides[1].image} alt="Exercise banner" class="exercise-banner__bg exercise-banner__bg--top"    width="1400" height="500" />
+
+  <!-- White light flash overlay -->
+  <div class="exercise-banner__flash" id="banner-flash"></div>
+
   <div class="exercise-banner__overlay"></div>
   <div class="exercise-banner__content">
-    <p class="exercise-banner__label" id="banner-label">holistic self-care</p>
-    <h2 class="exercise-banner__title" id="banner-title">move your body</h2>
+    <p  class="exercise-banner__label" id="banner-label">{slides[0].label}</p>
+    <h2 class="exercise-banner__title" id="banner-title">{slides[0].title}</h2>
   </div>
-  <script is:inline>
-    const slides = [
-      {image: '/assets/images/landing/exercise-01.png', label: 'holistic self-care', title: 'move your body'},
-      {image: '/assets/images/landing/exercise-02.png', label: 'mind‑body balance', title: 'stretch & breathe'},
-      {image: '/assets/images/landing/exercise-bg.png', label: 'daily vitality', title: 'stay active'}
-    ];
+
+  <script define:vars={{ slides }}>
     let current = 0;
-    const img = document.getElementById('banner-bg');
-    const label = document.getElementById('banner-label');
-    const title = document.getElementById('banner-title');
+    const bottom = document.getElementById('banner-bg-bottom');
+    const top    = document.getElementById('banner-bg-top');
+    const flash  = document.getElementById('banner-flash');
+    const label  = document.getElementById('banner-label');
+    const title  = document.getElementById('banner-title');
+
+    // ── Preload ALL images up front so every transition is instant ──
+    slides.forEach((s) => {
+      const pre = new Image();
+      pre.src = s.image;
+    });
+
+    top.style.opacity = '0';
+
     function showNext() {
-      current = (current + 1) % slides.length;
-      const slide = slides[current];
-      img.style.opacity = '0';
+      const next  = (current + 1) % slides.length;
+      const slide = slides[next];
+
+      // ── Step 1: Soft light wash in (0 → 0.6 over 0.1s) ──
+      flash.style.transition = 'opacity 0.1s ease-in';
+      flash.style.opacity    = '0.6';
+
+      // ── Step 2: At peak — swap image & hide text ──
       setTimeout(() => {
-        img.src = slide.image;
-        label.textContent = slide.label;
-        title.textContent = slide.title;
-        img.style.opacity = '1';
-      }, 800);
+        bottom.src = slide.image;
+        top.style.opacity = '0';
+        top.src = slide.image;
+        label.style.opacity = '0';
+        title.style.opacity  = '0';
+      }, 100);
+
+      // ── Step 3: Flash out fast (0.12s) ──
+      setTimeout(() => {
+        flash.style.transition = 'opacity 0.12s ease-out';
+        flash.style.opacity    = '0';
+      }, 130);
+
+      // ── Step 4: Text snaps back in immediately ──
+      setTimeout(() => {
+        label.textContent   = slide.label;
+        title.textContent   = slide.title;
+        label.style.opacity = '1';
+        title.style.opacity  = '1';
+        current = next;
+      }, 180);
     }
-    setInterval(showNext, 4000);
+
+    // 2 s per slide — faster cycling
+    setInterval(showNext, 2000);
   </script>
 </section>

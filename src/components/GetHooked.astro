@@ -1,17 +1,71 @@
 ---
+import { Image } from 'astro:assets';
 import '../styles/get-hooked.css';
+
+import imgAchievement from '../assets/images/02acheivementscreenshot.jpg';
+import imgStreaks from '../assets/images/02.streaksscreenshot.png';
+import imgCalendar from '../assets/images/02calendarscreenshot.jpg';
+import imgJournal from '../assets/images/02journalpage.png';
 ---
 
-<section class="get-hooked" id="get-hooked">
-  <div class="landing-container">
-    <h2 class="get-hooked__title">get hooked to getting better</h2>
-    <p class="get-hooked__subtitle">sign up, customise and use it for free and start building positive, built-in ease</p>
-    <div class="get-hooked__phones">
-      <div class="mini-phone"><div class="mini-phone__screen">home</div></div>
-      <div class="mini-phone"><div class="mini-phone__screen">meditate</div></div>
-      <div class="mini-phone"><div class="mini-phone__screen">journal</div></div>
-      <div class="mini-phone"><div class="mini-phone__screen">habits</div></div>
-      <div class="mini-phone"><div class="mini-phone__screen">progress</div></div>
+<section class="gh-section" id="sec-get-hooked">
+  <div class="gh-container">
+    <h2 class="gh-heading">get hooked to getting better</h2>
+    <p class="gh-sub">light up your brain's reward center to help create lasting positive habit loops</p>
+    <div class="gh-phones">
+      <div class="gh-phone-item">
+        <Image
+          src={imgAchievement}
+          alt="Achievement screenshot"
+          class="gh-phone-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="gh-phone-item">
+        <Image
+          src={imgStreaks}
+          alt="Streaks screenshot"
+          class="gh-phone-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="gh-phone-item">
+        <Image
+          src={imgCalendar}
+          alt="Calendar screenshot"
+          class="gh-phone-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="gh-phone-item">
+        <Image
+          src={imgJournal}
+          alt="Journal page screenshot"
+          class="gh-phone-img"
+          loading="lazy"
+        />
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  /* Scroll-triggered entrance: fade + slide up when section enters viewport */
+  (function () {
+    var section = document.getElementById('sec-get-hooked');
+    if (!section) return;
+    if (!('IntersectionObserver' in window)) {
+      section.classList.add('gh-in');
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          section.classList.add('gh-in');
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.12 });
+    obs.observe(section);
+  })();
+</script>

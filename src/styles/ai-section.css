@@ -1,137 +1,171 @@
 .ai-section {
   background: #fff;
-  overflow: visible;
-  padding: 0;
-}
-
-.ai-section__inner {
+  min-height: 640px;
   display: flex;
-  flex-direction: column;
-  position: relative;
   align-items: center;
-  justify-content: center;
+  overflow: visible;
 }
 
 .ai-section__layout {
   display: flex;
-  align-items: flex-start;
-  padding-top: 60px;
-  position: relative;
-  overflow: visible;
+  align-items: center;
+  width: 100%;
+  padding: 24px 0;
+  gap: 40px;
 }
 
+/* ANIMATION STATES */
+.ai-animate-left {
+  opacity: 0;
+  transform: translateX(-300px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.ai-animate-right {
+  opacity: 0;
+  transform: translateX(300px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.ai-in .ai-animate-left,
+.ai-in .ai-animate-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* LEFT: text content */
 .ai-section__content {
   flex: 1;
-  padding-bottom: 60px;
-  padding-top: 20px;
-  z-index: 2;
+  padding: 30px 30px 30px 27px;
+  padding-top: 93px;
   text-align: left;
 }
 
 .ai-section__title {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 40px;
+  font-family: var(--font-urbanist);
+  font-size: 36px;
   font-weight: 700;
-  color: #5968c0;
+  color: #8097ff;
   line-height: 1.1;
-  margin: 0 0 20px 0;
+  margin: 0;
 }
 
 .ai-section__desc {
-  font-size: 17.7778px;
-  font-family: var(--font-open-sans);
-  color: #5968c0;
-  line-height: 1.5;
-  margin: 0 0 80px 0;
-}
-
-.ai-section__navband {
-  width: 100%;
-  background: rgba(180, 185, 255, 0.55);
-  padding: 14px 0;
-  z-index: 3;
-  position: relative;
-}
-
-.ai-section__navband-inner {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  flex-wrap: wrap;
-}
-
-.ai-section__nav-logo {
   font-family: var(--font-urbanist);
-  font-size: 22px;
-  font-weight: 700;
-  font-style: italic;
-  color: #27113d;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #8097ff;
+  margin: 58px 0 0 0;
 }
 
-.ai-section__navband a {
-  font-family: var(--font-open-sans);
-  font-size: 14px;
-  color: #27113d;
-  text-decoration: none;
-  transition: color 0.2s;
+/* section-specific margin only — styling comes from global .btn-primary */
+.ai-section__content .btn-primary {
+  margin-top: 69px;
 }
 
-.ai-section__navband a:hover {
-  color: #5968c0;
-}
-
+/* RIGHT: book image */
 .ai-section__image {
-  flex: 0 0 45%;
+  flex: 0 0 auto;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  overflow: visible;
-}
-
-.ai-section__books {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  overflow: visible;
-}
-
-.book-stack {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0;
+  justify-content: center;
 }
 
-.book-stack__img {
-  width: 380px;
-  height: auto;
+.ai-section__book-img {
+  width: 446px;
+  height: 543px;
   object-fit: contain;
   display: block;
-  margin-top: -30px;
+  margin: 3px auto -9px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
+  .ai-section__content {
+    padding-top: 60px;
+  }
+
+  .ai-section__book-img {
+    width: 360px;
+    height: auto;
+  }
+}
+
+@media (max-width: 991px) {
   .ai-section__layout {
     flex-direction: column;
-    align-items: center;
+    text-align: left;
   }
 
   .ai-section__content {
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  .ai-section__image {
-    flex: none;
-    width: 100%;
-    justify-content: center;
+    padding-top: 40px;
+    padding-left: 0;
+    text-align: left;
   }
 
   .ai-section__title {
-    font-size: 26px;
+    font-size: 32px;
   }
 
-  .ai-section__navband-inner {
-    justify-content: center;
+  .ai-section__desc {
+    margin-top: 30px;
+  }
+
+  .ai-btn {
+    margin-top: 40px;
+  }
+
+  .ai-section__image {
+    width: 100%;
+  }
+
+  .ai-section__book-img {
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .ai-section {
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .ai-section__title {
+    font-size: 28px;
+  }
+
+  .ai-section__desc {
+    font-size: 18px;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ai-section {
+    padding: 32px 0;
+  }
+
+  .ai-section__content {
+    padding: 24px 30px;
+  }
+
+  .ai-section__title {
+    font-size: 24px;
+  }
+
+  .ai-section__desc {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+
+  .ai-btn {
+    margin-top: 28px;
+    padding: 12px 28px;
+  }
+
+  .ai-section__book-img {
+    width: 263px;
   }
 }

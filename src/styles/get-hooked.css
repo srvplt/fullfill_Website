@@ -1,96 +1,149 @@
-.get-hooked {
-  padding: 80px 0;
-  background: #fff;
+.gh-section {
+  padding: 80px 0 100px;
   text-align: center;
-}
-
-.get-hooked__title {
-  font-family: var(--font-poppins);
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--color-brand);
-  margin: 0 0 8px;
-}
-
-.get-hooked__subtitle {
-  font-family: var(--font-open-sans);
-  font-size: 14px;
-  color: var(--color-text-muted);
-  margin: 0 0 48px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.get-hooked__phones {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.mini-phone {
-  width: 130px;
-  height: 260px;
-  border-radius: 24px;
-  border: 4px solid #333;
   overflow: hidden;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(94, 97, 214, 0.15);
-  transition: transform 0.3s;
 }
 
-.mini-phone:hover {
-  transform: translateY(-6px);
+.gh-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.mini-phone::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 14px;
-  background: #333;
-  border-radius: 0 0 10px 10px;
-  z-index: 2;
+/* ── Typography ── */
+.gh-heading {
+  font-family: var(--font-urbanist);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #657ff9;
+  margin: 0 0 16px;
 }
 
-.mini-phone__screen {
+.gh-sub {
+  font-family: var(--font-urbanist);
+  font-size: 20px;
+  color: #3f5ef0;
+  margin: 0 auto 52px;
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+/* ── Scroll-triggered entrance animation ── */
+.gh-heading,
+.gh-sub {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.gh-section.gh-in .gh-heading {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.1s;
+}
+
+.gh-section.gh-in .gh-sub {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.25s;
+}
+
+/* ── Phone image grid ── */
+.gh-phones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  align-items: flex-end;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gh-phone-item {
+  overflow: hidden;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.gh-section.gh-in .gh-phones .gh-phone-item:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.35s;
+}
+
+.gh-section.gh-in .gh-phones .gh-phone-item:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.gh-section.gh-in .gh-phones .gh-phone-item:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.65s;
+}
+
+.gh-section.gh-in .gh-phones .gh-phone-item:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+
+.gh-phone-img {
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-open-sans);
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  padding: 8px;
+  height: auto;
+  display: block;
+  border-radius: 10px;
 }
 
-.mini-phone:nth-child(1) .mini-phone__screen { background: linear-gradient(180deg, #949bff, #7c7fd4); }
-.mini-phone:nth-child(2) .mini-phone__screen { background: linear-gradient(180deg, #8b8fe8, #6e71c7); }
-.mini-phone:nth-child(3) .mini-phone__screen { background: linear-gradient(180deg, #a0a5ff, #8487dd); }
-.mini-phone:nth-child(4) .mini-phone__screen { background: linear-gradient(180deg, #7a7ecf, #5f62b8); }
-.mini-phone:nth-child(5) .mini-phone__screen { background: linear-gradient(180deg, #9599f0, #7b7ed6); }
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .gh-heading {
+    font-size: 34px;
+  }
+
+  .gh-sub {
+    font-size: 18px;
+  }
+}
 
 @media (max-width: 767px) {
-  .get-hooked {
-    padding: 50px 0;
+  .gh-section {
+    padding: 60px 0 72px;
   }
 
-  .get-hooked__title {
-    font-size: 22px;
+  .gh-heading {
+    font-size: 32px;
   }
 
-  .mini-phone {
-    width: 100px;
-    height: 200px;
+  .gh-sub {
+    font-size: 17px;
+    margin-bottom: 36px;
   }
 
-  .get-hooked__phones {
+  .gh-phones {
+    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .gh-section {
+    padding: 48px 0 60px;
+  }
+
+  .gh-heading {
+    font-size: 28px;
+  }
+
+  .gh-sub {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+
+  .gh-phones {
+    gap: 10px;
   }
 }

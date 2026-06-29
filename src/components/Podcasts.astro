@@ -1,59 +1,172 @@
 ---
 import '../styles/podcasts.css';
+import podcastBg from '../assets/images/podcast_image.avif';
 ---
 
-<section class="podcasts" id="curated-podcasts">
-  <div class="landing-container">
-    <h2 class="podcasts__title">curated podcasts <em>for you</em></h2>
-    <p class="podcasts__subtitle">hand-picked for the inner work that advances your personal growth</p>
-    <div class="podcasts__carousel">
-      <div class="podcast-card card1">
-        <p class="podcast-card__desc">MINDSET</p>
-        <p class="podcast-card__title">Rewire how <br/> you think</p>
-        <div class="ll-wv">
-          <div class="ll-b" style="height:14px;animation-delay:.1s"></div>
-          <div class="ll-b" style="height:22px;animation-delay:.25s"></div>
-          <div class="ll-b" style="height:28px;animation-delay:.4s"></div>
-          <div class="ll-b" style="height:18px;animation-delay:.55s"></div>
-          <div class="ll-b" style="height:24px;animation-delay:.7s"></div>
-          <div class="ll-b" style="height:12px;animation-delay:.85s"></div>
-          <div class="ll-b" style="height:20px;animation-delay:1s"></div>
+<section class="ll-section" id="sec-listen-lounge" style={`background-image: url('${podcastBg.src}')`}>
+
+  <!-- dark gradient overlay -->
+  <div class="ll-overlay"></div>
+
+  <!-- purple glow blob -->
+  <div class="ll-glow-blob"></div>
+
+  <div class="ll-sheet">
+
+    <!-- Heading -->
+    <div class="ll-heading-wrap ll-animate">
+      <h2 class="ll-heading">
+        <span class="ll-grad">curated podcasts for you</span>
+      </h2>
+      <p class="ll-sub">hand-picked for the topics most relevant to your growth</p>
+    </div>
+
+    <!-- Card stack -->
+    <div class="ll-stack-outer ll-animate">
+      <div class="ll-stack" id="llStack">
+
+        <!-- Card 1: Mindset -->
+        <div class="ll-pc ll-pc-1">
+          <div class="ll-glass"></div>
+          <div class="ll-content">
+            <div>
+              <div class="ll-tag">Mindset</div>
+              <div class="ll-title">Rewire how<br />you think</div>
+            </div>
+            <div class="ll-wv">
+              <div class="ll-b" style="height:8px;animation-delay:0s"></div>
+              <div class="ll-b" style="height:18px;animation-delay:.15s"></div>
+              <div class="ll-b" style="height:24px;animation-delay:.3s"></div>
+              <div class="ll-b" style="height:14px;animation-delay:.45s"></div>
+              <div class="ll-b" style="height:20px;animation-delay:.6s"></div>
+              <div class="ll-b" style="height:10px;animation-delay:.75s"></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="podcast-card card2">
-        <p class="podcast-card__desc">MINDSET</p>
-        <p class="podcast-card__title">Deep work, <br/> No noise,</p>
-        <div class="ll-wv">
-          <div class="ll-b" style="height:14px;animation-delay:.1s"></div>
-          <div class="ll-b" style="height:22px;animation-delay:.25s"></div>
-          <div class="ll-b" style="height:28px;animation-delay:.4s"></div>
-          <div class="ll-b" style="height:18px;animation-delay:.55s"></div>
-          <div class="ll-b" style="height:24px;animation-delay:.7s"></div>
-          <div class="ll-b" style="height:12px;animation-delay:.85s"></div>
-          <div class="ll-b" style="height:20px;animation-delay:1s"></div>
+
+        <!-- Card 2: Focus (front) -->
+        <div class="ll-pc ll-pc-2">
+          <div class="ll-glass"></div>
+          <div class="ll-content">
+            <div>
+              <div class="ll-tag">Focus</div>
+              <div class="ll-title">Deep work.<br />No noise.</div>
+            </div>
+            <div class="ll-wv">
+              <div class="ll-b" style="height:14px;animation-delay:.1s"></div>
+              <div class="ll-b" style="height:22px;animation-delay:.25s"></div>
+              <div class="ll-b" style="height:28px;animation-delay:.4s"></div>
+              <div class="ll-b" style="height:18px;animation-delay:.55s"></div>
+              <div class="ll-b" style="height:24px;animation-delay:.7s"></div>
+              <div class="ll-b" style="height:12px;animation-delay:.85s"></div>
+              <div class="ll-b" style="height:20px;animation-delay:1s"></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="podcast-card card3">
-        <p class="podcast-card__desc">MINDSET</p>
-        <p class="podcast-card__title">Live with <br/> intention</p>
-        <div class="ll-wv">
-          <div class="ll-b" style="height:14px;animation-delay:.1s"></div>
-          <div class="ll-b" style="height:22px;animation-delay:.25s"></div>
-          <div class="ll-b" style="height:28px;animation-delay:.4s"></div>
-          <div class="ll-b" style="height:18px;animation-delay:.55s"></div>
-          <div class="ll-b" style="height:24px;animation-delay:.7s"></div>
-          <div class="ll-b" style="height:12px;animation-delay:.85s"></div>
-          <div class="ll-b" style="height:20px;animation-delay:1s"></div>
+
+        <!-- Card 3: Purpose -->
+        <div class="ll-pc ll-pc-3">
+          <div class="ll-glass"></div>
+          <div class="ll-content">
+            <div>
+              <div class="ll-tag">Purpose</div>
+              <div class="ll-title">Live with<br />intention</div>
+            </div>
+            <div class="ll-wv">
+              <div class="ll-b" style="height:10px;animation-delay:.2s"></div>
+              <div class="ll-b" style="height:20px;animation-delay:.35s"></div>
+              <div class="ll-b" style="height:16px;animation-delay:.5s"></div>
+              <div class="ll-b" style="height:26px;animation-delay:.65s"></div>
+              <div class="ll-b" style="height:12px;animation-delay:.8s"></div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
-    <div class="podcasts__tags">
-      <a href="#" class="podcasts__tag">Mindset</a>
-      <a href="#" class="podcasts__tag">Focus</a>
-      <a href="#" class="podcasts__tag">Health</a>
-      <a href="#" class="podcasts__tag">Purpose</a>
-      <a href="#" class="podcasts__tag">Sleep</a>
-      <a href="#" class="podcasts__tag">Relationships</a>
+
+    <!-- Topic pills -->
+    <div class="ll-pills ll-animate">
+      <span class="ll-tag-pill">Mindset</span>
+      <span class="ll-tag-pill">Focus</span>
+      <span class="ll-tag-pill">Health</span>
+      <span class="ll-tag-pill">Purpose</span>
+      <span class="ll-tag-pill">Sleep</span>
+      <span class="ll-tag-pill">Relationships</span>
     </div>
+
   </div>
 </section>
+
+<script>
+  /* ── Mobile card cycling ── */
+  (function () {
+    var isMobile = function () { return window.innerWidth <= 768; };
+    var cards = [
+      document.querySelector('.ll-pc-1'),
+      document.querySelector('.ll-pc-2'),
+      document.querySelector('.ll-pc-3')
+    ];
+    var current = 1;
+    var timer = null;
+
+    function setActive(idx) {
+      cards.forEach(function (c, i) {
+        c.classList.toggle('ll-active', i === idx);
+      });
+      current = idx;
+    }
+
+    function cycle() { setActive((current + 1) % cards.length); }
+
+    function startCycle() {
+      if (timer) return;
+      setActive(current);
+      timer = setInterval(cycle, 1800);
+    }
+
+    function stopCycle() {
+      clearInterval(timer);
+      timer = null;
+      cards.forEach(function (c) { c.classList.remove('ll-active'); });
+    }
+
+    var sec = document.getElementById('sec-listen-lounge');
+    if (sec && 'IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (isMobile()) {
+            if (e.isIntersecting) { startCycle(); }
+            else { stopCycle(); }
+          }
+        });
+      }, { threshold: 0.3 });
+      obs.observe(sec);
+    }
+  })();
+
+  /* ── Scroll-triggered entrance animation ── */
+  (function () {
+    var section = document.getElementById('sec-listen-lounge');
+    if (!section) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          section.classList.add('ll-in');
+        } else {
+          var els = section.querySelectorAll('.ll-animate');
+          els.forEach(function (el) { el.style.transition = 'none'; });
+          section.classList.remove('ll-in');
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              els.forEach(function (el) { el.style.transition = ''; });
+            });
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+  })();
+</script>

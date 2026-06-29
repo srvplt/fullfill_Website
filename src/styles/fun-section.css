@@ -1,105 +1,242 @@
+/* OUTER SECTION */
 .fun-section {
-  padding: 80px 0;
-  background: var(--color-dark-purple);
-}
-
-.fun-section h2 {
-  background: linear-gradient(90deg, #ae68f7 0%, #ffffff 55%, #e3e7ed 100%);
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.fun-section__inner {
+  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  gap: 60px;
+  overflow: hidden;
+  padding: 80px 0;
+  background-image: url('https://www.knightshealthandfitness.co.uk/wp-content/uploads/2024/11/Yoga-05-1200x801.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.fun-section__phone {
-  flex: 0 0 40%;
-  max-width: 40%;
+/* DARK GRADIENT OVERLAY */
+.hf-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg,
+    rgba(15, 8, 40, 0.92) 0%,
+    rgba(30, 20, 80, 0.88) 45%,
+    rgba(20, 30, 90, 0.92) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ENTRANCE ANIMATIONS */
+@keyframes habitFlip {
+  0%   { transform: perspective(1500px) rotateY(-80deg) scale(0.7); opacity: 0; }
+  100% { transform: perspective(1500px) rotateY(0deg) scale(1);     opacity: 1; }
+}
+@keyframes hfFadeInUp {
+  0%   { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+
+/* LAYOUT CONTAINER */
+.hf-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  gap: 40px;
+}
+
+/* PHONE SIDE */
+.hf-phone-area {
+  flex: 1;
   display: flex;
   justify-content: center;
 }
 
-.fun-section__phone-frame {
-  width: 240px;
-  height: 460px;
-  border-radius: 32px;
-  overflow: hidden;
-  border: 5px solid #444;
+.hf-phone-frame {
+  width: 270px;
+  height: 540px;
+  background: #000;
+  border: 10px solid #1a1a1a;
+  border-radius: 40px;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  background: linear-gradient(180deg, #8b7fc7, #6b63b5);
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  animation: habitFlip 1.4s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
 
-.fun-section__phone-label {
+/* CYCLING CARDS INSIDE PHONE */
+.hf-video-card {
   position: absolute;
-  bottom: 20px;
-  left: 16px;
-  right: 16px;
-  font-family: var(--font-open-sans);
-  font-size: 14px;
-  font-weight: 600;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s ease, opacity 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px 20px;
+  opacity: 0;
+}
+
+.hf-video-card p {
   color: #fff;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-
-.fun-section__content {
-  flex: 1;
-}
-
-.fun-section__title {
-  font-family: var(--font-urbanist);
-  font-size: 34px;
   font-weight: 700;
-  color: var(--color-brand-light);
-  margin: 0 0 16px;
-}
-
-.fun-section__desc {
-  font-family: var(--font-open-sans);
+  font-family: var(--font-urbanist);
+  margin: 0;
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
-  margin: 20px 0px;
-  width: 335.2px;
 }
 
+.hf-video-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hf-video-card.prev {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+/* TEXT SIDE */
+.hf-text-area {
+  flex: 1;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hf-heading {
+  font-family: var(--font-urbanist);
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: hfFadeInUp 0.8s ease both 0.5s;
+}
+
+.hf-grad {
+  background: linear-gradient(90deg, #ae68f7 0%, #6a77ff 55%, #a9c9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hf-text {
+  font-family: var(--font-urbanist);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 35px;
+  max-width: 450px;
+  line-height: 1.7;
+  opacity: 0;
+  animation: hfFadeInUp 0.8s ease both 0.7s;
+}
+
+.hf-btn-wrap {
+  opacity: 0;
+  animation: hfFadeInUp 0.8s ease both 0.9s;
+}
+
+/* Mobile button — hidden on desktop */
+.hf-btn-mobile-wrap {
+  display: none;
+}
+
+
+/* TABLET */
+@media (max-width: 991px) {
+  .hf-heading {
+    font-size: 48px;
+  }
+
+  .hf-text-area {
+    padding: 0 2%;
+  }
+}
+
+/* MOBILE */
 @media (max-width: 767px) {
   .fun-section {
-    padding: 50px 0;
+    padding: 60px 20px;
+    background-attachment: scroll;
   }
 
-  .fun-section__inner {
+  .hf-container {
     flex-direction: column;
     text-align: center;
+    gap: 30px;
   }
 
-  .fun-section__content {
+  /* Text first (no button) */
+  .hf-text-area {
     order: 1;
-    display: contents;
+    padding: 0;
+    align-items: center;
+    width: 100%;
   }
 
-  .fun-section__phone {
-    flex: none;
-    max-width: 100%;
+  /* Hide desktop button on mobile */
+  .hf-btn-desktop {
+    display: none;
+  }
+
+  /* Phone image second */
+  .hf-phone-area {
     order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  .fun-section__phone-frame {
-    width: 200px;
+  /* Mobile button third — below phone image */
+  .hf-btn-mobile-wrap {
+    order: 3;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .hf-heading {
+    font-size: 2.8rem;
+  }
+
+  .hf-text {
+    margin: 0 auto 20px;
+    font-size: 1.1rem;
+  }
+
+  .hf-phone-frame {
+    width: 220px;
+    height: 440px;
+  }
+}
+
+@media (max-width: 575px) {
+  .fun-section {
+    padding: 50px 16px;
+  }
+
+  .hf-heading {
+    font-size: 2.25rem;
+  }
+
+  .hf-text {
+    font-size: 1rem;
+  }
+
+  .hf-phone-frame {
+    width: 190px;
     height: 380px;
   }
 
-  .fun-section__desc {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .fun-section .btn-brand {
-    order: 3;
+  .hf-btn {
+    padding: 12px 28px;
+    font-size: 0.82rem;
   }
 }

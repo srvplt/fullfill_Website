@@ -12,23 +12,15 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  .brain-cortex {
-    position: static;
-    top: auto;
-    height: auto;
-    min-height: unset;
-    padding: 50px 20px;
-  }
-}
-
 .brain-cortex__title {
+  font-family: var(--font-urbanist);
   font-size: 40px;
-  font-weight: 600;
-  color: #657FF9;
+  font-weight: 700;
+  color: #657ff9;
+  margin: 0 auto 70px;
   opacity: 0;
   transform: translateX(-120px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .brain-cortex__title.is-visible {
@@ -36,128 +28,186 @@
   transform: translateX(0);
 }
 
+/* ── Grid: 4 columns desktop, 2 on tablet/mobile ── */
 .brain-cortex__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  max-width: 100%;
+  gap: 18px;
   margin: 0 auto;
   width: 100%;
+  max-width: 1140px;
 }
 
+/* ── Card ── */
 .cortex-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 30px;
-  border-radius: 16px;
-  background-image: linear-gradient(to bottom, rgba(164, 180, 248, 0.5), rgba(166, 131, 245, 0.5)), linear-gradient(to bottom, rgba(169, 201, 255, 1), rgba(169, 201, 255, 1));
+  padding: 56px 30px 30px;
+  border-radius: 50px;
+  background-image:
+    linear-gradient(to bottom, rgba(164, 180, 248, 0.5), rgba(166, 131, 245, 0.5)),
+    linear-gradient(to bottom, rgba(169, 201, 255, 1), rgba(169, 201, 255, 1));
   width: 100%;
-  max-width: 307.8px;
-  min-height: 200px;
+  min-height: 282px;
+  position: relative;
   opacity: 0;
-  translate: 0 80px;
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), translate 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s, box-shadow 0.3s;
-  gap: 30px;
-  margin-top: 20px;
+  translate: 0 300px;
+  transition:
+    opacity 1s ease-out 0.4s,
+    translate 1s ease-out 0.4s,
+    box-shadow 0.3s;
 }
 
-.cortex-card.is-visible {
+.brain-cortex__grid.is-visible .cortex-card {
   opacity: 1;
   translate: 0 0;
-  animation: floatCard 3s ease-in-out infinite;
 }
 
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-.cortex-card:nth-child(1) { transition-delay: 0s; }
-.cortex-card:nth-child(2) { transition-delay: 0.15s; }
-.cortex-card:nth-child(3) { transition-delay: 0.3s; }
-.cortex-card:nth-child(4) { transition-delay: 0.45s; }
-
-.cortex-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(94, 97, 214, 0.2);
-}
-
+/* ── Icon bubble ── */
 .cortex-card__icon {
-  width: 55px;
-  height: 55px;
-  margin: -50px auto 0;
-  padding: 14px;
-  border-radius: 50%;
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  padding: 25px;
+  border-radius: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(#657ff9, #a4b4f8);
+  background-image: linear-gradient(#657ff9, #a4b4f8);
 }
 
-.cortex-card__icon svg {
-  width: 28px;
-  height: 28px;
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.cortex-card__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
-.cortex-card__label {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 8px 0 6px;
-}
-
-.cortex-card__desc {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 13px;
-  color: #ffffff;
-  opacity: 0.9;
-  margin: 0;
-  line-height: 1.4;
-}
-
+/* ── Body ── */
 .cortex-card__body {
   width: 100%;
-  max-width: 268px;
   height: auto;
-  margin-top: 6px;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
-  color: #ffffff;
+  margin-top: 45px;
   text-align: center;
 }
 
-@media (max-width: 1199px) {
-  .brain-cortex__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-  }
+.cortex-card__label {
+  font-family: var(--font-urbanist);
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
 }
 
-@media (max-width: 767px) {
-  .brain-cortex {
-    padding: 50px 0;
+.cortex-card__desc {
+  font-family: var(--font-urbanist);
+  font-size: 18px;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 30px 0 0;
+  line-height: 1.2;
+}
+
+/* ── Tablet ── */
+@media (max-width: 991px) {
+  .brain-cortex__title {
+    margin-bottom: 0;
   }
 
   .brain-cortex__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 33px;
+    margin-top: 56px;
+  }
+
+  .cortex-card__icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .brain-cortex {
+    padding: 50px 16px;
   }
 
   .brain-cortex__title {
     font-size: 32px;
+    margin-bottom: 0;
+  }
+
+  .brain-cortex__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 72px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cortex-card__body {
+    margin-top: 20px;
+  }
+
+  .cortex-card__label {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .cortex-card__icon {
+    width: 76px;
+    height: 76px;
+    top: -28px;
+    padding: 16px;
   }
 }
 
-@media (max-width: 400px) {
+/* ── Small mobile ── */
+@media (max-width: 575px) {
+  .brain-cortex__title {
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+
   .brain-cortex__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 13px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 56px;
+  }
+
+  .cortex-card {
+    padding: 44px 10px 18px;
+    border-radius: 20px;
+    min-height: 200px;
+  }
+
+  .cortex-card__icon {
+    width: 54px;
+    height: 54px;
+    top: -29px;
+    padding: 12px;
+  }
+
+  .cortex-card__body {
+    margin-top: 16px;
+  }
+
+  .cortex-card__label {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .cortex-card__desc {
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 1.3;
   }
 }

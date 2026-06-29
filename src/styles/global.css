@@ -26,7 +26,17 @@
   /* Fonts */
   --font-open-sans: 'Open Sans', sans-serif;
   --font-urbanist: 'Urbanist', sans-serif;
-  --font-poppins: 'Urbanist', sans-serif; /* mapped to Urbanist like original site */
+  --font-poppins: 'Poppins', sans-serif; /* mapped to Urbanist like original site */
+
+  /* Button */
+  --btn-bg: #5e61d6;
+  --btn-bg-hover: #4a4dc2;
+  --btn-color: #ffffff;
+  --btn-padding: 18px 45px;
+  --btn-radius: 50px;
+  --btn-font-size: 14px;
+  --btn-font-weight: 700;
+  --btn-letter-spacing: 1px;
 }
 
 *,
@@ -62,6 +72,22 @@ body {
 main {
   flex: 1;
 }
+
+/* ── Global heading defaults — matches reference site nicepage.css ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-urbanist);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1.125rem; }
 
 .site-container {
   max-width: var(--container-max-width);
@@ -108,27 +134,55 @@ main {
   }
 }
 
+@media (max-width: 575px) {
+  .site-container,
+  .landing-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* ── Button responsive padding (tablet + mobile only) ── */
+@media (max-width: 991px) {
+  :root {
+    --btn-padding: 16px 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --btn-padding: 14px 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  :root {
+    --btn-padding: 13px 24px;
+  }
+}
+
 .btn-primary {
   display: inline-block;
-  padding: 16px 45px;
-  background: #5968c0;
-  color: #ffffff;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  padding: var(--btn-padding);
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  font-family: var(--font-open-sans);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  letter-spacing: var(--btn-letter-spacing);
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 24px;
+  border-radius: var(--btn-radius);
   border: none;
   cursor: pointer;
-  margin-top: 30px;
-  transition: background 0.25s, transform 0.2s;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  transition: background-color 0.25s, transform 0.2s;
 }
 
 .btn-primary:hover {
-  background: var(--color-brand-hover);
-  transform: translateY(-2px);
+  background-color: var(--btn-bg-hover);
+  color: var(--btn-color);
 }
 
 .btn-brand {

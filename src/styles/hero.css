@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: #b8bff5;
+  background: #A9C8FE;
   padding-bottom: 30px;
   margin-bottom: 0;
   padding-top: 90px;
@@ -70,21 +70,19 @@
 }
 
 .hero__headline {
-  font-family: "Urbanist", sans-serif;
-  font-size: 40px;
+  font-family: var(--font-urbanist);
+  font-size: 36px;
   line-height: 1.2;
   font-weight: 700;
-  letter-spacing: normal;
   color: #ffffff;
   margin: 0;
 }
 
 .hero__subtext {
-  font-family: Urbanist !important;
+  font-family: var(--font-urbanist);
   font-size: 24px;
-  line-height: 25.8px;
-  font-weight: 400;
-  letter-spacing: normal;
+  line-height: 1.2;
+  font-weight: 300;
   color: #ffffff;
   margin: 0;
   margin-top: 4px;
@@ -110,47 +108,108 @@
 }
 
 @media (max-width: 767px) {
-  .hero__inner {
-    flex-direction: column;
-    text-align: left;
-    align-items: flex-start;
-    justify-content: flex-start;
+  .hero {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 100svh;
   }
 
+  /* Override landing-container horizontal padding — each column handles its own */
+  .hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    min-height: 100svh;
+    gap: 0;
+  }
+
+  /* Phone column: full width, LEFT-aligned, sits at bottom of its container */
   .hero__phone {
-    flex: none;
-    max-width: 100%;
-    order: -1;
+    flex: 0 0 48vh;
+    max-width: none;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-left: 20px;
     padding-right: 0;
   }
 
-  .hero__phone img {
-    max-width: 260px;
-    transform: rotate(0deg);
+  /* Video/image: auto width derived from height, hugs left-bottom */
+  .hero__phone video,
+  .hero__phone-video {
+    height: 95%;
+    max-height: 48vh;
+    width: auto;
+    max-width: none;
   }
 
+  .hero__phone img {
+    max-width: none;
+    height: 95%;
+    width: auto;
+  }
+
+  /* Text column: left 40px indent matching reference, right 24px */
   .hero__content {
-    flex: none;
+    flex: 1 1 auto;
     max-width: 100%;
-    padding: 20px 0 40px;
+    padding: 10px 24px 30px 40px;
     width: 100%;
     align-items: flex-start;
     text-align: left;
+    gap: 4px;
   }
 
-  .hero__brand {
-    font-size: 30px;
+  .hero__headline {
+    font-size: 27px;
+    line-height: 1.1;
+    text-align: left;
+    margin-bottom: 2px;
+  }
+
+  .hero__subtext {
+    font-size: 18px;
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+
+  .hero__logo {
+    width: 160px;
+    margin-bottom: 2px !important;
+  }
+
+  /* Button: left-aligned on mobile */
+  .hero__content .btn-primary {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero__phone {
+    flex: 0 0 44vh;
+    padding-left: 16px;
+  }
+
+  .hero__phone video,
+  .hero__phone-video {
+    max-height: 44vh;
+  }
+
+  .hero__content {
+    padding: 10px 20px 28px 32px;
   }
 
   .hero__headline {
     font-size: 27.2px;
-    line-height: 1.2;
+  }
+
+  .hero__subtext {
+    font-size: 18px;
   }
 
   .hero__logo {
-    width: 130px;
-    margin-bottom: 2px !important;
+    width: 140px;
   }
 }

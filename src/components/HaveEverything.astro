@@ -1,12 +1,61 @@
 ---
 import '../styles/have-everything.css';
+import { Image } from "astro:assets";
+import image from "../assets/images/haveEverythingImage.png";
+import mobileImage from "../assets/images/target mobile.webp";
 ---
 
-<section class="have-everything" id="have-everything">
-  <div class="have-everything__bg"></div>
-  <div class="landing-container have-everything__content">
-    <h2 class="have-everything__title">have everything,<br />yet feel nothing?</h2>
-    <h5 class="have-everything__desc">conquer emptiness and build a mind that feels happiness again</h5>
-    <a href="#" class="btn-outline-white">build my bulletproof mind</a>
-  </div>
-</section>
+<div class="he-sticky-wrapper">
+  <section class="have-everything" id="have-everything">
+    <div class="have-everything__bg" id="he-bg">
+      <Image src={image} alt="have everything background" class="have-everything__bg-image he-img-desktop" id="he-parallax-img" />
+      <Image src={mobileImage} alt="have everything background" class="have-everything__bg-image he-img-mobile" />
+    </div>
+    <div class="landing-container have-everything__content" id="he-content">
+      <h2 class="have-everything__title he-animate">have everything,<br />yet feel nothing?</h2>
+      <h5 class="have-everything__desc he-animate">conquer emptiness and build a mind that feels<br />happiness again</h5>
+      <a href="#" class="btn-primary he-animate">build my bulletproof mind</a>
+    </div>
+  </section>
+</div>
+
+<style>
+  .he-animate {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+  }
+  .he-in .he-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const section = document.querySelector('#have-everything');
+  const content = document.querySelector('#he-content');
+
+  if (section && content) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            content.classList.add('he-in');
+          } else {
+            // instantly snap back to bottom (no slide-down animation)
+            const els = content.querySelectorAll('.he-animate');
+            els.forEach(el => (el.style.transition = 'none'));
+            content.classList.remove('he-in');
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() =>
+                els.forEach(el => (el.style.transition = ''))
+              )
+            );
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(section);
+  }
+</script>

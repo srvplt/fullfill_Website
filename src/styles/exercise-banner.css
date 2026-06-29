@@ -1,7 +1,7 @@
 .exercise-banner {
   position: relative;
+  height: 100vh;
   min-height: 600px;
-  /* desktop height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,49 +15,85 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
+}
+
+.exercise-banner__bg--bottom {
   z-index: 0;
-  transition: opacity 0.8s ease;
+  opacity: 1;
+}
+
+.exercise-banner__bg--top {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.exercise-banner__flash {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.55);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .exercise-banner__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(148, 155, 255, 0.75) 0%, rgba(153, 115, 255, 0.7) 50%, rgba(180, 140, 255, 0.65) 100%);
-  z-index: 1;
+  z-index: 2;
 }
 
 .exercise-banner__content {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   color: #fff;
   padding: 60px 20px;
 }
 
 .exercise-banner__label {
-  font-family: var(--font-open-sans);
-  font-size: 14px;
+  font-family: var(--font-urbanist);
+  font-size: 20px;
   font-weight: 400;
-  letter-spacing: 2px;
-  text-transform: lowercase;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
   margin: 0 0 8px;
-  opacity: 0.85;
+  transition: opacity 0.15s ease;
 }
 
 .exercise-banner__title {
-  font-family: var(--font-poppins);
-  font-size: 48px;
+  font-family: var(--font-urbanist);
+  font-size: 64px;
   font-weight: 700;
-  margin: 0;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  line-height: 1.05;
+  color: #ffffff;
+  margin: 0 0 40px 0;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.30);
+  transition: opacity 0.15s ease;
 }
 
 @media (max-width: 767px) {
   .exercise-banner {
-    min-height: 300px;
-    /* mobile height */
+    height: 100vh;
+    min-height: 500px;
   }
 
   .exercise-banner__title {
-    font-size: 32px;
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 575px) {
+  .exercise-banner {
+    min-height: 420px;
+  }
+
+  .exercise-banner__title {
+    font-size: 36px;
+  }
+
+  .exercise-banner__label {
+    font-size: 13px;
   }
 }

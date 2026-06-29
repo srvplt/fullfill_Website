@@ -1,25 +1,90 @@
 ---
+import { Image } from 'astro:assets';
 import '../styles/never-alone.css';
+import bgImg from '../assets/images/frinedlyanonymous2.jpg';
 ---
 
-<section class="never-alone" id="never-alone">
-  <div class="landing-container">
-    <h2 class="never-alone__title">you're never alone</h2>
-    <div class="never-alone__cards">
-      <div class="support-card">
-        <div class="support-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+<div class="na-sticky-wrapper">
+  <section class="na-section" id="sec-never-alone">
+
+    <!-- Fixed background image (same pattern as HaveEverything) -->
+    <div class="na-bg">
+      <Image
+        src={bgImg}
+        alt=""
+        class="na-bg-img"
+        aria-hidden="true"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Content sits on top via z-index -->
+    <div class="na-sheet">
+
+      <h2 class="na-heading na-animate">you're never alone</h2>
+
+      <div class="na-cards">
+
+        <div class="na-card na-animate">
+          <div class="na-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h4 class="na-card-title">fullfillment friend</h4>
+          <p class="na-card-body">stay motivated with a peer who shares your goals.</p>
         </div>
-        <p class="support-card__name">fullfillment friend</p>
-        <p class="support-card__desc">a personalised AI assistant curated to aid in your personal growth journey</p>
-      </div>
-      <div class="support-card">
-        <div class="support-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+
+        <div class="na-card na-animate">
+          <div class="na-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M12 8v8"/>
+              <path d="M8 12h8"/>
+            </svg>
+          </div>
+          <h4 class="na-card-title">certified psychiatrist</h4>
+          <p class="na-card-body">book professional sessions for deep mental support.</p>
         </div>
-        <p class="support-card__name">certified psychiatrist</p>
-        <p class="support-card__desc">book a session with a certified professional for a deep dive into your well-being</p>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
+
+<script>
+  (function () {
+    var section = document.getElementById('sec-never-alone');
+    if (!section) return;
+
+    function reveal() {
+      section.classList.add('na-in');
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      reveal();
+      return;
+    }
+
+    /* Observe the wrapper's parent — clip-path: inset(0) can block
+       intersection detection on child elements in some browsers */
+    var target = section.closest('.na-sticky-wrapper') || section;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          reveal();
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -50px 0px' });
+    obs.observe(target);
+
+    /* Safety fallback: if still not visible after 1.5s, force-reveal */
+    setTimeout(function () {
+      if (!section.classList.contains('na-in')) reveal();
+    }, 1500);
+  })();
+</script>

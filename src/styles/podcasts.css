@@ -1,53 +1,223 @@
-.podcasts {
-  padding: 70px 0;
-  background: linear-gradient(180deg, var(--color-brand) 0%, var(--color-dark-purple) 100%);
-  text-align: center;
+.ll-section {
+  position: relative;
   overflow: hidden;
-}
-
-.podcasts__title {
-  font-family: var(--font-urbanist);
-  font-size: 28px;
-  font-weight: 600;
-  font-style: italic;
-  color: #fff;
-  margin: 0 0 8px;
-}
-
-.podcasts__subtitle {
-  font-family: var(--font-open-sans);
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0 0 36px;
-}
-
-.podcasts__carousel {
+  width: 100%;
+  min-height: 90vh;
   display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
+  align-items: center;
+  padding: 100px 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.podcast-card {
-  width: 300px;
-  height: 180px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.ll-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg,
+    rgba(15, 8, 40, 0.87) 0%,
+    rgba(30, 20, 80, 0.82) 45%,
+    rgba(20, 30, 90, 0.88) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ll-glow-blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(95, 66, 197, 0.18) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ll-sheet {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px 14px;
-  transition: transform 0.3s;
+}
+
+.ll-animate {
+  opacity: 0;
+  transform: translateY(300px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.ll-in .ll-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ll-in .ll-stack-outer.ll-animate { transition-delay: 0.5s; }
+.ll-in .ll-pills.ll-animate        { transition-delay: 0.7s; }
+
+.ll-heading-wrap {
+  margin-bottom: 60px;
   text-align: center;
 }
 
-.card1 { background: linear-gradient(145deg, rgba(174, 104, 247, .2), rgba(95, 66, 197, .2)); }
-.card2 { background: linear-gradient(145deg, rgba(106, 119, 255, .2), rgba(61, 63, 168, .2)); }
-.card3 { background: linear-gradient(145deg, rgba(162, 196, 255, .15), rgba(101, 147, 255, .2)); }
+.ll-heading {
+  font-family: var(--font-urbanist);
+  font-size: 40px;
+  font-weight: 700;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  margin: 0 0 16px 0;
+  text-align: center;
+  display: block;
+}
+
+.ll-grad {
+  background: linear-gradient(90deg, #ae68f7 0%, #6a77ff 55%, #a9c9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.ll-sub {
+  font-family: var(--font-urbanist);
+  max-width: 520px;
+  margin: 0 auto;
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.8;
+  text-align: center;
+  line-height: 1.5;
+  color: #fff;
+  font-size: 16px;
+}
+
+.ll-stack-outer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.ll-stack {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  height: 210px;
+}
+
+.ll-pc {
+  position: absolute;
+  width: 260px;
+  height: 160px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 22px 22px 18px;
+  box-sizing: border-box;
+  transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.ll-pc::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  border-radius: 22px 22px 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ll-glass {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Card 2 half-width (scaled 1.04) = 135px from center.
+   For side card text to clear card 2: translateX ≥ 135 + 130 - 22 + margin = ~263px.
+   Using 270px keeps a compact fan while all text stays visible. */
+.ll-pc-1 {
+  background: linear-gradient(145deg, rgba(174, 104, 247, 0.55), rgba(95, 66, 197, 0.65));
+  box-shadow: 0 16px 48px rgba(174, 104, 247, 0.35), 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: translateX(-255px) translateY(10px) rotate(-8deg);
+  z-index: 1;
+}
+.ll-pc-1 .ll-glass { background: linear-gradient(145deg, rgba(174, 104, 247, 0.2), rgba(95, 66, 197, 0.2)); }
+
+.ll-pc-2 {
+  background: linear-gradient(145deg, rgba(106, 119, 255, 0.65), rgba(61, 63, 168, 0.75));
+  box-shadow: 0 20px 60px rgba(106, 119, 255, 0.5), 0 4px 16px rgba(0, 0, 0, 0.5);
+  transform: translateX(0) translateY(-10px) scale(1.04);
+  z-index: 3;
+}
+.ll-pc-2 .ll-glass { background: linear-gradient(145deg, rgba(106, 119, 255, 0.2), rgba(61, 63, 168, 0.2)); }
+
+.ll-pc-3 {
+  background: linear-gradient(145deg, rgba(162, 196, 255, 0.45), rgba(101, 147, 255, 0.6));
+  box-shadow: 0 16px 48px rgba(133, 169, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: translateX(255px) translateY(10px) rotate(8deg);
+  z-index: 2;
+}
+.ll-pc-3 .ll-glass { background: linear-gradient(145deg, rgba(162, 196, 255, 0.15), rgba(101, 147, 255, 0.2)); }
+
+.ll-stack:hover .ll-pc-1 {
+  transform: translateX(-270px) translateY(14px) rotate(-10deg);
+  box-shadow: 0 20px 56px rgba(174, 104, 247, 0.4);
+}
+
+.ll-stack:hover .ll-pc-2 {
+  transform: translateX(0) translateY(-18px) scale(1.06);
+  box-shadow: 0 28px 72px rgba(106, 119, 255, 0.6);
+}
+
+.ll-stack:hover .ll-pc-3 {
+  transform: translateX(270px) translateY(14px) rotate(10deg);
+  box-shadow: 0 20px 56px rgba(133, 169, 255, 0.38);
+}
+
+.ll-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.ll-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 6px;
+  font-family: var(--font-urbanist);
+}
+
+.ll-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-urbanist);
+}
 
 .ll-wv {
   display: flex;
@@ -59,70 +229,123 @@
 .ll-b {
   width: 4px;
   border-radius: 3px;
-  background: rgba(255, 255, 255, .55);
-  box-shadow: 0 0 6px rgba(255, 255, 255, .2);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
   animation: ll-wave 2s ease-in-out infinite;
-  height: 14px;
-  animation-delay: .1s;
 }
 
-.podcast-card:hover {
-  transform: translateY(-4px) scale(1.03);
+@keyframes ll-wave {
+  0%, 100% { opacity: 0.45; transform: scaleY(0.6); }
+  50%       { opacity: 0.9;  transform: scaleY(1);   }
 }
 
-.podcast-card__title {
-  font-family: var(--font-poppins);
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  margin: 0 0 8px;
-  line-height: 1.4;
-}
-
-.podcast-card__desc {
-  font-family: var(--font-open-sans);
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0;
-  line-height: 1.4;
-}
-
-.podcasts__tags {
+.ll-pills {
   display: flex;
-  gap: 10px;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 48px;
 }
 
-.podcasts__tag {
-  padding: 8px 18px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-family: var(--font-open-sans);
+.ll-tag-pill {
   font-size: 12px;
-  color: #fff;
-  text-decoration: none;
-  transition: background 0.2s;
+  font-weight: 500;
+  color: #cad4ff;
+  background: rgba(202, 212, 255, 0.1);
+  border: 1px solid rgba(202, 212, 255, 0.25);
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-family: var(--font-urbanist);
 }
 
-.podcasts__tag:hover {
-  background: rgba(255, 255, 255, 0.25);
+@media (max-width: 991px) {
+  .ll-section {
+    padding: 80px 0;
+  }
+
+  .ll-heading {
+    font-size: 36px;
+  }
+
+  .ll-heading-wrap {
+    margin-bottom: 48px;
+  }
 }
 
-@media (max-width: 767px) {
-  .podcasts {
-    padding: 50px 0;
+@media (max-width: 768px) {
+  .ll-section {
+    padding: 70px 0;
+    min-height: auto;
   }
 
-  .podcasts__title h2 {
-    background: linear-gradient(90deg, rgb(66, 180, 205), white);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .ll-heading {
+    font-size: 32px;
+    text-align: center !important;
+    width: 100% !important;
   }
 
-  .podcast-card {
-    width: 140px;
+  .ll-sub {
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.55 !important;
+    opacity: 0.75 !important;
+  }
+
+  .ll-stack-outer {
+    height: 220px;
+    min-height: 220px;
+    align-items: center;
+  }
+
+  .ll-stack {
+    position: absolute;
+    width: 100%;
+    height: 220px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ll-pc {
+    position: absolute;
+    width: min(82vw, 300px);
     height: 160px;
+    margin: 0 !important;
+  }
+
+  .ll-pc-1 { transform: rotate(-4deg) translateY(16px) scale(0.94); z-index: 1; }
+  .ll-pc-2 { transform: rotate(0deg) scale(1.0); z-index: 3; }
+  .ll-pc-3 { transform: rotate(4deg) translateY(16px) scale(0.94); z-index: 2; }
+
+  .ll-pc.ll-active {
+    transform: rotate(0deg) translateY(-12px) scale(1.04) !important;
+    z-index: 10 !important;
+    box-shadow: 0 24px 64px rgba(106, 119, 255, 0.65) !important;
+  }
+
+  .ll-pills {
+    margin-top: 36px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ll-section {
+    padding: 56px 0;
+  }
+
+  .ll-heading {
+    font-size: 28px;
+  }
+
+  .ll-sub {
+    font-size: 14px !important;
+  }
+
+  .ll-heading-wrap {
+    margin-bottom: 40px;
+  }
+
+  .ll-tag-pill {
+    font-size: 11px;
+    padding: 4px 12px;
   }
 }
