@@ -68,10 +68,22 @@
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.ls-section.ls-in .ls-fade { opacity: 1; transform: translateY(0); }
-.ls-section.ls-in .ls-heading.ls-fade  { transition-delay: 0.05s; }
-.ls-section.ls-in .ls-sub.ls-fade      { transition-delay: 0.15s; }
-.ls-section.ls-in .ls-btn-wrap.ls-fade { transition-delay: 0.25s; }
+.ls-section.ls-in .ls-fade {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ls-section.ls-in .ls-heading.ls-fade {
+  transition-delay: 0.05s;
+}
+
+.ls-section.ls-in .ls-sub.ls-fade {
+  transition-delay: 0.15s;
+}
+
+.ls-section.ls-in .ls-btn-wrap.ls-fade {
+  transition-delay: 0.25s;
+}
 
 .ls-anim-shape {
   opacity: 0;

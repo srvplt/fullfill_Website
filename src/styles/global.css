@@ -26,7 +26,8 @@
   /* Fonts */
   --font-open-sans: 'Open Sans', sans-serif;
   --font-urbanist: 'Urbanist', sans-serif;
-  --font-poppins: 'Poppins', sans-serif; /* mapped to Urbanist like original site */
+  --font-poppins: 'Poppins', sans-serif;
+  /* mapped to Urbanist like original site */
 
   /* Button */
   --btn-bg: #5e61d6;
@@ -51,7 +52,12 @@ html {
   min-height: 100%;
   overscroll-behavior: none;
   overscroll-behavior-y: none;
+}
 
+@media (min-width: 769px) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -74,7 +80,12 @@ main {
 }
 
 /* ── Global heading defaults — matches reference site nicepage.css ── */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-urbanist);
   font-weight: 500;
   line-height: 1.2;
@@ -82,12 +93,29 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem;
 }
 
-h1 { font-size: 2.25rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.125rem; }
-h6 { font-size: 1.125rem; }
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1.125rem;
+}
 
 .site-container {
   max-width: var(--container-max-width);
@@ -116,10 +144,10 @@ h6 { font-size: 1.125rem; }
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding-left: var(--container-padding-desktop);
-  padding-right: var(--container-padding-desktop); 
+  padding-right: var(--container-padding-desktop);
   align-items: center;
-} 
- 
+}
+
 @media (max-width: 1199px) {
   .landing-container {
     padding-left: var(--container-padding-tablet);
@@ -135,6 +163,7 @@ h6 { font-size: 1.125rem; }
 }
 
 @media (max-width: 575px) {
+
   .site-container,
   .landing-container {
     padding-left: 16px;
@@ -212,4 +241,66 @@ h6 { font-size: 1.125rem; }
   color: #fff;
 }
 
- 
+/* ══════════════════════════════════════════════════════════
+   DESKTOP: Every section = exactly 100vh (full screen)
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 769px) {
+
+  .hero,
+  .exercise-banner,
+  .brain-cortex,
+  .have-everything,
+  .happiness,
+  .premium,
+  .fun-section,
+  .ll-section {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hero: subtract header height (80px sticky nav) */
+  .hero {
+    height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+  }
+
+  /* Sections that need flex centering added (don't have it in their own CSS) */
+  .happiness {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE: Sticky snap/magnetic scroll lock
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .section-sticky-wrapper {
+    position: relative;
+    display: block;
+    height: 130vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .section-sticky-wrapper.wrapper-tall {
+    height: 160vh;
+  }
+
+  .mobile-sticky-section {
+    position: sticky !important;
+    top: 0 !important;
+    height: 100dvh !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}

@@ -2,84 +2,86 @@
 import '../styles/peace-of-mind.css';
 ---
 
-<section class="pom-section" id="peace-of-mind">
-  <div class="pom-grid" aria-hidden="true"></div>
+<div class="section-sticky-wrapper">
+  <section class="pom-section desktop-100vh mobile-sticky-section" id="peace-of-mind">
+    <div class="pom-grid" aria-hidden="true"></div>
 
-  <div class="pom-inner">
+    <div class="pom-inner">
 
-    <!-- Left text -->
-    <div class="pom-content">
-      <h2 class="pom-heading">peace of mind,<br /><span>tracked.</span></h2>
-      <p class="pom-subtitle">never miss a pill. stay consistent with smart reminders.</p>
+      <!-- Left text -->
+      <div class="pom-content">
+        <h2 class="pom-heading">peace of mind,<br /><span>tracked.</span></h2>
+        <p class="pom-subtitle">never miss a pill. stay consistent with smart reminders.</p>
 
-      <!-- Progress section: label + % on top row, bar below -->
-      <div class="pom-adherence">
-        <div class="pom-adherence-header">
-          <span class="pom-pill-label">DAILY ADHERENCE</span>
-          <span class="pom-pill-pct">0%</span>
+        <!-- Progress section: label + % on top row, bar below -->
+        <div class="pom-adherence">
+          <div class="pom-adherence-header">
+            <span class="pom-pill-label">DAILY ADHERENCE</span>
+            <span class="pom-pill-pct">0%</span>
+          </div>
+          <div class="pom-pill-bar"><div class="pom-pill-fill"></div></div>
         </div>
-        <div class="pom-pill-bar"><div class="pom-pill-fill"></div></div>
+
+        <div class="pom-chips">
+          <span class="pom-chip">smart reminders</span>
+          <span class="pom-chip">streak tracking</span>
+          <span class="pom-chip">⌚ wearables soon</span>
+        </div>
       </div>
 
-      <div class="pom-chips">
-        <span class="pom-chip">smart reminders</span>
-        <span class="pom-chip">streak tracking</span>
-        <span class="pom-chip">⌚ wearables soon</span>
+      <!-- Right glass card -->
+      <div class="pom-card">
+        <p class="pom-card-week">THIS WEEK</p>
+
+        <!-- Day header row -->
+        <div class="pom-day-labels">
+          <div class="pom-tod-space"></div>
+          <div class="pom-day-grid">
+            <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+          </div>
+        </div>
+
+        <!-- AM pills — M T W T F S filled, Su empty -->
+        <div class="pom-slot-row">
+          <span class="pom-tod-lbl">am</span>
+          <div class="pom-slot-grid">
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot empty"></div>
+          </div>
+        </div>
+
+        <!-- PM pills — M T W T F filled, Sa Su empty -->
+        <div class="pom-slot-row pom-slot-row--gap">
+          <span class="pom-tod-lbl">pm</span>
+          <div class="pom-slot-grid">
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot taken"></div>
+            <div class="pom-slot empty"></div>
+            <div class="pom-slot empty"></div>
+          </div>
+        </div>
+
+        <!-- Next reminder -->
+        <div class="pom-reminder">
+          <div>
+            <p class="pom-reminder-label">NEXT REMINDER</p>
+            <p class="pom-reminder-time">8:00 pm</p>
+          </div>
+          <span class="pom-bell">🔔</span>
+        </div>
       </div>
+
     </div>
-
-    <!-- Right glass card -->
-    <div class="pom-card">
-      <p class="pom-card-week">THIS WEEK</p>
-
-      <!-- Day header row -->
-      <div class="pom-day-labels">
-        <div class="pom-tod-space"></div>
-        <div class="pom-day-grid">
-          <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
-        </div>
-      </div>
-
-      <!-- AM pills — M T W T F S filled, Su empty -->
-      <div class="pom-slot-row">
-        <span class="pom-tod-lbl">am</span>
-        <div class="pom-slot-grid">
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot empty"></div>
-        </div>
-      </div>
-
-      <!-- PM pills — M T W T F filled, Sa Su empty -->
-      <div class="pom-slot-row pom-slot-row--gap">
-        <span class="pom-tod-lbl">pm</span>
-        <div class="pom-slot-grid">
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot taken"></div>
-          <div class="pom-slot empty"></div>
-          <div class="pom-slot empty"></div>
-        </div>
-      </div>
-
-      <!-- Next reminder -->
-      <div class="pom-reminder">
-        <div>
-          <p class="pom-reminder-label">NEXT REMINDER</p>
-          <p class="pom-reminder-time">8:00 pm</p>
-        </div>
-        <span class="pom-bell">🔔</span>
-      </div>
-    </div>
-
-  </div>
-</section>
+  </section>
+</div>
 
 <script>
   (function () {

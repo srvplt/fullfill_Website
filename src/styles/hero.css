@@ -2,9 +2,11 @@
   position: relative;
   overflow: hidden;
   background: #A9C8FE;
-  padding-bottom: 30px;
+  padding: 20px 0 30px;
   margin-bottom: 0;
-  padding-top: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__inner {

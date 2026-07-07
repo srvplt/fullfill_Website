@@ -14,9 +14,10 @@
 
 .site-header__inner {
   max-width: var(--container-max-width);
-  min-height: 70px;
+  height: 80px;
+  min-height: 80px;
   margin: 0 auto;
-  padding: 12px var(--container-padding-desktop) 15px;
+  padding: 0 var(--container-padding-desktop);
   display: flex;
   align-items: center;
   justify-content: space-between;

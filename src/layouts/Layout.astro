@@ -3,33 +3,107 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
+import appleTouchIcon from "../assets/images/apple-touch-icon.png";
+import favicon96 from "../assets/images/favicon-96x96.png";
+import faviconSvg from "../assets/images/favicon.svg";
+import faviconIco from "../assets/images/favicon.ico";
+
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
+  author?: string;
+  ogImage?: string;
+  canonicalPath?: string;
 }
 
 const { 
-  title = "Fullfill",
-  description = "insights, tips, and tools to help you reduce stress, build resilience, and grow with our community."
+  title = "Fullfill – Your Personal Trainer for a Happier Mind",
+  description = "fullfill helps you track what matters, build better habits, and grow with AI-powered journaling, goal optimization, breathing tools, and personal insights. Free to use.",
+  keywords = "fulfill app, wellness, mindfulness, psychology, AI companion, purpose, mental health",
+  author = "Fulfill Team",
+  ogImage = "//www.fullfill.me/images/og-image.jpg",
+  canonicalPath = ""
 } = Astro.props;
+
+const canonicalUrl = `//www.fullfill.me${canonicalPath}`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon.src} />
+    <link rel="icon" type="image/png" sizes="96x96" href={favicon96.src} />
+    <link rel="icon" type="image/svg+xml" href={faviconSvg.src} />
+    <link rel="shortcut icon" href={faviconIco.src} />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#3f5ef0" />
+    
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:url" content={canonicalUrl} />
+
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5N6BFZ8R');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- reCAPTCHA API -->
+    <script src="//www.google.com/recaptcha/api.js" async defer></script>
+    <!-- JSON-LD Schema markup -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "fullfill",
+        "url": "/",
+        "logo": "images/FinalLogoNameOnly.png",
+        "sameAs": []
+      }
+    </script>
+
+    <!-- Custom Touch Highlight Override (Light Gray instead of Teal) -->
+    <style is:inline>
+      * {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5N6BFZ8R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <Header />
     <main>
       <slot />
