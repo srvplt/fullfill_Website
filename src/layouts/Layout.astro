@@ -68,18 +68,35 @@ const canonicalUrl = `//www.fullfill.me${canonicalPath}`;
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:url" content={canonicalUrl} />
 
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (deferred – loads after 3.5s or first interaction) -->
     <script is:inline>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-5N6BFZ8R');
+      (function(){
+        var loaded = false;
+        function loadGTM(){
+          if(loaded) return;
+          loaded = true;
+          var w=window,d=document,s='script',l='dataLayer',i='GTM-5N6BFZ8R';
+          w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+          var f=d.getElementsByTagName(s)[0],j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+          j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+          f.parentNode.insertBefore(j,f);
+        }
+        // Load after 3.5 seconds OR on first user interaction (whichever comes first)
+        var t = setTimeout(loadGTM, 3500);
+        ['scroll','click','touchstart','mousemove','keydown'].forEach(function(evt){
+          document.addEventListener(evt, function handler(){
+            clearTimeout(t);
+            loadGTM();
+            document.removeEventListener(evt, handler);
+          }, {once:true, passive:true});
+        });
+      })();
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- reCAPTCHA API -->
-    <script src="//www.google.com/recaptcha/api.js" async defer></script>
+
+
     <!-- JSON-LD Schema markup -->
     <script type="application/ld+json" is:inline>
       {
