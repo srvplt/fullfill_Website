@@ -20,9 +20,9 @@ interface Props {
 const { 
   title = "Fullfill – Your Personal Trainer for a Happier Mind",
   description = "fullfill helps you track what matters, build better habits, and grow with AI-powered journaling, goal optimization, breathing tools, and personal insights. Free to use.",
-  keywords = "fulfill app, wellness, mindfulness, psychology, AI companion, purpose, mental health",
+  keywords = "fulfill app, wellness, mindfulness, psychology, AI companion, purpose, mental health, wellness app, meditation, personal growth, AI guidance, calm, focus, inner fire, mental wellbeing, expert support",
   author = "Fulfill Team",
-  ogImage = "//www.fullfill.me/images/og-image.jpg",
+  ogImage = "https://www.fullfill.me/images/og-image.jpg",
   canonicalPath = ""
 } = Astro.props;
 
@@ -40,6 +40,7 @@ const canonicalUrl = `https://www.fullfill.me${canonicalPath}`;
     <link rel="icon" type="image/png" sizes="96x96" href={favicon96.src} />
     <link rel="icon" type="image/svg+xml" href={faviconSvg.src} />
     <link rel="shortcut icon" href={faviconIco.src} />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="theme-color" content="#3f5ef0" />
@@ -50,6 +51,7 @@ const canonicalUrl = `https://www.fullfill.me${canonicalPath}`;
     <meta name="keywords" content={keywords} />
     <meta name="author" content={author} />
     <meta name="robots" content="index, follow" />
+    <meta name="referrer" content="origin" />
     
     <!-- Canonical -->
     <link rel="canonical" href={canonicalUrl} />

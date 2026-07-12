@@ -2,8 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(rgb(148, 155, 255), rgb(153, 175, 255));
-  color: #111;
+  background: var(--gradient-header);
+  color: var(--color-text-dark);
   font-family: var(--font-open-sans);
 }
 
@@ -48,7 +48,7 @@
   justify-content: center;
   background: none;
   border: 0;
-  color: #ffffff;
+  color: var(--color-white);
   cursor: pointer;
   padding: 4px;
   width: 40px;
@@ -75,7 +75,7 @@
 
 .site-header__links a,
 .site-header__mobile-links a {
-  color: #ffffff;
+  color: var(--color-white);
   font-family: var(--font-open-sans);
   text-decoration: none;
   font-size: 19px;
@@ -116,7 +116,7 @@
 
 .site-header__mobile-links a {
   display: block;
-  color: #3f5ef0;
+  color: var(--color-brand);
   padding: 20px 0;
   font-size: 16px;
   white-space: normal;
@@ -132,7 +132,7 @@
   font-size: 32px;
   line-height: 1;
   cursor: pointer;
-  color: #111;
+  color: var(--color-text-dark);
   width: 40px;
   height: 40px;
 }

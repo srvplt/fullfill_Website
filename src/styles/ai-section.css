@@ -1,6 +1,5 @@
 .ai-section {
-  background: #fff;
-  min-height: 640px;
+  background: var(--color-bg-light);
   display: flex;
   align-items: center;
   overflow: visible;
@@ -45,7 +44,7 @@
   font-family: var(--font-urbanist);
   font-size: 36px;
   font-weight: 700;
-  color: #8097ff;
+  color: var(--color-brand-mid);
   line-height: 1.1;
   margin: 0;
 }
@@ -55,7 +54,7 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 1.4;
-  color: #8097ff;
+  color: var(--color-brand-mid);
   margin: 58px 0 0 0;
 }
 

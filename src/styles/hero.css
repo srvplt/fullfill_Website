@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: #A9C8FE;
+  background: var(--gradient-hero);
   padding: 20px 0 30px;
   margin-bottom: 0;
   display: flex;
@@ -76,7 +76,7 @@
   font-size: 36px;
   line-height: 1.2;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-white);
   margin: 0;
 }
 
@@ -85,7 +85,7 @@
   font-size: 24px;
   line-height: 1.2;
   font-weight: 300;
-  color: #ffffff;
+  color: var(--color-white);
   margin: 0;
   margin-top: 4px;
   margin-bottom: 24px;

@@ -2,7 +2,7 @@
 .pom-section {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(to right, rgba(169, 201, 255, 1), rgba(189, 197, 254, 1));
+  background: var(--gradient-hero);
   min-height: 85vh;
   display: flex;
   align-items: center;
@@ -41,20 +41,20 @@
   font-family: var(--font-urbanist);
   font-size: 40px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--color-text-dark);
   text-shadow: 0 0 40px rgba(95, 66, 197, 0.3);
   line-height: 1.2;
   margin: 0 0 15px;
 }
 
 .pom-heading span {
-  color: #5f42c5;
+  color: var(--color-purple-deep);
 }
 
 .pom-subtitle {
   font-style: italic;
   opacity: 0.8;
-  color: #4a4a4a;
+  color: var(--color-text-body);
   font-size: 20px;
   font-weight: 300;
   line-height: 1.4;
@@ -85,7 +85,7 @@
 }
 
 .pom-pill-pct {
-  color: #5f42c5;
+  color: var(--color-purple-deep);
   font-family: var(--font-urbanist);
   font-size: 10px;
   font-weight: 600;
@@ -103,7 +103,7 @@
 .pom-pill-fill {
   width: 0%;
   height: 100%;
-  background: linear-gradient(90deg, #5f42c5, #7a5cd9);
+  background: linear-gradient(90deg, var(--color-purple-deep), #7a5cd9);
   border-radius: 10px;
   transition: width 2s cubic-bezier(0.1, 1, 0.1, 1);
 }
@@ -118,7 +118,7 @@
 .pom-chip {
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(95, 66, 197, 0.2);
-  color: #5f42c5;
+  color: var(--color-purple-deep);
   font-family: var(--font-urbanist);
   font-size: 10px;
   padding: 4px 12px;
@@ -220,7 +220,7 @@
 }
 
 .pom-slot.taken.animate {
-  background: #5f42c5;
+  background: var(--color-purple-deep);
   border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -245,7 +245,7 @@
 }
 
 .pom-reminder-time {
-  color: #5f42c5;
+  color: var(--color-purple-deep);
   font-family: var(--font-urbanist);
   font-size: 14px;
   font-weight: 700;

@@ -1,6 +1,6 @@
 .happiness {
   padding: 40px 0;
-  background: #fff url('/happiness-bg.png') center/cover no-repeat;
+  background: var(--color-bg-light) url('/happiness-bg.png') center/cover no-repeat;
   overflow: visible;
 }
 
@@ -24,7 +24,7 @@
   font-weight: 700;
   margin: 0 0 0 10px;
   font-size: 40px;
-  color: #5E61D6;
+  color: var(--color-brand);
   max-width: 600px;
   line-height: 1.1;
   text-align: left;
@@ -43,13 +43,13 @@
   font-size: 20px;
   font-weight: 300;
   line-height: 1.2;
-  color: #5e61d6;
+  color: var(--color-brand);
   padding: 8px 0;
   margin-bottom: 4px;
 }
 
 .happiness__timeline li strong {
-  color: #5e61d6;
+  color: var(--color-brand);
   font-weight: 700;
 }
 

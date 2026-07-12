@@ -1,6 +1,6 @@
 .site-footer {
-  background-color: #27113d;
-  color: #fff;
+  background-color: var(--color-dark-purple);
+  color: var(--color-white);
 }
 
 .site-footer__inner {

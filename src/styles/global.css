@@ -23,6 +23,16 @@
   --color-lavender: #c5caff;
   --color-section-purple: #7b7edd;
 
+  --color-white: #ffffff;
+  --color-brand-mid: #657ff9;
+  --color-purple-deep: #5f42c5;
+  --gradient-hero: linear-gradient(to right, rgba(169, 201, 255, 1), rgba(189, 197, 254, 1));
+  --gradient-header: linear-gradient(rgb(148, 155, 255), rgb(153, 175, 255));
+  --gradient-dark-overlay: linear-gradient(160deg, rgba(15, 8, 40, 0.92) 0%, rgba(30, 20, 80, 0.88) 45%, rgba(20, 30, 90, 0.92) 100%);
+  --color-phone-black: #000000;
+  --color-phone-border: #1a1a1a;
+  --color-brand-light-end: #a4b4f8;
+
   /* Fonts */
   --font-open-sans: 'Open Sans', sans-serif;
   --font-urbanist: 'Urbanist', sans-serif;
@@ -253,7 +263,10 @@ h6 {
   .happiness,
   .premium,
   .fun-section,
-  .ll-section {
+  .ai-section,
+  .ll-section,
+  .gh-section,
+  .pom-section {
     height: 100vh !important;
     max-height: 100vh !important;
     min-height: unset !important;
@@ -268,7 +281,9 @@ h6 {
   }
 
   /* Sections that need flex centering added (don't have it in their own CSS) */
-  .happiness {
+  .happiness,
+  .gh-section,
+  .ls-section {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;

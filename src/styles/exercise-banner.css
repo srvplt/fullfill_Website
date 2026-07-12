@@ -48,7 +48,7 @@
 .exercise-banner__content {
   position: relative;
   z-index: 4;
-  color: #fff;
+  color: var(--color-white);
   padding: 60px 20px;
 }
 
@@ -67,7 +67,7 @@
   font-size: 64px;
   font-weight: 700;
   line-height: 1.05;
-  color: #ffffff;
+  color: var(--color-white);
   margin: 0 0 40px 0;
   text-shadow: 0 4px 32px rgba(0, 0, 0, 0.30);
   transition: opacity 0.15s ease;

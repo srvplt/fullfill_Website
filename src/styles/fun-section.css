@@ -15,10 +15,7 @@
 .hf-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg,
-    rgba(15, 8, 40, 0.92) 0%,
-    rgba(30, 20, 80, 0.88) 45%,
-    rgba(20, 30, 90, 0.92) 100%);
+  background: var(--gradient-dark-overlay);
   z-index: 1;
   pointer-events: none;
 }
@@ -56,8 +53,8 @@
 .hf-phone-frame {
   width: 270px;
   height: 540px;
-  background: #000;
-  border: 10px solid #1a1a1a;
+  background: var(--color-phone-black);
+  border: 10px solid var(--color-phone-border);
   border-radius: 40px;
   position: relative;
   overflow: hidden;
@@ -81,7 +78,7 @@
 }
 
 .hf-video-card p {
-  color: #fff;
+  color: var(--color-white);
   font-weight: 700;
   font-family: var(--font-urbanist);
   margin: 0;
@@ -111,7 +108,7 @@
   font-family: var(--font-urbanist);
   font-size: 48px;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-white);
   line-height: 1.1;
   margin-bottom: 20px;
   opacity: 0;
