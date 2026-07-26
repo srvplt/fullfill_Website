@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact Us – Fullfill">
+  <section class="contact-section">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      
+      <p class="intro-text">Have questions? Want to learn more about fullfill? We'd love to hear from you. Reach out through any of the channels below.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p>For general inquiries and support:</p>
+          <a href="mailto:hello@fullfill.me">hello@fullfill.me</a>
+        </div>
+
+        <div class="contact-card">
+          <h3>Business Inquiries</h3>
+          <p>For corporate partnerships and business opportunities:</p>
+          <a href="mailto:business@fullfill.me">business@fullfill.me</a>
+        </div>
+
+        <div class="contact-card">
+          <h3>Social Media</h3>
+          <p>Connect with us on social platforms:</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/1HCWzt8tce" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/fullfill.me" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-section">
+        <h2>Send us a Message</h2>
+        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
+
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>What is fullfill?</h3>
+          <p>fullfill is a wellness and personal growth platform offering journaling, breathing exercises, goal optimization, and AI-powered insights to help you discover clarity, purpose, and inner fire.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is fullfill free?</h3>
+          <p>Yes, fullfill is currently free to use. We may introduce premium features in the future, but core features will remain accessible to all users.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I get started?</h3>
+          <p>Download the fullfill app from the iOS App Store or Google Play Store, create an account, and start your wellness journey today.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is my data private?</h3>
+          <p>Absolutely. Your privacy is our top priority. All your journal entries, reflections, and personal data are encrypted and never shared with third parties for advertising purposes.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How can I become a contributor?</h3>
+          <p>Visit our <a href="/contribute">Contribute page</a> to learn about opportunities to share your expertise and help others in the fullfill community.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do you offer corporate memberships?</h3>
+          <p>Yes! We offer customizable corporate membership plans. Visit our <a href="/corporate">Corporate Memberships page</a> for more details.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    color: var(--text-secondary, #666);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  .contact-card {
+    padding: 30px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 8px;
+    background: var(--card-bg, #fafafa);
+    text-align: center;
+  }
+
+  .contact-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .contact-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: var(--text-color, #333);
+  }
+
+  .contact-card a {
+    display: inline-block;
+    color: var(--primary-color, #3f5ef0);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .contact-card a:hover {
+    text-decoration: underline;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .contact-form-section {
+    background: var(--card-bg, #fafafa);
+    padding: 50px 40px;
+    border-radius: 12px;
+    margin-bottom: 60px;
+  }
+
+  .contact-form-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .contact-form-section > p {
+    margin-bottom: 30px;
+    color: var(--text-secondary, #666);
+  }
+
+  .contact-form {
+    max-width: 600px;
+  }
+
+  .form-group {
+    margin-bottom: 25px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color, #3f5ef0);
+    box-shadow: 0 0 0 3px rgba(63, 94, 240, 0.1);
+  }
+
+  .submit-button {
+    padding: 14px 40px;
+    background: var(--primary-color, #3f5ef0);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+
+  .submit-button:hover {
+    box-shadow: 0 4px 15px rgba(63, 94, 240, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .faq-section {
+    margin-top: 60px;
+  }
+
+  .faq-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .faq-item {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .faq-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color, #333);
+  }
+
+  .faq-item a {
+    color: var(--primary-color, #3f5ef0);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .faq-item a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 40px 15px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-form-section {
+      padding: 30px 20px;
+    }
+
+    .social-links {
+      flex-direction: column;
+    }
+  }
+</style>
