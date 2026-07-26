@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Corporate Memberships – Fullfill">
+  <section class="corporate-section">
+    <div class="container">
+      <h1>Corporate Memberships</h1>
+      
+      <p class="intro-text">Empower your team with fullfill's corporate wellness solution. Designed for organizations that prioritize employee mental health and personal growth.</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>Team Wellness</h3>
+          <p>Provide your entire organization with access to fullfill's comprehensive wellness platform. Support mental health, mindfulness, and personal development across your company.</p>
+        </div>
+
+        <div class="benefit-card">
+          <h3>Customizable Plans</h3>
+          <p>Flexible membership tiers tailored to organizations of all sizes. From startups to enterprises, we have a plan that fits your needs and budget.</p>
+        </div>
+
+        <div class="benefit-card">
+          <h3>Employee Engagement</h3>
+          <p>Boost employee satisfaction and retention by providing tools that support mental wellness, stress management, and personal growth.</p>
+        </div>
+
+        <div class="benefit-card">
+          <h3>Analytics & Insights</h3>
+          <p>Access aggregated wellness insights and engagement metrics to understand the impact on your team's wellbeing and productivity.</p>
+        </div>
+
+        <div class="benefit-card">
+          <h3>Expert Support</h3>
+          <p>Dedicated account manager and priority support to ensure smooth implementation and ongoing success of your corporate program.</p>
+        </div>
+
+        <div class="benefit-card">
+          <h3>Admin Dashboard</h3>
+          <p>Easy member management, license allocation, and program customization all from one intuitive dashboard.</p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>Ready to Transform Your Workplace?</h2>
+        <p>Contact us to learn more about corporate membership options and pricing tailored to your organization.</p>
+        <a href="/contact" class="cta-button">Get in Touch</a>
+      </div>
+
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+          <h3>How many employees can be included?</h3>
+          <p>Our corporate plans scale from 10 to unlimited employees. Choose the tier that works for your organization.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What support is included?</h3>
+          <p>All corporate plans include email support, onboarding assistance, and access to our dedicated corporate support team.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can we customize the platform?</h3>
+          <p>Yes. We offer customization options for branding, features, and integration with your existing HR systems.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do we manage user licenses?</h3>
+          <p>Use our admin dashboard to add/remove users, manage access levels, and view engagement analytics in real-time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .corporate-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    color: var(--text-secondary, #666);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  .benefit-card {
+    padding: 30px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 8px;
+    background: var(--card-bg, #fafafa);
+    transition: all 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .benefit-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .benefit-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color, #333);
+  }
+
+  .cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, #99afff, #9a94ff);
+    padding: 60px 40px;
+    border-radius: 12px;
+    color: white;
+    margin: 60px 0;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 14px 40px;
+    background: white;
+    color: var(--primary-color, #3f5ef0);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .faq-section {
+    margin-top: 60px;
+  }
+
+  .faq-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .faq-item {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--primary-color, #3f5ef0);
+  }
+
+  .faq-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color, #333);
+  }
+
+  @media (max-width: 768px) {
+    .corporate-section {
+      padding: 40px 15px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .cta-section {
+      padding: 40px 20px;
+    }
+
+    .cta-section h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
