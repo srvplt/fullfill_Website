@@ -1,0 +1,9 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "47GFD75L4W.com.mycompany.fullfill2",
+      "paths": ["*"]
+    }]
+  }
+}
