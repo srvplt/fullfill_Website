@@ -1,275 +1,166 @@
 ---
-// Mobile auto-redirect: iOS → App Store, Android → Play Store
-const userAgent = Astro.request.headers.get('user-agent') || '';
-const isIOS = /iPad|iPhone|iPod/.test(userAgent);
-const isAndroid = /android/i.test(userAgent);
-
-if (isIOS) {
-  return Astro.redirect('https://apps.apple.com/app/id6757362734', 302);
-} else if (isAndroid) {
-  return Astro.redirect('https://play.google.com/store/apps/details?id=com.mycompany.fullfill2', 302);
-}
+import Layout from '../layouts/Layout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fullfill – Find Your Fire</title>
+<Layout 
+  title="Fullfill – Find Your Fire"
+  description="Download the Fullfill app and start your personal growth journey."
+  canonicalPath="/try/"
+>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<script is:inline>
+  const userAgent = navigator.userAgent;
 
-    html { height: 100%; }
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
+    window.location.replace("https://apps.apple.com/app/id6757362734");
+  } else if (/android/i.test(userAgent)) {
+    window.location.replace("https://play.google.com/store/apps/details?id=com.mycompany.fullfill2");
+  }
+</script>
 
-    body {
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
 
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg, #99afff, #9a94ff);
-      padding: 0;
-    }
+<section class="try-main">
 
-    .header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 80px;
-    }
+  <div class="try-container">
 
-    header a, header li {
-      color: white;
-      text-decoration: none;
-    }
+    <div class="try-text">
 
-    header img {
-      height: 38px;
-    }
+      <h1>fullfill: find your fire</h1>
 
-    /* MAIN */
-    .try-main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #a9c9ff, #d2cdff);
-      padding: 40px 20px;
-      color: white;
-    }
+      <div class="btn-row">
 
-    .try-container {
-      max-width: 900px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 60px;
-    }
-
-    .try-text { flex: 1; }
-
-    h1 {
-      font-size: 34px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 140px;
-      padding: 12px 14px;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.4);
-      border-radius: 12px;
-      color: white;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background: rgba(255,255,255,0.25);
-    }
-
-    .btn svg {
-      width: 16px;
-      height: 16px;
-      fill: white;
-      flex-shrink: 0;
-    }
-
-    .btn img {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* QR */
-    .qr-wrap {
-      flex: 1;
-      display: flex;
-      justify-content: flex-start;
-    }
-
-    .qr {
-      width: 220px;
-      background: white;
-      padding: 10px;
-      border-radius: 14px;
-    }
-
-    /* FOOTER */
-    footer {
-      flex-shrink: 0;
-      background: #1e0038;
-      color: white;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-align: center;
-    }
-
-    .footer-left {
-      flex: 1;
-      text-align: left;
-      font-size: 12px;
-    }
-
-    .footer-center {
-      flex: 1;
-    }
-
-    .footer-right {
-      flex: 1;
-      text-align: right;
-    }
-
-    .footer-right img {
-      width: 20px;
-      margin-left: 10px;
-    }
-
-    .footer-right a {
-      color: white;
-      margin-left: 10px;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .footer-center img {
-      height: 30px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .try-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .qr-wrap { justify-content: center; }
-      .btn-row { justify-content: center; }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-      }
-
-      .footer-left,
-      .footer-right { text-align: center; }
-
-      h1 {
-        font-size: 28px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <a href="/">
-        <img src="/images/FinalLogoNameOnly.png" alt="Fullfill Logo">
-      </a>
-    </div>
-  </header>
-
-  <!-- MAIN -->
-  <section class="try-main">
-    <div class="try-container">
-      <div class="try-text">
-        <h1>fullfill: find your fire</h1>
-
-        <div class="btn-row">
-          <a class="btn" href="https://apps.apple.com/app/id6757362734">
-            <svg viewBox="0 0 814 1000" xmlns="http://www.w3.org/2000/svg">
-              <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8-69.2 0-112.9-65.4-155.3-130.4-50.2-73.3-88.2-209-88.2-333.7 0-207 128.6-307.4 255.2-307.4 64.8 0 119 43.5 159.8 43.5 39.6 0 89.8-46 160.9-46 28.8 0 133.3 5.3 195.8 85.3zm-270.5-180.1c31.2-37.1 53.5-88.9 53.5-140.8 0-7.2-.6-14.5-2.2-21.3-50.6 1.9-111.2 33.6-147.4 75.8-28.8 33.6-54.2 87.4-54.2 141.2 0 7.8.6 15.6 1.9 23.2 8.2.6 16.8 1 25.2 1 44.7-.1 102.3-32.5 125.2-79.1z"/>
-            </svg>
-            iOS
-          </a>
-
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.mycompany.fullfill2">
-            <img src="https://cdn.simpleicons.org/googleplay/white" alt="Google Play">
-            Android
-          </a>
-        </div>
-      </div>
-
-      <div class="qr-wrap">
-        <img class="qr" src="/images/qr-code.png" alt="QR Code">
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-left">
-        © 2026 Fullfill | <a href="/privacy" style="color: inherit; text-decoration: underline;">Privacy Policy</a> | <a href="/terms" style="color: inherit; text-decoration: underline;">Terms</a>
-      </div>
-
-      <div class="footer-center">
-        <img src="/images/FinalLogoNameOnly.png" alt="Fullfill">
-      </div>
-
-      <div class="footer-right">
-        <a href="https://www.facebook.com/share/1HCWzt8tce">
-          <img src="/images/facebook-new.png" alt="Facebook">
+        <a 
+          class="btn" 
+          href="https://apps.apple.com/app/id6757362734"
+        >
+          iOS
         </a>
-        <a href="https://www.instagram.com/fullfill.me">
-          <img src="/images/instagram-new--v2.png" alt="Instagram">
+
+        <a 
+          class="btn" 
+          href="https://play.google.com/store/apps/details?id=com.mycompany.fullfill2"
+        >
+          Android
         </a>
+
       </div>
+
     </div>
-  </footer>
-</body>
-</html>
+
+
+    <div class="qr-wrap">
+
+      <img 
+        class="qr" 
+        src="/images/qr-code.png" 
+        alt="Download Fullfill app QR code"
+      />
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+</Layout>
+
+
+<style>
+
+.try-main {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #a9c9ff, #d2cdff);
+  padding: 40px 20px;
+  color: white;
+}
+
+
+.try-container {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+
+.try-text {
+  flex: 1;
+}
+
+
+h1 {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+.qr-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.qr {
+  width: 220px;
+  background: white;
+  padding: 10px;
+  border-radius: 14px;
+}
+
+
+@media (max-width: 768px) {
+
+  .try-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+
+  .btn-row {
+    justify-content: center;
+  }
+
+
+  .qr-wrap {
+    justify-content: center;
+  }
+
+
+  h1 {
+    font-size: 28px;
+  }
+
+}
+
+</style>
