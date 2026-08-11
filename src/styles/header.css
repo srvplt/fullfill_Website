@@ -2,6 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background: var(--gradient-header);
   color: var(--color-text-dark);
   font-family: var(--font-open-sans);
@@ -42,23 +45,66 @@
   justify-content: flex-end;
 }
 
+/* ── Hamburger toggle button (Clean Panthera-style, No box border) ── */
 .site-header__menu-toggle {
   display: none;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: 0;
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   color: var(--color-white);
   cursor: pointer;
-  padding: 4px;
-  width: 40px;
-  height: 40px;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  z-index: 100030;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.site-header__menu-toggle svg {
+.site-header__hamburger-bar {
+  position: absolute;
+  left: 6px;
+  display: block;
   width: 24px;
-  height: 24px;
-  fill: currentColor;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.site-header__hamburger-bar.bar-top {
+  top: 10px;
+}
+
+.site-header__hamburger-bar.bar-middle {
+  top: 17px;
+}
+
+.site-header__hamburger-bar.bar-bottom {
+  top: 24px;
+}
+
+/* ── Active 'X' Cross morphing animation on header toggle ── */
+.site-header__menu-toggle.is-active .bar-top,
+body.menu-open .site-header__menu-toggle .bar-top {
+  transform: translateY(7px) rotate(45deg) !important;
+  background-color: #ffffff !important;
+}
+
+.site-header__menu-toggle.is-active .bar-middle,
+body.menu-open .site-header__menu-toggle .bar-middle {
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+}
+
+.site-header__menu-toggle.is-active .bar-bottom,
+body.menu-open .site-header__menu-toggle .bar-bottom {
+  transform: translateY(-7px) rotate(-45deg) !important;
+  background-color: #ffffff !important;
 }
 
 .site-header__links {
@@ -73,8 +119,7 @@
   padding: 0;
 }
 
-.site-header__links a,
-.site-header__mobile-links a {
+.site-header__links a {
   color: var(--color-white);
   font-family: var(--font-open-sans);
   text-decoration: none;
@@ -85,64 +130,76 @@
   white-space: nowrap;
 }
 
-
 .site-header__mobile-panel {
-  position: fixed;
-  inset: 0;
-  z-index: 1001;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100dvh !important;
+  z-index: 100020 !important;
+  overflow: hidden !important;
+  pointer-events: none;
+}
+
+.site-header__mobile-panel.is-open,
+body.menu-open .site-header__mobile-panel,
+.site-header__mobile-panel:not([hidden]) {
+  pointer-events: auto !important;
 }
 
 .site-header__mobile-panel[hidden] {
-  display: none;
-}
-
-.site-header__mobile-links {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: min(320px, 85vw);
-  height: 100%;
-  margin: 0;
-  padding: 72px 24px 24px;
-  list-style: none;
-  background: rgba(255, 255, 255, 0.98);
-  z-index: 2;
-  overflow-y: auto;
-}
-
-.site-header__mobile-links li {
-  border-bottom: 1px solid rgba(63, 94, 240, 0.12);
-}
-
-.site-header__mobile-links a {
-  display: block;
-  color: var(--color-brand);
-  padding: 20px 0;
-  font-size: 16px;
-  white-space: normal;
-}
-
-.site-header__menu-close {
-  position: fixed;
-  top: 16px;
-  right: 20px;
-  z-index: 3;
-  background: none;
-  border: 0;
-  font-size: 32px;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--color-text-dark);
-  width: 40px;
-  height: 40px;
+  display: none !important;
 }
 
 .site-header__overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+  z-index: 1 !important;
 }
+
+.site-header__mobile-links {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: min(320px, 85vw) !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 72px 24px 24px !important;
+  list-style: none !important;
+  background: linear-gradient(180deg, #2b2b68 0%, #161336 100%) !important;
+  z-index: 2 !important;
+  overflow-y: auto !important;
+  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.5) !important;
+  box-sizing: border-box !important;
+}
+
+.site-header__mobile-links li {
+  width: 100% !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.site-header__mobile-links a {
+  display: block !important;
+  color: #ffffff !important;
+  padding: 20px 0 !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  white-space: normal !important;
+  text-decoration: none !important;
+  font-family: var(--font-open-sans) !important;
+  transition: opacity 0.2s, color 0.2s !important;
+}
+
 
 @media (max-width: 1199px) {
   .site-header__inner {
@@ -179,7 +236,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 10px 16px;
+    padding: 10px 20px;
     min-height: 55px;
   }
 
@@ -198,7 +255,7 @@
   .site-header__nav {
     display: flex;
     position: absolute;
-    right: 16px;
+    right: 20px;
     top: 0;
     bottom: 0;
     align-items: center;
@@ -215,22 +272,22 @@
 
 @media (max-width: 767px) {
   .site-header__inner {
-    padding-inline: var(--container-padding-mobile);
+    padding-inline: 20px;
   }
 
   .site-header__nav {
-    right: var(--container-padding-mobile);
+    right: 20px;
   }
 }
 
 @media (max-width: 575px) {
   .site-header__inner {
     min-height: 52px;
-    padding: 10px 12px;
+    padding: 10px 16px;
   }
 
   .site-header__nav {
-    right: 12px;
+    right: 16px;
   }
 
   .site-header__logo img {
@@ -243,18 +300,8 @@
     padding: 0;
   }
 
-  .site-header__menu-toggle svg {
+  .site-header__hamburger-bar {
     width: 20px;
-    height: 20px;
-  }
-
-  .site-header__mobile-links {
-    width: min(280px, 88vw);
-    padding-top: 64px;
-  }
-
-  .site-header__mobile-links a {
-    padding: 18px 0;
   }
 }
 
