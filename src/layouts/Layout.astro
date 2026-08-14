@@ -26,7 +26,9 @@ const {
   canonicalPath = ""
 } = Astro.props;
 
-const canonicalUrl = `https://www.fullfill.me${canonicalPath}`;
+const currentPath = canonicalPath || Astro.url.pathname;
+const normalizedPath = currentPath === '/' ? '' : (currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath);
+const canonicalUrl = `https://www.fullfill.me${normalizedPath}`;
 ---
 
 <!doctype html>
@@ -58,6 +60,7 @@ const canonicalUrl = `https://www.fullfill.me${canonicalPath}`;
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fullfill" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
@@ -70,34 +73,13 @@ const canonicalUrl = `https://www.fullfill.me${canonicalPath}`;
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:url" content={canonicalUrl} />
 
-    <!-- Google Tag Manager (deferred – loads after 3.5s or first interaction) -->
-    <script is:inline>
-      (function(){
-        var loaded = false;
-        function loadGTM(){
-          if(loaded) return;
-          loaded = true;
-          var w=window,d=document,s='script',l='dataLayer',i='GTM-5N6BFZ8R';
-          w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-          var f=d.getElementsByTagName(s)[0],j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';j.async=true;
-          j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
-          f.parentNode.insertBefore(j,f);
-        }
-        // Load after 3.5 seconds OR on first user interaction (whichever comes first)
-        var t = setTimeout(loadGTM, 3500);
-        ['scroll','click','touchstart','mousemove','keydown'].forEach(function(evt){
-          document.addEventListener(evt, function handler(){
-            clearTimeout(t);
-            loadGTM();
-            document.removeEventListener(evt, handler);
-          }, {once:true, passive:true});
-        });
-      })();
-    </script>
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5N6BFZ8R');</script>
     <!-- End Google Tag Manager -->
-
-
 
     <!-- JSON-LD Schema markup -->
     <script type="application/ld+json" is:inline>
@@ -105,8 +87,8 @@ const canonicalUrl = `https://www.fullfill.me${canonicalPath}`;
         "@context": "http://schema.org",
         "@type": "Organization",
         "name": "fullfill",
-        "url": "/",
-        "logo": "images/FinalLogoNameOnly.png",
+        "url": "https://www.fullfill.me/",
+        "logo": "https://www.fullfill.me/images/FinalLogoNameOnly.png",
         "sameAs": []
       }
     </script>
@@ -120,7 +102,7 @@ const canonicalUrl = `https://www.fullfill.me${canonicalPath}`;
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5N6BFZ8R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N6BFZ8R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <Header />
@@ -130,5 +112,6 @@ const canonicalUrl = `https://www.fullfill.me${canonicalPath}`;
     <Footer />
   </body>
 </html>
+
 
 

@@ -258,10 +258,24 @@
 }
 
 @keyframes pom-bell-shake {
-  0%, 90%, 100% { transform: rotate(0); }
-  92%  { transform: rotate(15deg); }
-  94%  { transform: rotate(-15deg); }
-  96%  { transform: rotate(10deg); }
+
+  0%,
+  90%,
+  100% {
+    transform: rotate(0);
+  }
+
+  92% {
+    transform: rotate(15deg);
+  }
+
+  94% {
+    transform: rotate(-15deg);
+  }
+
+  96% {
+    transform: rotate(10deg);
+  }
 }
 
 /* ── Responsive ── */

@@ -6,12 +6,15 @@
 /* ── Section ── */
 .na-section {
   position: relative;
-  min-height: 75vh;
+  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 80px 0;
+  justify-content: center;
+  padding: 60px 0;
   text-align: center;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* ── Background image: absolute by default (mobile-first, scrolls with page) ── */

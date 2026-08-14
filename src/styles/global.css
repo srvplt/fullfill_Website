@@ -62,8 +62,6 @@ html {
   max-width: 100% !important;
   min-height: 100%;
   overflow-x: hidden !important;
-  overscroll-behavior: none;
-  overscroll-behavior-y: none;
 }
 
 @media (min-width: 769px) {
@@ -77,8 +75,6 @@ body {
   width: 100% !important;
   max-width: 100% !important;
   min-height: 100%;
-  overscroll-behavior: none;
-  overscroll-behavior-y: none;
   display: flex;
   flex-direction: column;
   font-family: var(--font-open-sans);
@@ -272,6 +268,8 @@ h6 {
   .ai-section,
   .ll-section,
   .gh-section,
+  .na-section,
+  .ls-section,
   .pom-section {
     height: 100vh !important;
     max-height: 100vh !important;
@@ -289,15 +287,23 @@ h6 {
   /* Sections that need flex centering added (don't have it in their own CSS) */
   .happiness,
   .gh-section,
-  .ls-section {
+  .na-section,
+  .pom-section {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
   }
+
+  .ls-section {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+  }
 }
 
 /* ══════════════════════════════════════════════════════════
-   MOBILE: Sticky snap/magnetic scroll lock & overflow lock
+   MOBILE LAYOUT & OVERFLOW PROTECTION
    ══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
@@ -320,31 +326,23 @@ h6 {
     overflow-x: hidden !important;
   }
 
-  .section-sticky-wrapper {
+  .section-sticky-wrapper,
+  .he-sticky-wrapper,
+  .na-sticky-wrapper {
     position: relative;
     display: block;
-    height: 130vh;
+    height: auto !important;
     margin: 0;
     padding: 0;
     width: 100% !important;
     max-width: 100% !important;
-    overflow-x: hidden !important;
-  }
-
-  .section-sticky-wrapper.wrapper-tall {
-    height: 160vh;
-  }
-
-  .mobile-sticky-section {
-    position: sticky !important;
-    top: 0 !important;
-    height: 100dvh !important;
-    min-height: unset !important;
     overflow: hidden !important;
-    box-sizing: border-box !important;
+  }
+
+  .ls-section {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
+    justify-content: flex-end !important;
     align-items: center !important;
   }
 }
