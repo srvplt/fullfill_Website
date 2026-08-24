@@ -61,7 +61,7 @@ html {
   width: 100% !important;
   max-width: 100% !important;
   min-height: 100%;
-  overflow-x: hidden !important;
+  overflow-x: clip;
 }
 
 @media (min-width: 769px) {
@@ -81,14 +81,14 @@ body {
   color: var(--color-text-dark);
   background: var(--color-bg-light);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-  overflow-x: hidden !important;
+  overflow-x: clip;
 }
 
 main {
   flex: 1;
   width: 100% !important;
   max-width: 100% !important;
-  overflow-x: hidden !important;
+  overflow-x: clip;
 }
 
 /* ── Global heading defaults — matches reference site nicepage.css ── */
@@ -328,15 +328,16 @@ h6 {
 
   .section-sticky-wrapper,
   .he-sticky-wrapper,
-  .na-sticky-wrapper {
+  .na-sticky-wrapper,
+  .exercise-banner-wrapper,
+  .brain-cortex-wrapper,
+  .happiness-compounds-wrapper {
     position: relative;
     display: block;
-    height: auto !important;
     margin: 0;
     padding: 0;
     width: 100% !important;
     max-width: 100% !important;
-    overflow: hidden !important;
   }
 
   .ls-section {

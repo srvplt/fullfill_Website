@@ -1,13 +1,26 @@
 .he-sticky-wrapper {
+  display: block;
   position: relative;
+  height: 140vh;
 }
 
 .have-everything {
-  position: relative;
-  min-height: 100vh;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 80px;
+  height: calc(100vh - 80px) !important;
+  min-height: unset !important;
+  width: 100%;
   display: flex;
   align-items: center;
   overflow: hidden;
+}
+
+@media (max-width: 1199px) {
+  .have-everything {
+    top: 55px !important;
+    height: calc(100dvh - 55px) !important;
+  }
 }
 
 /* Base (mobile-first): absolute — image scrolls with section */

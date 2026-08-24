@@ -1,7 +1,40 @@
+.happiness-compounds-wrapper {
+  display: block;
+  position: relative;
+}
+
 .happiness {
   padding: 40px 0;
   background: var(--color-bg-light) url('/happiness-bg.png') center/cover no-repeat;
   overflow: visible;
+}
+
+@media (min-width: 768px) {
+  .happiness-compounds-wrapper {
+    height: 140vh;
+  }
+
+  .happiness {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 80px;
+    height: calc(100vh - 80px) !important;
+    min-height: unset !important;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .happiness-compounds-wrapper {
+    height: auto !important;
+  }
+
+  .happiness {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
 }
 
 .happiness__inner {

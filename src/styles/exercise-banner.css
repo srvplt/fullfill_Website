@@ -1,12 +1,28 @@
-.exercise-banner {
+.exercise-banner-wrapper {
+  display: block;
   position: relative;
-  height: 100vh;
-  min-height: 600px;
+  height: 160vh;
+}
+
+.exercise-banner {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 80px;
+  height: calc(100vh - 80px) !important;
+  min-height: unset !important;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .exercise-banner {
+    top: 55px !important;
+    height: calc(100dvh - 55px) !important;
+  }
 }
 
 .exercise-banner__bg {

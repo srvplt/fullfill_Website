@@ -1,6 +1,16 @@
+.brain-cortex-wrapper {
+  display: block;
+  position: relative;
+  height: 140vh;
+}
+
 .brain-cortex {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 80px;
+  height: calc(100vh - 80px) !important;
+  min-height: unset !important;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +20,13 @@
   overflow: hidden;
   text-align: center;
   box-sizing: border-box;
+}
+
+@media (max-width: 1199px) {
+  .brain-cortex {
+    top: 55px !important;
+    height: calc(100dvh - 55px) !important;
+  }
 }
 
 .brain-cortex__title {
