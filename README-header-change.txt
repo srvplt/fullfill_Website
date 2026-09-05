@@ -1,1 +1,0 @@
-Header update: navy-to-violet gradient, legacy Open Sans/Urbanist typography, and #0E2F79 browser theme color.
