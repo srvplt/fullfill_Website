@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const oldImage = (name: string) => `https://raw.githubusercontent.com/srvplt/fullfill/main/images/${name}`;
 ---
 
 <Layout
@@ -8,111 +10,47 @@ import Layout from '../layouts/Layout.astro';
   keywords="Fullfill contact, wellness app, mental fitness, emotional fitness, AI journal, stress relief app, personal growth, corporate wellness"
   canonicalPath="/contact/"
 >
-  <section class="contact-section">
-    <div class="container">
-      <h1>Get in Touch</h1>
-      <p class="intro-text">Have questions about Fullfill, our wellness and mental fitness app, or our corporate memberships? We'd love to hear from you.</p>
+  <div class="legacy-contact">
+    <section class="contact-hero">
+      <h1>contact us</h1>
+    </section>
 
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Email</h3>
-          <p>For general inquiries and support:</p>
-          <a href="mailto:hello@fullfill.me">hello@fullfill.me</a>
+    <section class="contact-main">
+      <div class="contact-inner">
+        <div class="contact-copy">
+          <img class="logo-mark" src={oldImage('FinalLogoShapeOnly.png')} alt="" />
+          <h2>we'd love to hear from you</h2>
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-recaptcha="true"
+            netlify-honeypot="bot-field"
+            class="legacy-form"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden-field"><label>Don’t fill this out if you’re human: <input name="bot-field" /></label></p>
+            <div class="split">
+              <input type="text" name="name" placeholder="your name" aria-label="Name" autocomplete="name" required />
+              <input type="email" name="email" placeholder="your email address" aria-label="Email" autocomplete="email" required />
+            </div>
+            <textarea name="message" rows="4" placeholder="your message" aria-label="Message" required></textarea>
+            <div data-netlify-recaptcha="true"></div>
+            <button type="submit">Send Message</button>
+          </form>
         </div>
-        <div class="contact-card">
-          <h3>Business Inquiries</h3>
-          <p>For corporate partnerships and business opportunities:</p>
-          <a href="mailto:business@fullfill.me">business@fullfill.me</a>
-        </div>
-        <div class="contact-card">
-          <h3>Social Media</h3>
-          <p>Connect with us on social platforms:</p>
-          <div class="social-links">
-            <a href="https://www.facebook.com/share/1HCWzt8tce" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="https://www.instagram.com/fullfill.me" target="_blank" rel="noopener noreferrer">Instagram</a>
-          </div>
+        <div class="contact-image">
+          <img src={oldImage('photo-1604881988758-f76ad2f7aac1.jpeg')} alt="A calm moment of reflection" />
         </div>
       </div>
-
-      <div class="contact-form-section">
-        <h2>Send us a Message</h2>
-        <p>Tell us how we can help. Your message is protected against automated spam.</p>
-
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          data-netlify-recaptcha="true"
-          netlify-honeypot="bot-field"
-          class="contact-form"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden-field">
-            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-          </p>
-
-          <div class="form-group">
-            <label for="name">Your Name *</label>
-            <input type="text" id="name" name="name" autocomplete="name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email *</label>
-            <input type="email" id="email" name="email" autocomplete="email" required />
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject *</label>
-            <input type="text" id="subject" name="subject" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message *</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-          </div>
-
-          <div data-netlify-recaptcha="true"></div>
-          <button type="submit" class="submit-button">Send Message</button>
-        </form>
-      </div>
-
-      <div class="faq-section">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item"><h3>What is Fullfill?</h3><p>Fullfill is a wellness and personal growth platform offering journaling, breathing exercises, goal optimization, and AI-powered insights to help you build clarity, purpose, and inner fire.</p></div>
-        <div class="faq-item"><h3>How do I get started?</h3><p>Download the Fullfill app, create an account, and start building healthier habits for your mind and wellbeing.</p></div>
-        <div class="faq-item"><h3>Is my data private?</h3><p>Privacy is a core priority. Your personal reflections and journal content are not used for third-party advertising.</p></div>
-        <div class="faq-item"><h3>How can I become a contributor?</h3><p>Visit our <a href="/contribute/">Contribute page</a> to learn how you can share wellness content and expertise with the Fullfill community.</p></div>
-        <div class="faq-item"><h3>Do you offer corporate memberships?</h3><p>Yes. Visit our <a href="/corporate/">Corporate Memberships page</a> to learn more about workplace wellness and corporate programs.</p></div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  .contact-section { max-width:1200px; margin:0 auto; padding:60px 20px; }
-  .container { width:100%; }
-  h1 { font-size:2.5rem; margin-bottom:20px; color:var(--primary-color,#3f5ef0); }
-  .intro-text { font-size:1.1rem; line-height:1.8; margin-bottom:50px; color:var(--text-secondary,#666); }
-  .contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; margin-bottom:60px; }
-  .contact-card { padding:30px; border:1px solid var(--border-color,#e0e0e0); border-radius:8px; background:var(--card-bg,#fafafa); text-align:center; }
-  .contact-card h3 { font-size:1.3rem; margin-bottom:15px; color:var(--primary-color,#3f5ef0); }
-  .contact-card p { font-size:1rem; margin-bottom:15px; color:var(--text-color,#333); }
-  .contact-card a { display:inline-block; color:var(--primary-color,#3f5ef0); text-decoration:none; font-weight:600; }
-  .contact-card a:hover { text-decoration:underline; }
-  .social-links { display:flex; gap:15px; justify-content:center; }
-  .contact-form-section { background:var(--card-bg,#fafafa); padding:50px 40px; border-radius:12px; margin-bottom:60px; }
-  .contact-form-section h2 { font-size:1.8rem; margin-bottom:10px; color:var(--primary-color,#3f5ef0); }
-  .contact-form-section > p { margin-bottom:30px; color:var(--text-secondary,#666); }
-  .contact-form { max-width:600px; }
-  .form-group { margin-bottom:25px; }
-  .form-group label { display:block; margin-bottom:8px; font-weight:600; color:var(--primary-color,#3f5ef0); }
-  .form-group input,.form-group textarea { width:100%; padding:12px; border:1px solid var(--border-color,#ddd); border-radius:6px; font-size:1rem; font-family:inherit; }
-  .form-group input:focus,.form-group textarea:focus { outline:none; border-color:var(--primary-color,#3f5ef0); box-shadow:0 0 0 3px rgba(63,94,240,.1); }
-  .submit-button { padding:14px 40px; margin-top:20px; background:var(--primary-color,#3f5ef0); color:white; border:none; border-radius:6px; font-weight:600; cursor:pointer; font-size:1rem; }
-  .hidden-field { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
-  .faq-section { margin-top:60px; }
-  .faq-section h2 { font-size:1.8rem; margin-bottom:30px; color:var(--primary-color,#3f5ef0); }
-  .faq-item { margin-bottom:30px; padding-bottom:30px; border-bottom:1px solid var(--border-color,#e0e0e0); }
-  .faq-item:last-child { border-bottom:none; }
-  .faq-item h3 { font-size:1.1rem; margin-bottom:10px; color:var(--primary-color,#3f5ef0); }
-  .faq-item p { font-size:1rem; line-height:1.6; color:var(--text-color,#333); }
-  .faq-item a { color:var(--primary-color,#3f5ef0); text-decoration:none; font-weight:600; }
-  @media(max-width:768px){ .contact-section{padding:40px 15px;} h1{font-size:1.8rem;} .contact-grid{grid-template-columns:1fr;} .contact-form-section{padding:30px 20px;} .social-links{flex-direction:column;} }
+  .legacy-contact{font-family:'Open Sans',Arial,sans-serif;color:#3d4268}.legacy-contact *{box-sizing:border-box}.legacy-contact h1,.legacy-contact h2{font-family:'Urbanist','Open Sans',Arial,sans-serif;font-weight:500}
+  .contact-hero{min-height:330px;display:flex;align-items:center;justify-content:center;background:linear-gradient(115deg,#a9c9ff 0%,#a9c9ff 48%,#cfbbfc 100%);background-size:cover}.contact-hero h1{color:#fff;font-size:3.4rem;margin:0;text-align:center}
+  .contact-main{background:#7c8cff;min-height:650px}.contact-inner{width:min(1200px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:7fr 8fr;gap:50px;min-height:650px}.contact-copy{align-self:center;color:#fff;padding:60px 0}.logo-mark{width:70px;height:70px;object-fit:contain;margin-bottom:15px}.contact-copy h2{font-size:2.5rem;line-height:1.15;margin:0 0 40px}.legacy-form{max-width:650px}.split{display:grid;grid-template-columns:1fr 1fr;gap:30px}.legacy-form input:not([type='hidden']),.legacy-form textarea{width:100%;display:block;padding:12px 0;margin-bottom:28px;border:0;border-bottom:2px solid #fff;border-radius:0;background:transparent;color:#fff;font:300 1rem 'Open Sans',Arial,sans-serif;outline:none}.legacy-form input::placeholder,.legacy-form textarea::placeholder{color:#fff;opacity:1}.legacy-form textarea{resize:vertical}.legacy-form [data-netlify-recaptcha='true']{margin:0 0 20px}.legacy-form button{border:0;border-radius:50px;background:#3f5ef0;color:#fff;padding:12px 35px;text-transform:uppercase;letter-spacing:1px;font-weight:700;cursor:pointer}.contact-image{align-self:center}.contact-image img{display:block;width:100%;max-height:560px;object-fit:cover;border-radius:22px}
+  .hidden-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  @media(max-width:800px){.contact-hero{min-height:240px}.contact-hero h1{font-size:2.3rem}.contact-inner{grid-template-columns:1fr;width:min(100% - 40px,650px);gap:0}.contact-copy{padding:65px 0 35px}.contact-copy h2{font-size:2rem;text-align:center}.logo-mark{display:block;margin:0 auto 15px}.split{grid-template-columns:1fr;gap:0}.contact-image{padding-bottom:60px}.contact-image img{max-height:420px}}
 </style>

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const oldImage = (name: string) => `https://raw.githubusercontent.com/srvplt/fullfill/main/images/${name}`;
 ---
 
 <Layout
@@ -8,38 +10,90 @@ import Layout from '../layouts/Layout.astro';
   keywords="corporate wellness, corporate mental fitness, employee wellness, workplace wellbeing, workplace stress, emotional fitness, burnout prevention, mental fitness, Fullfill corporate memberships"
   canonicalPath="/corporate/"
 >
-  <section class="corporate-section">
-    <div class="container">
-      <h1>Corporate Memberships</h1>
-      <p class="intro-text">Empower your team with Fullfill's corporate wellness and mental fitness solution. Help employees manage stress, build resilience, strengthen emotional fitness, and grow with practical tools for everyday wellbeing.</p>
-
-      <div class="benefits-grid">
-        <div class="benefit-card"><h3>Team Wellness</h3><p>Give your organization access to tools that support mental fitness, mindfulness, stress management, reflection, and personal growth.</p></div>
-        <div class="benefit-card"><h3>Flexible Plans</h3><p>Flexible membership options designed for organizations of different sizes, with programs tailored to your workforce and goals.</p></div>
-        <div class="benefit-card"><h3>Employee Engagement</h3><p>Support employee wellbeing with practical tools for emotional fitness, healthier habits, focus, reflection, and stress relief.</p></div>
-        <div class="benefit-card"><h3>Insights &amp; Analytics</h3><p>Understand engagement with aggregated wellness insights and metrics while keeping individual reflections private.</p></div>
-        <div class="benefit-card"><h3>Expert Support</h3><p>Get onboarding assistance and support to help your organization introduce Fullfill as part of a broader employee wellbeing strategy.</p></div>
-        <div class="benefit-card"><h3>Easy Administration</h3><p>Manage members and access from a simple administration experience designed to make corporate wellbeing easier to roll out.</p></div>
+  <div class="legacy-corporate">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-art">
+          <div class="hero-circle"></div>
+          <img src={oldImage('02.profilepage.png')} alt="Fullfill profile and wellbeing app" />
+        </div>
+        <div class="hero-copy">
+          <img class="hero-mark" src={oldImage('FinalLogoShapeOnly.png')} alt="" />
+          <h1>stand by your team in uncertain times</h1>
+          <p>AI disruption, and economic pressures are creating job security jitters. help your workforce find resilience &amp; peace of mind</p>
+          <a class="button" href="#enroll">ENROLL NOW</a>
+        </div>
       </div>
+    </section>
 
-      <div class="cta-section">
-        <h2>Ready to Support a Healthier Workforce?</h2>
-        <p>Contact us to learn more about Fullfill corporate membership options and how we can support mental fitness and wellbeing at work.</p>
-        <a href="/contact/" class="cta-button">Get in Touch</a>
+    <section class="stress">
+      <div class="stress-inner">
+        <div class="stress-heading">
+          <h2>Rising Stress in the Workplace</h2>
+          <p>Employees face rising stress from global uncertainty and AI-driven job fears — fueling burnout, anxiety, and lost productivity</p>
+        </div>
+        <div class="stress-content">
+          <div class="stress-image"></div>
+          <ul>
+            <li>Lower productivity</li>
+            <li>Higher burnout &amp; anxiety</li>
+            <li>Reduced engagement</li>
+            <li>Lost focus and resilience</li>
+          </ul>
+        </div>
+        <div class="offer">
+          <img src={oldImage('maninoffice.jpg')} alt="Employee working in an office" />
+          <div class="offer-card">
+            <h3>launch<br />offer</h3>
+            <p>200 employees can access 6 months free</p>
+          </div>
+          <p class="offer-copy">Uncertainty and job insecurity are silent drains on productivity - stress that companies can’t afford to ignore</p>
+          <a class="button" href="#enroll">ENROLL NOW</a>
+        </div>
       </div>
+    </section>
 
-      <div class="faq-section">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item"><h3>What is Fullfill for businesses?</h3><p>Fullfill is a wellness and mental fitness platform designed to help people build healthier habits, manage stress, reflect, and grow.</p></div>
-        <div class="faq-item"><h3>How many employees can be included?</h3><p>Our corporate programs can scale with your organization. Contact us to discuss the right setup for your team.</p></div>
-        <div class="faq-item"><h3>Can Fullfill support burnout prevention?</h3><p>Fullfill provides practical tools for stress management, reflection, emotional fitness, focus, and healthier daily habits that can complement an organization's wellbeing strategy.</p></div>
-        <div class="faq-item"><h3>Can we customize the program?</h3><p>We can discuss the program structure, access, and organizational requirements that best fit your workforce.</p></div>
+    <section class="benefits">
+      <div class="benefits-inner">
+        <h2>fullfill benefits</h2>
+        <div class="benefit-grid">
+          <article><img src={oldImage('2222366-26491e6d.png')} alt="" /><h3>content</h3><p>beyond meditation: expert guidance on nutrition, exercise, and daily wellness.</p></article>
+          <article><img src={oldImage('11031487-1c76bd0a.png')} alt="" /><h3>support</h3><p>direct access to licensed therapists for professional mental health care.</p></article>
+          <article><img src={oldImage('10303062-b214155b.png')} alt="" /><h3>safety</h3><p>anonymous fulfillment friend within your company for open, judgment-free sharing.</p></article>
+          <article><img src={oldImage('3234841-33a8600d.png')} alt="" /><h3>growth</h3><p>tools for clarity through goal setting and purpose discovery</p></article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="enroll" id="enroll">
+      <div class="enroll-inner">
+        <div class="enroll-copy">
+          <h2>enroll to fullfill</h2>
+          <form
+            name="corporate-enrollment"
+            method="POST"
+            data-netlify="true"
+            data-netlify-recaptcha="true"
+            netlify-honeypot="bot-field"
+            class="legacy-form"
+          >
+            <input type="hidden" name="form-name" value="corporate-enrollment" />
+            <p class="hidden-field"><label>Don’t fill this out if you’re human: <input name="bot-field" /></label></p>
+            <input type="text" name="name" placeholder="your email" aria-label="Name" autocomplete="name" required />
+            <input type="email" name="email" placeholder="your email address" aria-label="Email" autocomplete="email" required />
+            <textarea name="message" rows="6" placeholder="your message" aria-label="Message" required></textarea>
+            <div data-netlify-recaptcha="true"></div>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+        <div class="enroll-image"></div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  .corporate-section{max-width:1200px;margin:0 auto;padding:60px 20px}.container{width:100%}h1{font-size:2.5rem;margin-bottom:20px;color:var(--primary-color,#3f5ef0)}.intro-text{font-size:1.1rem;line-height:1.8;margin-bottom:50px;color:var(--text-secondary,#666)}.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-bottom:60px}.benefit-card{padding:30px;border:1px solid var(--border-color,#e0e0e0);border-radius:8px;background:var(--card-bg,#fafafa);transition:all .3s ease}.benefit-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1);transform:translateY(-4px)}.benefit-card h3{font-size:1.3rem;margin-bottom:15px;color:var(--primary-color,#3f5ef0)}.benefit-card p{font-size:1rem;line-height:1.6;color:var(--text-color,#333)}.cta-section{text-align:center;background:linear-gradient(135deg,#99afff,#9a94ff);padding:60px 40px;border-radius:12px;color:white;margin:60px 0}.cta-section h2{font-size:2rem;margin-bottom:15px}.cta-section p{font-size:1.1rem;margin-bottom:30px;opacity:.95}.cta-button{display:inline-block;padding:14px 40px;background:white;color:var(--primary-color,#3f5ef0);text-decoration:none;border-radius:6px;font-weight:600;transition:all .3s ease}.cta-button:hover{box-shadow:0 4px 15px rgba(0,0,0,.2);transform:translateY(-2px)}.faq-section{margin-top:60px}.faq-section h2{font-size:1.8rem;margin-bottom:30px;color:var(--primary-color,#3f5ef0)}.faq-item{margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid var(--border-color,#e0e0e0)}.faq-item:last-child{border-bottom:none}.faq-item h3{font-size:1.1rem;margin-bottom:10px;color:var(--primary-color,#3f5ef0)}.faq-item p{font-size:1rem;line-height:1.6;color:var(--text-color,#333)}
-  @media(max-width:768px){.corporate-section{padding:40px 15px}h1{font-size:1.8rem}.benefits-grid{grid-template-columns:1fr;gap:20px}.cta-section{padding:40px 20px}.cta-section h2{font-size:1.5rem}}
+  .legacy-corporate{--blue:#3f5ef0;--dark:#3d4268;--light:#f7f7fb;font-family:'Open Sans',Arial,sans-serif;color:#3d4268}.legacy-corporate *{box-sizing:border-box}.legacy-corporate h1,.legacy-corporate h2,.legacy-corporate h3{font-family:'Urbanist','Open Sans',Arial,sans-serif;font-weight:500}.legacy-corporate p,.legacy-corporate li{font-weight:300}.hero{background:#8d9dff;overflow:hidden}.hero-inner,.stress-inner,.enroll-inner{width:min(1200px,calc(100% - 40px));margin:0 auto}.hero-inner{min-height:690px;display:grid;grid-template-columns:1fr 1fr}.hero-art{position:relative;display:flex;align-items:center;justify-content:center}.hero-circle{position:absolute;width:530px;height:530px;border-radius:50%;background:linear-gradient(135deg,#a9c9ff,#cfbbfc)}.hero-art img{position:relative;width:310px;max-height:590px;object-fit:contain}.hero-copy{align-self:center;color:#fff;padding:50px 0 50px 30px}.hero-mark{width:70px;height:70px;object-fit:contain;margin-bottom:12px}.hero-copy h1{font-size:2.8rem;line-height:1.12;margin:0 0 28px}.hero-copy p{font-size:1.35rem;line-height:1.45;max-width:560px;margin:0 0 30px}.button{display:inline-flex;align-items:center;justify-content:center;padding:11px 35px;border-radius:50px;background:#3f5ef0;color:#fff;text-decoration:none;text-transform:uppercase;font-size:.875rem;font-weight:700;letter-spacing:1px;border:0}.button:hover{background:#000}.stress{background:#fff}.stress-inner{padding:80px 0}.stress-heading{max-width:750px;margin-bottom:55px}.stress-heading h2{color:#e64c3c;font-size:2.5rem;margin:0 0 18px}.stress-heading p{font-size:1.2rem;line-height:1.6;margin:0}.stress-content{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}.stress-image{height:340px;border-radius:24px;background-image:url('https://raw.githubusercontent.com/srvplt/fullfill/main/images/people-working-together.jpg');background-size:cover;background-position:center}.stress-content ul{margin:0;padding-left:25px;font-size:1.25rem;line-height:2.4}.offer{position:relative;margin-top:70px;min-height:470px}.offer>img{width:62%;height:470px;object-fit:cover;border-radius:24px}.offer-card{position:absolute;top:35px;right:7%;background:#dce1ff;border-radius:30px;padding:35px 42px;width:290px;text-align:center}.offer-card h3{font-size:2rem;margin:0 0 10px}.offer-card p{margin:0;font-size:1.1rem}.offer-copy{position:absolute;right:3%;bottom:72px;width:38%;font-size:1.1rem;line-height:1.5}.offer .button{position:absolute;right:3%;bottom:0}.benefits{background:#7c8cff;color:#fff}.benefits-inner{width:min(1250px,calc(100% - 40px));margin:0 auto;padding:75px 0 85px}.benefits h2{text-align:center;font-size:2.6rem;margin:0 0 45px}.benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.benefit-grid article{min-height:350px;border-radius:30px;padding:42px 25px;background:linear-gradient(145deg,#a9c9ff,#cfbbfc);display:flex;flex-direction:column;align-items:center;text-align:center}.benefit-grid img{width:65px;height:65px;object-fit:contain;background:#fff;border-radius:50%;padding:8px;margin-bottom:22px}.benefit-grid h3{font-size:1.6rem;margin:0 0 15px}.benefit-grid p{font-size:1rem;line-height:1.55;margin:0}.enroll{background:#fff}.enroll-inner{min-height:670px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center}.enroll-copy{padding:70px 50px 70px 0}.enroll-copy h2{font-size:2.6rem;color:#7c8cff;margin:0 0 40px}.legacy-form{max-width:600px}.legacy-form input:not([type='hidden']),.legacy-form textarea{width:100%;display:block;padding:12px 0;margin-bottom:28px;border:0;border-bottom:2px solid #a8b2f5;background:transparent;color:#3d4268;font:300 1rem 'Open Sans',Arial,sans-serif;outline:none}.legacy-form input::placeholder,.legacy-form textarea::placeholder{color:#7d8299}.legacy-form [data-netlify-recaptcha='true']{margin:0 0 20px}.legacy-form button{border:0;border-radius:50px;background:#7c8cff;color:#fff;padding:12px 35px;text-transform:uppercase;letter-spacing:1px;font-weight:700;cursor:pointer}.enroll-image{height:570px;border-radius:24px;background-image:url('https://raw.githubusercontent.com/srvplt/fullfill/main/images/phonehand.jpg');background-size:cover;background-position:center}.hidden-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  @media(max-width:900px){.hero-inner{grid-template-columns:1fr;min-height:auto}.hero-art{min-height:520px}.hero-copy{text-align:center;padding:40px 20px 70px}.hero-mark{display:block;margin:0 auto 12px}.hero-copy p{margin-left:auto;margin-right:auto}.stress-inner{padding:60px 0}.stress-content{grid-template-columns:1fr}.stress-image{height:300px}.offer{min-height:auto}.offer>img{width:100%;height:390px}.offer-card{right:20px}.offer-copy{position:static;width:auto;margin:30px 0 20px}.offer .button{position:static}.benefit-grid{grid-template-columns:1fr 1fr}.enroll-inner{grid-template-columns:1fr}.enroll-copy{padding:65px 0 35px}.enroll-image{height:400px;margin-bottom:60px}}
+  @media(max-width:575px){.hero-art{min-height:440px}.hero-circle{width:350px;height:350px}.hero-art img{width:245px}.hero-copy h1{font-size:2rem}.hero-copy p{font-size:1rem}.stress-heading h2,.benefits h2,.enroll-copy h2{font-size:2rem}.stress-heading p,.stress-content ul{font-size:1rem}.stress-content ul{line-height:2}.offer-card{position:static;width:100%;margin-top:20px}.benefit-grid{grid-template-columns:1fr}.benefit-grid article{min-height:290px}.enroll-inner{width:min(100% - 40px,600px)}}
 </style>
