@@ -5,16 +5,15 @@ const oldImage = (name: string) => `https://raw.githubusercontent.com/srvplt/ful
 ---
 
 <Layout
-  title="Contribute – Fullfill"
-  description="Grow your voice with Fullfill. Share your wellness content, reach new clients, and help inspire a wider community."
+  title="Contribute to Fullfill | Wellness Content & Experts"
+  description="Become a Fullfill contributor. Share wellness articles, podcasts, guided meditation, breathwork and expertise, and reach people interested in mental fitness and personal growth."
+  keywords="Fullfill contributor, wellness content, guided meditation, breathwork, mental fitness, personal growth, mindfulness, wellness professionals, wellness articles, podcast"
   canonicalPath="/contribute/"
 >
   <div class="legacy-contribute">
     <section class="hero">
       <div class="hero-inner">
-        <div class="hero-phone">
-          <img src={oldImage('01TopImagePhone.png')} alt="Fullfill app" />
-        </div>
+        <div class="hero-phone"><img src={oldImage('01TopImagePhone.png')} alt="Fullfill wellness app" /></div>
         <div class="hero-copy">
           <img class="hero-mark" src={oldImage('FinalLogoShapeOnly.png')} alt="" />
           <h1>grow your voice.<br />fullfill the world.</h1>
@@ -64,12 +63,20 @@ const oldImage = (name: string) => `https://raw.githubusercontent.com/srvplt/ful
       <div class="form-inner">
         <div class="form-copy">
           <h2>wish to contribute on fullfill?</h2>
-          <form action="https://forms.nicepagesrv.com/v2/form/process" method="POST" class="legacy-form">
-            <input type="text" name="name" placeholder="your email" aria-label="Name" required />
-            <input type="email" name="email" placeholder="your email address" aria-label="Email" required />
+          <form
+            name="contributor"
+            method="POST"
+            data-netlify="true"
+            data-netlify-recaptcha="true"
+            netlify-honeypot="bot-field"
+            class="legacy-form"
+          >
+            <input type="hidden" name="form-name" value="contributor" />
+            <p class="hidden-field"><label>Don’t fill this out if you’re human: <input name="bot-field" /></label></p>
+            <input type="text" name="name" placeholder="your name" aria-label="Name" autocomplete="name" required />
+            <input type="email" name="email" placeholder="your email address" aria-label="Email" autocomplete="email" required />
             <textarea name="message" rows="6" placeholder="your message" aria-label="Message" required></textarea>
-            <input type="hidden" name="recaptchaResponse" value="" />
-            <input type="hidden" name="formServices" value="94677f89-313b-e768-d775-1f414adbf46a" />
+            <div data-netlify-recaptcha="true"></div>
             <button class="button button-submit" type="submit">Send Message</button>
           </form>
         </div>
@@ -80,174 +87,14 @@ const oldImage = (name: string) => `https://raw.githubusercontent.com/srvplt/ful
 </Layout>
 
 <style>
-  .legacy-contribute {
-    --blue: #3f5ef0;
-    --dark: #3d4268;
-    --light-text: #fff;
-    font-family: 'Open Sans', Arial, sans-serif;
-  }
-
-  .legacy-contribute * { box-sizing: border-box; }
-  .legacy-contribute h1,
-  .legacy-contribute h2,
-  .legacy-contribute p { margin-top: 0; }
-  .legacy-contribute h1,
-  .legacy-contribute h2 { font-family: 'Urbanist', 'Open Sans', Arial, sans-serif; font-weight: 500; }
-  .legacy-contribute p { font-family: 'Open Sans', Arial, sans-serif; font-weight: 300; }
-
-  .hero {
-    min-height: 700px;
-    background: linear-gradient(115deg, #a9c9ff 0%, #a9c9ff 48%, #cfbbfc 100%);
-    overflow: hidden;
-  }
-
-  .hero-inner,
-  .feature-inner,
-  .form-inner {
-    width: min(1200px, calc(100% - 40px));
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: inherit;
-  }
-
-  .hero-phone { display:flex; align-items:flex-end; justify-content:center; }
-  .hero-phone img { width:448px; max-width:88%; height:auto; margin-top:56px; margin-bottom:-57px; }
-  .hero-copy { align-self:center; padding:40px 20px 40px 0; color:#fff; }
-  .hero-mark { width:78px; height:79px; object-fit:contain; margin-bottom:12px; }
-  .hero-copy h1 { font-size:2.5rem; line-height:1.12; margin-bottom:34px; }
-  .hero-copy p { max-width:570px; font-size:1.5rem; line-height:1.4; margin-bottom:34px; }
-
-  .button {
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:44px;
-    padding:9px 35px 10px;
-    border:0;
-    border-radius:50px;
-    text-decoration:none;
-    text-transform:uppercase;
-    font-size:.875rem;
-    font-weight:700;
-    letter-spacing:1px;
-    transition:transform .2s ease, background .2s ease, color .2s ease;
-  }
-  .button:hover { transform:translateY(-2px); }
-  .button-light { background:#fff; color:var(--blue); }
-  .button-blue { background:#3f5ef0; color:#fff; }
-  .button-blue-outline { background:#3f5ef0; color:#fff; }
-  .button-dark { background:#000; color:#fff; }
-
-  .feature { overflow:hidden; }
-  .feature-white { background:#fff; }
-  .feature-inner { min-height:640px; }
-  .feature-copy { align-self:center; padding:40px 30px 40px 0; color:#3d4268; }
-  .feature-copy h2 { font-size:2.5rem; line-height:1.15; margin-bottom:30px; }
-  .feature-copy p { font-size:1.25rem; line-height:1.6; margin-bottom:30px; }
-  .feature-art { position:relative; min-height:636px; display:flex; align-items:center; justify-content:center; }
-  .feature-art .shape { width:min(614px,100%); height:auto; }
-  .feature-art .circle { position:absolute; width:450px; height:450px; border-radius:50%; background-size:cover; background-position:center; }
-
-  .feature-blogging {
-    min-height:740px;
-    background-image:linear-gradient(90deg, rgba(0,0,0,.08), rgba(0,0,0,.12)), url('https://raw.githubusercontent.com/srvplt/fullfill/main/images/is-blogging-still-relevant.jpg');
-    background-size:cover;
-    background-position:center;
-  }
-  .feature-blogging .feature-inner { min-height:740px; }
-  .feature-copy-light { color:#fff; padding-left:20px; padding-right:0; }
-  .feature-copy-light h2 { margin-bottom:20px; }
-  .feature-copy-light p { max-width:560px; }
-
-  .feature-clients { background:#fff; }
-  .feature-clients .feature-inner { min-height:640px; }
-  .clients-art {
-    min-height:540px;
-    align-self:center;
-    border-radius:18px;
-    background-image:url('https://raw.githubusercontent.com/srvplt/fullfill/main/images/FinalLogoNameOnly.png');
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:contain;
-    opacity:.92;
-  }
-
-  .contribute-form { background:#7c8cff; color:#fff; overflow:hidden; }
-  .form-inner { min-height:680px; }
-  .form-copy { align-self:center; padding:60px 50px 60px 0; }
-  .form-copy h2 { font-size:2.5rem; line-height:1.15; margin-bottom:40px; }
-  .legacy-form { width:100%; max-width:600px; }
-  .legacy-form input:not([type='hidden']),
-  .legacy-form textarea {
-    width:100%;
-    display:block;
-    padding:12px 0;
-    margin-bottom:28px;
-    border:0;
-    border-bottom:2px solid #fff;
-    border-radius:0;
-    background:transparent;
-    color:#fff;
-    font:300 1rem 'Open Sans', Arial, sans-serif;
-    outline:none;
-  }
-  .legacy-form input::placeholder,
-  .legacy-form textarea::placeholder { color:#fff; opacity:1; }
-  .legacy-form textarea { resize:vertical; }
-  .button-submit { background:#3d4268; color:#fff; cursor:pointer; }
-  .form-art {
-    min-height:680px;
-    background-image:url('https://raw.githubusercontent.com/srvplt/fullfill/main/images/01TopImagePhone2.png');
-    background-repeat:no-repeat;
-    background-position:center bottom;
-    background-size:contain;
-  }
-
-  @media (max-width: 991px) {
-    .hero { min-height:960px; }
-    .hero-inner, .feature-inner, .form-inner { grid-template-columns:1fr; }
-    .hero-phone { min-height:500px; }
-    .hero-phone img { width:389px; max-width:75%; margin-top:60px; margin-bottom:-30px; }
-    .hero-copy { padding:45px 20px 70px; text-align:center; }
-    .hero-mark { margin-left:auto; margin-right:auto; }
-    .hero-copy p { margin-left:auto; margin-right:auto; }
-    .feature-inner { min-height:auto; }
-    .feature-copy { text-align:center; padding:70px 25px 25px; }
-    .feature-art { min-height:500px; }
-    .feature-art .circle { width:425px; height:425px; }
-    .feature-blogging .feature-inner { min-height:740px; }
-    .feature-spacer { display:none; }
-    .feature-copy-light { text-align:left; align-self:start; padding:120px 25px 50px; }
-    .feature-clients .feature-inner { min-height:auto; }
-    .clients-art { min-height:420px; margin:0 25px 60px; }
-    .form-inner { min-height:auto; }
-    .form-copy { padding:70px 25px 30px; }
-    .form-copy h2 { text-align:center; }
-    .form-art { min-height:450px; }
-  }
-
-  @media (max-width: 575px) {
-    .hero { min-height:758px; }
-    .hero-inner, .feature-inner, .form-inner { width:100%; }
-    .hero-phone { min-height:440px; }
-    .hero-phone img { height:440px; width:auto; max-width:none; margin:0; }
-    .hero-copy { padding:0 29px 35px; }
-    .hero-copy h1 { font-size:1.875rem; }
-    .hero-copy p { font-size:1rem; margin-bottom:28px; }
-    .feature-copy { padding:55px 29px 0; }
-    .feature-copy h2 { font-size:1.875rem; }
-    .feature-copy p { font-size:1rem; }
-    .feature-art { min-height:291px; }
-    .feature-art .shape { width:100%; }
-    .feature-art .circle { width:185px; height:185px; }
-    .feature-blogging { min-height:650px; }
-    .feature-blogging .feature-inner { min-height:650px; }
-    .feature-copy-light { padding:80px 29px 40px; }
-    .feature-clients .feature-copy { padding-bottom:35px; }
-    .clients-art { min-height:300px; margin:0 29px 50px; }
-    .form-copy { padding:55px 29px 25px; }
-    .form-copy h2 { font-size:1.875rem; }
-    .form-art { min-height:360px; }
-  }
+  .legacy-contribute { --blue:#3f5ef0; --dark:#3d4268; font-family:'Open Sans',Arial,sans-serif; }
+  .legacy-contribute *{box-sizing:border-box}.legacy-contribute h1,.legacy-contribute h2,.legacy-contribute p{margin-top:0}.legacy-contribute h1,.legacy-contribute h2{font-family:'Urbanist','Open Sans',Arial,sans-serif;font-weight:500}.legacy-contribute p{font-family:'Open Sans',Arial,sans-serif;font-weight:300}
+  .hero{min-height:700px;background:linear-gradient(115deg,#a9c9ff 0%,#a9c9ff 48%,#cfbbfc 100%);overflow:hidden}.hero-inner,.feature-inner,.form-inner{width:min(1200px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:1fr 1fr;min-height:inherit}.hero-phone{display:flex;align-items:flex-end;justify-content:center}.hero-phone img{width:448px;max-width:88%;height:auto;margin-top:56px;margin-bottom:-57px}.hero-copy{align-self:center;padding:40px 20px 40px 0;color:#fff}.hero-mark{width:78px;height:79px;object-fit:contain;margin-bottom:12px}.hero-copy h1{font-size:2.5rem;line-height:1.12;margin-bottom:34px}.hero-copy p{max-width:570px;font-size:1.5rem;line-height:1.4;margin-bottom:34px}
+  .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 35px 10px;border:0;border-radius:50px;text-decoration:none;text-transform:uppercase;font-size:.875rem;font-weight:700;letter-spacing:1px;transition:transform .2s ease}.button:hover{transform:translateY(-2px)}.button-light{background:#fff;color:var(--blue)}.button-blue,.button-blue-outline{background:#3f5ef0;color:#fff}.button-dark{background:#000;color:#fff}
+  .feature{overflow:hidden}.feature-white{background:#fff}.feature-inner{min-height:640px}.feature-copy{align-self:center;padding:40px 30px 40px 0;color:#3d4268}.feature-copy h2{font-size:2.5rem;line-height:1.15;margin-bottom:30px}.feature-copy p{font-size:1.25rem;line-height:1.6;margin-bottom:30px}.feature-art{position:relative;min-height:636px;display:flex;align-items:center;justify-content:center}.feature-art .shape{width:min(614px,100%);height:auto}.feature-art .circle{position:absolute;width:450px;height:450px;border-radius:50%;background-size:cover;background-position:center}
+  .feature-blogging{min-height:740px;background-image:linear-gradient(90deg,rgba(0,0,0,.08),rgba(0,0,0,.12)),url('https://raw.githubusercontent.com/srvplt/fullfill/main/images/is-blogging-still-relevant.jpg');background-size:cover;background-position:center}.feature-blogging .feature-inner{min-height:740px}.feature-copy-light{color:#fff;padding-left:20px;padding-right:0}.feature-copy-light h2{margin-bottom:20px}.feature-copy-light p{max-width:560px}
+  .feature-clients{background:#fff}.feature-clients .feature-inner{min-height:640px}.clients-art{min-height:540px;align-self:center;border-radius:18px;background-image:url('https://raw.githubusercontent.com/srvplt/fullfill/main/images/FinalLogoNameOnly.png');background-repeat:no-repeat;background-position:center;background-size:contain;opacity:.92}
+  .contribute-form{background:#7c8cff;color:#fff;overflow:hidden}.form-inner{min-height:680px}.form-copy{align-self:center;padding:60px 50px 60px 0}.form-copy h2{font-size:2.5rem;line-height:1.15;margin-bottom:40px}.legacy-form{width:100%;max-width:600px}.legacy-form input:not([type='hidden']),.legacy-form textarea{width:100%;display:block;padding:12px 0;margin-bottom:28px;border:0;border-bottom:2px solid #fff;border-radius:0;background:transparent;color:#fff;font:300 1rem 'Open Sans',Arial,sans-serif;outline:none}.legacy-form input::placeholder,.legacy-form textarea::placeholder{color:#fff;opacity:1}.legacy-form textarea{resize:vertical}.legacy-form [data-netlify-recaptcha='true']{margin:0 0 20px}.button-submit{background:#3d4268;color:#fff;cursor:pointer}.hidden-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}.form-art{min-height:680px;background-image:url('https://raw.githubusercontent.com/srvplt/fullfill/main/images/01TopImagePhone2.png');background-repeat:no-repeat;background-position:center bottom;background-size:contain}
+  @media(max-width:991px){.hero{min-height:960px}.hero-inner,.feature-inner,.form-inner{grid-template-columns:1fr}.hero-phone{min-height:500px}.hero-phone img{width:389px;max-width:75%;margin-top:60px;margin-bottom:-30px}.hero-copy{padding:45px 20px 70px;text-align:center}.hero-mark{margin-left:auto;margin-right:auto}.hero-copy p{margin-left:auto;margin-right:auto}.feature-inner{min-height:auto}.feature-copy{text-align:center;padding:70px 25px 25px}.feature-art{min-height:500px}.feature-art .circle{width:425px;height:425px}.feature-blogging .feature-inner{min-height:740px}.feature-spacer{display:none}.feature-copy-light{text-align:left;align-self:start;padding:120px 25px 50px}.feature-clients .feature-inner{min-height:auto}.clients-art{min-height:420px;margin:0 25px 60px}.form-inner{min-height:auto}.form-copy{padding:70px 25px 30px}.form-copy h2{text-align:center}.form-art{min-height:450px}}
+  @media(max-width:575px){.hero{min-height:758px}.hero-inner,.feature-inner,.form-inner{width:100%}.hero-phone{min-height:440px}.hero-phone img{height:440px;width:auto;max-width:none;margin:0}.hero-copy{padding:0 29px 35px}.hero-copy h1{font-size:1.875rem}.hero-copy p{font-size:1rem;margin-bottom:28px}.feature-copy{padding:55px 29px 0}.feature-copy h2{font-size:1.875rem}.feature-copy p{font-size:1rem}.feature-art{min-height:291px}.feature-art .shape{width:100%}.feature-art .circle{width:185px;height:185px}.feature-blogging,.feature-blogging .feature-inner{min-height:650px}.feature-copy-light{padding:80px 29px 40px}.feature-clients .feature-copy{padding-bottom:35px}.clients-art{min-height:300px;margin:0 29px 50px}.form-copy{padding:55px 29px 25px}.form-copy h2{font-size:1.875rem}.form-art{min-height:360px}}
 </style>
