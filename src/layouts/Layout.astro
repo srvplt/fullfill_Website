@@ -17,23 +17,22 @@ interface Props {
   canonicalPath?: string;
 }
 
-const { 
+const {
   title = "Fullfill – Your Personal Trainer for a Happier Mind",
-  description = "fullfill helps you track what matters, build better habits, and grow with AI-powered journaling, goal optimization, breathing tools, and personal insights. Free to use.",
-  keywords = "fulfill app, wellness, mindfulness, psychology, AI companion, purpose, mental health, wellness app, meditation, personal growth, AI guidance, calm, focus, inner fire, mental wellbeing, expert support",
-  author = "Fulfill Team",
-  ogImage = "https://www.fullfill.me/images/og-image.jpg",
+  description = "Fullfill helps you build mental fitness, manage stress, reflect with an AI journal, and grow with practical tools for a calmer, more purposeful life.",
+  keywords = "Fullfill app, wellness app, mental fitness, emotional fitness, AI journal, self reflection app, stress relief app, personal growth, mindfulness, breathing exercises, sleep meditation",
+  author = "Fullfill Team",
+  ogImage = "https://fullfill.me/images/og-image.jpg",
   canonicalPath = ""
 } = Astro.props;
 
 const currentPath = canonicalPath || Astro.url.pathname;
 const normalizedPath = currentPath === '/' ? '' : (currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath);
-const canonicalUrl = `https://www.fullfill.me${normalizedPath}`;
+const canonicalUrl = `https://fullfill.me${normalizedPath}`;
 
-// Ensure ogImage is always an absolute HTTPS URL
-const absoluteOgImage = ogImage.startsWith('http://') || ogImage.startsWith('https://') 
-  ? ogImage 
-  : `https://www.fullfill.me${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`;
+const absoluteOgImage = ogImage.startsWith('http://') || ogImage.startsWith('https://')
+  ? ogImage
+  : `https://fullfill.me${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`;
 ---
 
 <!doctype html>
@@ -41,30 +40,25 @@ const absoluteOgImage = ogImage.startsWith('http://') || ogImage.startsWith('htt
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Favicons -->
+
     <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon.src} />
     <link rel="icon" type="image/png" sizes="96x96" href={favicon96.src} />
     <link rel="icon" type="image/svg+xml" href={faviconSvg.src} />
     <link rel="shortcut icon" href={faviconIco.src} />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-    
+
     <meta name="generator" content={Astro.generator} />
 
-    <!-- General SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content={author} />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="referrer" content="origin" />
-    
-    <!-- Canonical URL -->
+
     <link rel="canonical" href={canonicalUrl} />
-    
-    <!-- Open Graph Metadata (WhatsApp, Facebook, LinkedIn, Slack) -->
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Fullfill" />
     <meta property="og:title" content={title} />
@@ -77,8 +71,7 @@ const absoluteOgImage = ogImage.startsWith('http://') || ogImage.startsWith('htt
     <meta property="og:image:alt" content={title} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content="en_US" />
-    
-    <!-- Twitter Card Metadata -->
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -94,30 +87,23 @@ const absoluteOgImage = ogImage.startsWith('http://') || ogImage.startsWith('htt
     })(window,document,'script','dataLayer','GTM-5N6BFZ8R');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- JSON-LD Schema markup -->
     <script type="application/ld+json" is:inline>
       {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "fullfill",
-        "url": "https://www.fullfill.me/",
-        "logo": "https://www.fullfill.me/images/FinalLogoNameOnly.png",
+        "name": "Fullfill",
+        "url": "https://fullfill.me/",
+        "logo": "https://fullfill.me/images/FinalLogoNameOnly.png",
         "sameAs": []
       }
     </script>
 
-    <!-- Custom Touch Highlight Override (Light Gray instead of Teal) -->
     <style is:inline>
-      * {
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-      }
+      * { -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); }
     </style>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N6BFZ8R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <Header />
     <main>
       <slot />
@@ -125,6 +111,3 @@ const absoluteOgImage = ogImage.startsWith('http://') || ogImage.startsWith('htt
     <Footer />
   </body>
 </html>
-
-
-
