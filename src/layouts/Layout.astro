@@ -14,6 +14,7 @@ interface Props {
   keywords?: string;
   author?: string;
   ogImage?: string;
+  ogTitle?: string;
   canonicalPath?: string;
 }
 
@@ -23,6 +24,7 @@ const {
   keywords = "Fullfill app, wellness app, mental fitness, emotional fitness, AI journal, self reflection app, stress relief app, personal growth, mindfulness, breathing exercises, sleep meditation",
   author = "Fullfill Team",
   ogImage = "https://fullfill.me/images/og-image.jpg",
+  ogTitle = title,
   canonicalPath = ""
 } = Astro.props;
 
@@ -71,22 +73,22 @@ const absoluteOgImage = ogImage.startsWith('http://') || ogImage.startsWith('htt
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Fullfill" />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={absoluteOgImage} />
     <meta property="og:image:secure_url" content={absoluteOgImage} />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:alt" content={ogTitle} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content="en_US" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absoluteOgImage} />
-    <meta name="twitter:image:alt" content={title} />
+    <meta name="twitter:image:alt" content={ogTitle} />
     <meta name="twitter:url" content={canonicalUrl} />
 
     <!-- Google Tag Manager -->
