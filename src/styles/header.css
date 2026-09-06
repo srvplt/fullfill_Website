@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  background: var(--gradient-header);
+  background: linear-gradient(to bottom, #0E2F79 0%, #5515A3 100%);
   color: var(--color-text-dark);
   font-family: var(--font-open-sans);
 }
@@ -45,7 +45,6 @@
   justify-content: flex-end;
 }
 
-/* ── Hamburger toggle button (Clean Panthera-style, No box border) ── */
 .site-header__menu-toggle {
   display: none;
   align-items: center;
@@ -76,19 +75,10 @@
   transform-origin: center;
 }
 
-.site-header__hamburger-bar.bar-top {
-  top: 10px;
-}
+.site-header__hamburger-bar.bar-top { top: 10px; }
+.site-header__hamburger-bar.bar-middle { top: 17px; }
+.site-header__hamburger-bar.bar-bottom { top: 24px; }
 
-.site-header__hamburger-bar.bar-middle {
-  top: 17px;
-}
-
-.site-header__hamburger-bar.bar-bottom {
-  top: 24px;
-}
-
-/* ── Active 'X' Cross morphing animation on header toggle ── */
 .site-header__menu-toggle.is-active .bar-top,
 body.menu-open .site-header__menu-toggle .bar-top {
   transform: translateY(7px) rotate(45deg) !important;
@@ -119,12 +109,15 @@ body.menu-open .site-header__menu-toggle .bar-bottom {
   padding: 0;
 }
 
+/* Legacy NicePage desktop navigation: Open Sans, regular weight, 16px */
 .site-header__links a {
   color: var(--color-white);
   font-family: var(--font-open-sans);
   text-decoration: none;
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
   padding: 12px 0;
   transition: color 0.2s;
   white-space: nowrap;
@@ -150,16 +143,11 @@ body.menu-open .site-header__mobile-panel,
   pointer-events: auto !important;
 }
 
-.site-header__mobile-panel[hidden] {
-  display: none !important;
-}
+.site-header__mobile-panel[hidden] { display: none !important; }
 
 .site-header__overlay {
   position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
+  inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
   background: rgba(0, 0, 0, 0.6) !important;
@@ -176,30 +164,31 @@ body.menu-open .site-header__mobile-panel,
   margin: 0 !important;
   padding: 72px 24px 24px !important;
   list-style: none !important;
-  background: linear-gradient(180deg, #2b2b68 0%, #161336 100%) !important;
+  background: #ffffff !important;
   z-index: 2 !important;
   overflow-y: auto !important;
-  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.25) !important;
   box-sizing: border-box !important;
 }
 
 .site-header__mobile-links li {
   width: 100% !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
+/* Legacy NicePage mobile menu uses its heading font (Urbanist). */
 .site-header__mobile-links a {
   display: block !important;
-  color: #ffffff !important;
-  padding: 20px 0 !important;
-  font-size: 17px !important;
+  color: #3f5ef0 !important;
+  padding: 28px 0 !important;
+  font-size: 16px !important;
   font-weight: 500 !important;
+  line-height: 1.2 !important;
   white-space: normal !important;
   text-decoration: none !important;
-  font-family: var(--font-open-sans) !important;
+  font-family: var(--font-urbanist) !important;
   transition: opacity 0.2s, color 0.2s !important;
 }
-
 
 @media (max-width: 1199px) {
   .site-header__inner {
@@ -207,27 +196,14 @@ body.menu-open .site-header__mobile-panel,
     padding: 6px var(--container-padding-tablet) 7px;
   }
 
-  .site-header__links {
-    gap: 8px 24px;
-  }
-
-  .site-header__links a {
-    font-size: 16px;
-  }
+  .site-header__links { gap: 8px 24px; }
+  .site-header__links a { font-size: 16px; }
 }
 
 @media (max-width: 1024px) and (min-width: 940px) {
-  .site-header__inner {
-    padding-inline: 24px;
-  }
-
-  .site-header__links {
-    gap: 8px 18px;
-  }
-
-  .site-header__links a {
-    font-size: 15px;
-  }
+  .site-header__inner { padding-inline: 24px; }
+  .site-header__links { gap: 8px 18px; }
+  .site-header__links a { font-size: 15px; }
 }
 
 @media (max-width: 939px) {
@@ -248,9 +224,7 @@ body.menu-open .site-header__mobile-panel,
     margin: 0;
   }
 
-  .site-header__logo img {
-    width: 93px;
-  }
+  .site-header__logo img { width: 93px; }
 
   .site-header__nav {
     display: flex;
@@ -261,23 +235,13 @@ body.menu-open .site-header__mobile-panel,
     align-items: center;
   }
 
-  .site-header__menu-toggle {
-    display: flex;
-  }
-
-  .site-header__links {
-    display: none;
-  }
+  .site-header__menu-toggle { display: flex; }
+  .site-header__links { display: none; }
 }
 
 @media (max-width: 767px) {
-  .site-header__inner {
-    padding-inline: 20px;
-  }
-
-  .site-header__nav {
-    right: 20px;
-  }
+  .site-header__inner { padding-inline: 20px; }
+  .site-header__nav { right: 20px; }
 }
 
 @media (max-width: 575px) {
@@ -286,29 +250,12 @@ body.menu-open .site-header__mobile-panel,
     padding: 10px 16px;
   }
 
-  .site-header__nav {
-    right: 16px;
-  }
-
-  .site-header__logo img {
-    width: 82px;
-  }
-
-  .site-header__menu-toggle {
-    width: 36px;
-    height: 36px;
-    padding: 0;
-  }
-
-  .site-header__hamburger-bar {
-    width: 20px;
-  }
+  .site-header__nav { right: 16px; }
+  .site-header__logo img { width: 82px; }
+  .site-header__menu-toggle { width: 36px; height: 36px; padding: 0; }
+  .site-header__hamburger-bar { width: 20px; }
 }
 
 @media (max-width: 360px) {
-  .site-header__logo img {
-    width: 74px;
-  }
+  .site-header__logo img { width: 74px; }
 }
-
-.site-header__logo img {}
