@@ -164,7 +164,7 @@ body.menu-open .site-header__mobile-panel,
   margin: 0 !important;
   padding: 72px 24px 24px !important;
   list-style: none !important;
-  background: #ffffff !important;
+  background: #0E2F79 !important;
   z-index: 2 !important;
   overflow-y: auto !important;
   box-shadow: -8px 0 35px rgba(0, 0, 0, 0.25) !important;
@@ -173,13 +173,13 @@ body.menu-open .site-header__mobile-panel,
 
 .site-header__mobile-links li {
   width: 100% !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: none !important;
 }
 
-/* Legacy NicePage mobile menu uses its heading font (Urbanist). */
+/* Legacy mobile menu: dark blue panel with white text. */
 .site-header__mobile-links a {
   display: block !important;
-  color: #3f5ef0 !important;
+  color: #ffffff !important;
   padding: 28px 0 !important;
   font-size: 16px !important;
   font-weight: 500 !important;
