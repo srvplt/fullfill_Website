@@ -347,3 +347,20 @@ h6 {
     align-items: center !important;
   }
 }
+
+/* ── Mobile: keep ordinary landing sections at least one stable screen tall ── */
+@media (max-width: 768px) {
+  .hero,
+  .have-everything,
+  .happiness,
+  .premium,
+  .fun-section,
+  .ai-section,
+  .ll-section,
+  .gh-section,
+  .na-section,
+  .ls-section,
+  .pom-section {
+    min-height: 100svh !important;
+  }
+}
