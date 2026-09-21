@@ -19,9 +19,20 @@
 }
 
 @media (max-width: 1199px) {
+  .exercise-banner-wrapper {
+    height: 160svh;
+  }
+
   .exercise-banner {
     top: 55px !important;
-    height: calc(100dvh - 55px) !important;
+    height: calc(100svh - 55px) !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .exercise-banner {
+    top: 52px !important;
+    height: calc(100svh - 52px) !important;
   }
 }
 
