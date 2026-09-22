@@ -199,3 +199,48 @@
     max-width: 100%;
   }
 }
+
+/* Mobile sticky composition: keep the compounds artwork lower so the
+   heading/timeline has more breathing room at the top of the panel. */
+@media (max-width: 767px) {
+  .happiness {
+    overflow: hidden !important;
+  }
+
+  .happiness__inner {
+    justify-content: flex-start;
+    padding-top: 18px;
+  }
+
+  .happiness__content {
+    justify-content: flex-start;
+    flex: 0 0 auto;
+  }
+
+  .happiness__phone {
+    margin-top: -6px;
+    align-items: flex-start;
+  }
+
+  .happiness__compounds-img {
+    transform: translateY(18px);
+    max-height: calc(100dvh - 170px);
+    height: auto;
+    width: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .happiness__inner {
+    padding-top: 12px;
+  }
+
+  .happiness__phone {
+    margin-top: -4px;
+  }
+
+  .happiness__compounds-img {
+    transform: translateY(14px);
+    max-height: calc(100dvh - 145px);
+  }
+}
