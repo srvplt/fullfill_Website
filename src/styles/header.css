@@ -2,6 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  height: var(--site-header-height);
   z-index: 100100;
   width: 100%;
   max-width: 100%;
@@ -135,7 +136,7 @@ body.menu-open .site-header__menu-toggle .bar-bottom {
   bottom: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
-  height: calc(100svh - var(--site-header-height)) !important;
+  height: auto !important;
   box-sizing: border-box !important;
   z-index: 100000 !important;
   overflow: hidden !important;
@@ -222,8 +223,8 @@ body.menu-open .site-header__mobile-panel,
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 55px;
-    min-height: 55px;
+    height: 75px;
+    min-height: 75px;
     box-sizing: border-box;
     padding: 10px 20px;
   }
@@ -261,7 +262,6 @@ body.menu-open .site-header__mobile-panel,
 
   .site-header__mobile-panel {
     top: var(--site-header-height) !important;
-    height: calc(100svh - var(--site-header-height)) !important;
   }
 
   .site-header__inner {
