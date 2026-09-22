@@ -147,3 +147,49 @@
     gap: 10px;
   }
 }
+
+/* Mobile: show complete phone screenshots instead of clipping their edges. */
+@media (max-width: 767px) {
+  .gh-section {
+    overflow: hidden;
+  }
+
+  .gh-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .gh-phones {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 390px;
+    align-items: center;
+  }
+
+  .gh-phone-item {
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .gh-phone-img {
+    width: 100%;
+    height: auto;
+    max-height: calc(50dvh - 120px);
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .gh-phones {
+    gap: 9px;
+    max-width: 350px;
+  }
+
+  .gh-phone-img {
+    max-height: calc(50dvh - 105px);
+  }
+}
