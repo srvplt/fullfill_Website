@@ -86,6 +86,22 @@ import '../styles/peace-of-mind.css';
 <script>
   (function () {
     var section = document.getElementById('peace-of-mind');
+
+    /* On mobile, size the final panel around the real footer height so
+       the last sticky panel hands off cleanly to the footer. */
+    function setFooterHeight() {
+      if (!section || window.innerWidth > 767) return;
+      var footer = document.getElementById('footer');
+      if (!footer) return;
+      section.style.setProperty('--footer-height', footer.getBoundingClientRect().height + 'px');
+      document.documentElement.style.setProperty('--footer-height', footer.getBoundingClientRect().height + 'px');
+    }
+
+    setFooterHeight();
+    window.addEventListener('resize', setFooterHeight);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', setFooterHeight);
+    }
     if (!section) return;
 
     /* Animate a number from 1 to target over ~2s */
