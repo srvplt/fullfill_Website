@@ -34,19 +34,19 @@ const opts = await Promise.all([
 ]);
 
 const slides = [
-  { image: opts[0].src,  label: 'healthy habits',      title: 'build your routine' },
-  { image: opts[1].src,  label: 'holistic self-care',  title: 'move your body' },
-  { image: opts[2].src,  label: 'mind‑body balance',   title: 'stretch & breathe' },
-  { image: opts[3].src,  label: 'daily vitality',      title: 'stay active' },
-  { image: opts[4].src,  label: 'connect with nature', title: 'breathe the fresh air' },
-  { image: opts[5].src,  label: 'inner balance',       title: 'find your calm' },
-  { image: opts[6].src,  label: 'total wellness',      title: 'feel your best' },
-  { image: opts[7].src,  label: 'mindful living',      title: 'live with intention' },
-  { image: opts[8].src,  label: 'body & soul',         title: 'nourish yourself' },
-  { image: opts[9].src,  label: 'active lifestyle',    title: 'keep moving' },
-  { image: opts[10].src, label: 'self-renewal',        title: 'refresh & restore' },
-  { image: opts[11].src, label: 'eat well',            title: 'fuel your body' },
-  { image: opts[12].src, label: 'seasonal wellness',   title: 'embrace the season' },
+  { image: opts[0].src,  label: 'meditation' },
+  { image: opts[1].src,  label: 'sleep' },
+  { image: opts[2].src,  label: 'yoga' },
+  { image: opts[3].src,  label: 'journaling' },
+  { image: opts[4].src,  label: 'nutrition' },
+  { image: opts[5].src,  label: 'exercise' },
+  { image: opts[6].src,  label: 'goal setting' },
+  { image: opts[7].src,  label: 'habit tracking' },
+  { image: opts[8].src,  label: 'book summaries' },
+  { image: opts[9].src,  label: 'podcasts' },
+  { image: opts[10].src, label: 'medicine tracker' },
+  { image: opts[11].src, label: 'therapist listings' },
+  { image: opts[12].src, label: 'vision boards' },
 ];
 ---
 
@@ -61,7 +61,7 @@ const slides = [
   <div class="exercise-banner__overlay"></div>
   <div class="exercise-banner__content">
     <p  class="exercise-banner__label" id="banner-label">{slides[0].label}</p>
-    <h2 class="exercise-banner__title" id="banner-title">{slides[0].title}</h2>
+    <h2 class="exercise-banner__title" id="banner-title">complete wellness</h2>
   </div>
 
   <script define:vars={{ slides }}>
@@ -70,7 +70,6 @@ const slides = [
     const top    = document.getElementById('banner-bg-top');
     const flash  = document.getElementById('banner-flash');
     const label  = document.getElementById('banner-label');
-    const title  = document.getElementById('banner-title');
 
     // ── Preload ALL images up front so every transition is instant ──
     slides.forEach((s) => {
@@ -94,7 +93,6 @@ const slides = [
         top.style.opacity = '0';
         top.src = slide.image;
         label.style.opacity = '0';
-        title.style.opacity  = '0';
       }, 100);
 
       // ── Step 3: Flash out fast (0.12s) ──
@@ -106,9 +104,7 @@ const slides = [
       // ── Step 4: Text snaps back in immediately ──
       setTimeout(() => {
         label.textContent   = slide.label;
-        title.textContent   = slide.title;
         label.style.opacity = '1';
-        title.style.opacity  = '1';
         current = next;
       }, 180);
     }
