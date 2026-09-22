@@ -31,6 +31,8 @@
 .site-header__logo {
   flex-shrink: 0;
   line-height: 0;
+  position: relative;
+  z-index: 100300;
 }
 
 .site-header__logo img {
