@@ -91,7 +91,7 @@
 
 .exercise-banner__title {
   font-family: var(--font-urbanist);
-  font-size: 64px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 1.05;
   color: var(--color-white);
@@ -107,7 +107,7 @@
   }
 
   .exercise-banner__title {
-    font-size: 44px;
+    font-size: 32px;
   }
 }
 
@@ -117,7 +117,7 @@
   }
 
   .exercise-banner__title {
-    font-size: 36px;
+    font-size: 28px;
   }
 
   .exercise-banner__label {
