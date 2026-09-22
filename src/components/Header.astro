@@ -44,23 +44,26 @@ const navLinks = [
         }
       </ul>
 
-      <div class="site-header__mobile-panel" id="mobile-menu" hidden>
-        <ul class="site-header__mobile-links" role="menubar">
-          {
-            navLinks.map((link) => (
-              <li role="none">
-                <a role="menuitem" href={link.href}>
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-        <div class="site-header__overlay" id="mobile-overlay"></div>
-      </div>
     </nav>
   </div>
 </header>
+
+<!-- Mobile navigation lives outside the sticky header so iOS Safari does not
+     resolve a fixed menu against the sticky header's layout context. -->
+<div class="site-header__mobile-panel" id="mobile-menu" hidden>
+  <div class="site-header__overlay" id="mobile-overlay"></div>
+  <ul class="site-header__mobile-links" role="menubar">
+    {
+      navLinks.map((link) => (
+        <li role="none">
+          <a role="menuitem" href={link.href}>
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
 
 <script is:inline>
   (function () {
