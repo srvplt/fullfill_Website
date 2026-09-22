@@ -385,7 +385,7 @@ h6 {
   position: sticky !important;
   top: 80px !important;
   width: 100% !important;
-  height: calc(100dvh - 80px) !important;
+  height: calc(100svh - 80px) !important;
   min-height: 0 !important;
   max-height: none !important;
   box-sizing: border-box !important;
@@ -410,7 +410,7 @@ h6 {
 .happiness,
 .na-section,
 .pom-section {
-  height: calc(100dvh - 80px) !important;
+  height: calc(100svh - 80px) !important;
   min-height: 0 !important;
   max-height: none !important;
 }
@@ -418,7 +418,7 @@ h6 {
 @media (max-width: 1199px) {
   .fullpage-sticky-wrapper > section {
     top: 55px !important;
-    height: calc(100dvh - 55px) !important;
+    height: calc(100svh - 55px) !important;
   }
 
   .exercise-banner-wrapper,
@@ -441,14 +441,14 @@ h6 {
   .na-section,
   .pom-section {
     top: 55px !important;
-    height: calc(100dvh - 55px) !important;
+    height: calc(100svh - 55px) !important;
   }
 }
 
 @media (max-width: 575px) {
   .fullpage-sticky-wrapper > section {
     top: 52px !important;
-    height: calc(100dvh - 52px) !important;
+    height: calc(100svh - 52px) !important;
   }
 
   .exercise-banner,
@@ -458,7 +458,7 @@ h6 {
   .na-section,
   .pom-section {
     top: 52px !important;
-    height: calc(100dvh - 52px) !important;
+    height: calc(100svh - 52px) !important;
   }
 }
 
@@ -509,11 +509,11 @@ h6 {
 @media (max-width: 767px) {
   /* Give each sticky panel a little more scroll dwell so it catches reliably. */
   .fullpage-sticky-wrapper {
-    height: 155svh !important;
+    height: 180svh !important;
   }
 
   .exercise-banner-wrapper {
-    height: 170svh !important;
+    height: 195svh !important;
   }
 
   .exercise-banner-wrapper,
@@ -522,11 +522,11 @@ h6 {
   .happiness-compounds-wrapper,
   .na-sticky-wrapper,
   .section-sticky-wrapper {
-    height: 155svh !important;
+    height: 180svh !important;
   }
 
   .exercise-banner-wrapper {
-    height: 170svh !important;
+    height: 195svh !important;
   }
 }
 
