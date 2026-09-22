@@ -554,3 +554,28 @@ h6 {
     height: calc(100svh - var(--footer-height, 0px)) !important;
   }
 }
+
+/* Mobile panel geometry: use the large viewport so panels remain full-height
+   after Safari's browser chrome is out of the way. */
+@media (max-width: 767px) {
+  .fullpage-sticky-wrapper > section {
+    height: calc(100lvh - var(--site-header-height)) !important;
+  }
+
+  .exercise-banner,
+  .brain-cortex,
+  .have-everything,
+  .happiness,
+  .na-section,
+  .pom-section {
+    height: calc(100lvh - var(--site-header-height)) !important;
+  }
+
+  .pom-section {
+    height: calc(100lvh - var(--site-header-height) - var(--footer-height, 0px)) !important;
+  }
+
+  .section-sticky-wrapper:has(.pom-section) {
+    height: calc(100lvh - var(--footer-height, 0px)) !important;
+  }
+}

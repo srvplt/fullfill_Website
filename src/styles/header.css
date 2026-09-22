@@ -169,7 +169,7 @@ body.menu-open .site-header__mobile-panel,
   width: min(320px, 85vw) !important;
   height: 100% !important;
   margin: 0 !important;
-  padding: 72px 24px 24px !important;
+  padding: 44px 24px 24px !important;
   list-style: none !important;
   background: #0E2F79 !important;
   z-index: 2 !important;
