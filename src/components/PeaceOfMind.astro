@@ -99,8 +99,9 @@ import '../styles/peace-of-mind.css';
 
     setFooterHeight();
     window.addEventListener('resize', setFooterHeight);
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', setFooterHeight);
+    var footer = document.getElementById('footer');
+    if (footer && 'ResizeObserver' in window) {
+      new ResizeObserver(setFooterHeight).observe(footer);
     }
     if (!section) return;
 
