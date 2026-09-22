@@ -503,3 +503,52 @@ h6 {
     top: 52px !important;
   }
 }
+
+
+/* ── Mobile sticky refinements ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Give each sticky panel a little more scroll dwell so it catches reliably. */
+  .fullpage-sticky-wrapper {
+    height: 155svh !important;
+  }
+
+  .exercise-banner-wrapper {
+    height: 170svh !important;
+  }
+
+  .exercise-banner-wrapper,
+  .brain-cortex-wrapper,
+  .he-sticky-wrapper,
+  .happiness-compounds-wrapper,
+  .na-sticky-wrapper,
+  .section-sticky-wrapper {
+    height: 155svh !important;
+  }
+
+  .exercise-banner-wrapper {
+    height: 170svh !important;
+  }
+}
+
+/* Final panel: leave room for the footer while preserving the sticky hand-off. */
+@media (max-width: 767px) {
+  .pom-section {
+    height: calc(100dvh - 52px - var(--footer-height, 0px)) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .section-sticky-wrapper:has(.pom-section) {
+    height: calc(100svh - var(--footer-height, 0px)) !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .pom-section {
+    height: calc(100dvh - 52px - var(--footer-height, 0px)) !important;
+  }
+
+  .section-sticky-wrapper:has(.pom-section) {
+    height: calc(100svh - var(--footer-height, 0px)) !important;
+  }
+}
