@@ -385,7 +385,7 @@ h6 {
 .fullpage-sticky-wrapper > section {
   position: -webkit-sticky !important;
   position: sticky !important;
-  top: 80px !important;
+  top: var(--site-header-height) !important;
   width: 100% !important;
   height: calc(100svh - var(--site-header-height)) !important;
   min-height: 0 !important;
@@ -479,7 +479,7 @@ h6 {
 .pom-section {
   position: -webkit-sticky !important;
   position: sticky !important;
-  top: 80px !important;
+  top: var(--site-header-height) !important;
 }
 
 @media (max-width: 1199px) {
@@ -491,7 +491,7 @@ h6 {
   .pom-section {
     position: -webkit-sticky !important;
     position: sticky !important;
-    top: 55px !important;
+    top: var(--site-header-height) !important;
   }
 }
 
@@ -502,7 +502,7 @@ h6 {
   .happiness,
   .na-section,
   .pom-section {
-    top: 52px !important;
+    top: var(--site-header-height) !important;
   }
 }
 
