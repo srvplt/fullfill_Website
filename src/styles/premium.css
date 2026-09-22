@@ -138,10 +138,22 @@
   }
 
   .premium__grid {
-    grid-template-columns: 1fr;
-    max-width: 300px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
+    padding: 0 16px;
+    gap: 10px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .stat-card {
+    min-height: 0;
+    margin-top: 8px;
+    padding: 18px 10px;
+  }
+
+  .stat-card__number {
+    font-size: 34px;
   }
 
   .stat-card__label {
