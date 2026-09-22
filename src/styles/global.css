@@ -466,3 +466,40 @@ h6 {
 .fullpage-sticky-wrapper > section {
   overflow: hidden;
 }
+
+
+/* Existing section wrappers use the same sticky panel contract. */
+.exercise-banner,
+.brain-cortex,
+.have-everything,
+.happiness,
+.na-section,
+.pom-section {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 80px !important;
+}
+
+@media (max-width: 1199px) {
+  .exercise-banner,
+  .brain-cortex,
+  .have-everything,
+  .happiness,
+  .na-section,
+  .pom-section {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 55px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .exercise-banner,
+  .brain-cortex,
+  .have-everything,
+  .happiness,
+  .na-section,
+  .pom-section {
+    top: 52px !important;
+  }
+}
