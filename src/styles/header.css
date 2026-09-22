@@ -1,11 +1,11 @@
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100100;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  background: linear-gradient(to bottom, #0E2F79 0%, #5515A3 100%);
+  background: linear-gradient(to right, #9A94FF 0%, #9C97FF 50%, #9A94FF 100%);
   color: var(--color-text-dark);
   font-family: var(--font-open-sans);
 }
@@ -59,7 +59,7 @@
   width: 36px;
   height: 36px;
   position: relative;
-  z-index: 100030;
+  z-index: 100300;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -132,7 +132,7 @@ body.menu-open .site-header__menu-toggle .bar-bottom {
   width: 100% !important;
   max-width: 100% !important;
   height: 100dvh !important;
-  z-index: 100020 !important;
+  z-index: 100200 !important;
   overflow: hidden !important;
   pointer-events: none;
 }
