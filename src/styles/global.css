@@ -11,6 +11,7 @@
   --container-padding-desktop: 42px;
   --container-padding-tablet: 33px;
   --container-padding-mobile: 20px;
+  --site-header-height: 80px;
 
   /* Landing page extended palette */
   --color-brand-light: #b8bfff;
@@ -85,6 +86,7 @@ body {
 }
 
 main {
+  padding-top: var(--site-header-height);
   flex: 1;
   width: 100% !important;
   max-width: 100% !important;
@@ -280,8 +282,8 @@ h6 {
 
   /* Hero: subtract header height (80px sticky nav) */
   .hero {
-    height: calc(100vh - 80px) !important;
-    max-height: calc(100vh - 80px) !important;
+    height: calc(100vh - var(--site-header-height)) !important;
+    max-height: calc(100vh - var(--site-header-height)) !important;
   }
 
   /* Sections that need flex centering added (don't have it in their own CSS) */
@@ -385,7 +387,7 @@ h6 {
   position: sticky !important;
   top: 80px !important;
   width: 100% !important;
-  height: calc(100svh - 80px) !important;
+  height: calc(100svh - var(--site-header-height)) !important;
   min-height: 0 !important;
   max-height: none !important;
   box-sizing: border-box !important;
@@ -417,8 +419,8 @@ h6 {
 
 @media (max-width: 1199px) {
   .fullpage-sticky-wrapper > section {
-    top: 55px !important;
-    height: calc(100svh - 55px) !important;
+    top: var(--site-header-height) !important;
+    height: calc(100svh - var(--site-header-height)) !important;
   }
 
   .exercise-banner-wrapper,
@@ -440,15 +442,15 @@ h6 {
   .happiness,
   .na-section,
   .pom-section {
-    top: 55px !important;
+    top: var(--site-header-height) !important;
     height: calc(100svh - 55px) !important;
   }
 }
 
 @media (max-width: 575px) {
   .fullpage-sticky-wrapper > section {
-    top: 52px !important;
-    height: calc(100svh - 52px) !important;
+    top: var(--site-header-height) !important;
+    height: calc(100svh - var(--site-header-height)) !important;
   }
 
   .exercise-banner,
@@ -457,7 +459,7 @@ h6 {
   .happiness,
   .na-section,
   .pom-section {
-    top: 52px !important;
+    top: var(--site-header-height) !important;
     height: calc(100svh - 52px) !important;
   }
 }
