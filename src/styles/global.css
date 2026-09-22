@@ -364,3 +364,105 @@ h6 {
     min-height: 100svh !important;
   }
 }
+
+
+/* ── Full-screen sticky landing panels ────────────────────────────────
+   Every major section after the hero is a full-screen sticky panel.
+   The wrapper provides the dwell/overlap time; the section tracks the
+   dynamic visible viewport while the browser chrome expands/collapses.
+*/
+.fullpage-sticky-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 140svh;
+  margin: 0;
+  padding: 0;
+}
+
+.fullpage-sticky-wrapper > section {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 80px !important;
+  width: 100% !important;
+  height: calc(100dvh - 80px) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  box-sizing: border-box !important;
+}
+
+.exercise-banner-wrapper,
+.brain-cortex-wrapper,
+.he-sticky-wrapper,
+.happiness-compounds-wrapper,
+.na-sticky-wrapper,
+.section-sticky-wrapper {
+  height: 140svh !important;
+}
+
+.exercise-banner-wrapper {
+  height: 160svh !important;
+}
+
+.exercise-banner,
+.brain-cortex,
+.have-everything,
+.happiness,
+.na-section,
+.pom-section {
+  height: calc(100dvh - 80px) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
+@media (max-width: 1199px) {
+  .fullpage-sticky-wrapper > section {
+    top: 55px !important;
+    height: calc(100dvh - 55px) !important;
+  }
+
+  .exercise-banner-wrapper,
+  .brain-cortex-wrapper,
+  .he-sticky-wrapper,
+  .happiness-compounds-wrapper,
+  .na-sticky-wrapper,
+  .section-sticky-wrapper {
+    height: 140svh !important;
+  }
+
+  .exercise-banner-wrapper {
+    height: 160svh !important;
+  }
+
+  .exercise-banner,
+  .brain-cortex,
+  .have-everything,
+  .happiness,
+  .na-section,
+  .pom-section {
+    top: 55px !important;
+    height: calc(100dvh - 55px) !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .fullpage-sticky-wrapper > section {
+    top: 52px !important;
+    height: calc(100dvh - 52px) !important;
+  }
+
+  .exercise-banner,
+  .brain-cortex,
+  .have-everything,
+  .happiness,
+  .na-section,
+  .pom-section {
+    top: 52px !important;
+    height: calc(100dvh - 52px) !important;
+  }
+}
+
+/* Keep the existing card/content overflow behavior inside the panel. */
+.fullpage-sticky-wrapper > section {
+  overflow: hidden;
+}
